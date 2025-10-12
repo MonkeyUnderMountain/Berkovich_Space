@@ -1,0 +1,22 @@
+\section{Valued Fields}
+
+\subsection{Setup}
+
+    Let \(\kk\) be a field.
+    A \emph{norm} on \(\kk\) is a function \(\|\cdot\|: \kk \to \bbR_+\) such that
+    \begin{itemize}
+        \item (non-degeneracy) \(\|x\| = 0 \iff x = 0\);
+        \item (normalization) \(\|1\| = 1\);
+        \item (multiplicativity) \(\forall x,y \in \kk, \|xy\| = \|x\|\|y\|\);
+        \item (triangle inequality) \(\forall x,y \in \kk, \|x + y\| \leq \|x\| + \|y\|\).
+    \end{itemize}
+    A norm is called \emph{non-Archimedean} if it satisfies the strong triangle inequality
+    \[
+        \|x + y\| \leq \max\{\|x\|, \|y\|\}.
+    \]
+    A field \(\kk\) equipped with a non-Archimedean norm is called a \emph{non-Archimedean field}.
+    A norm induces a metric \(d(x,y) = \|x - y\|\) on \(\kk\).
+    With this metric, \(\kk\) is a metric space.
+    We say \(\kk\) is \emph{complete} if it is complete as a metric space.
+
+\subsection{Fundamental fact about ultra-metric space}
