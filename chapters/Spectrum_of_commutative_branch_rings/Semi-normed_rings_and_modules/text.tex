@@ -1,5 +1,8 @@
 \section{Semi-normed Rings and Modules}
 
+
+\subsection{Semi-normed abelian groups}
+
     \begin{definition}\label{def:semi-normed_abelian_group}
         Let \(M\) be an abelian group.
         A \emph{semi-norm} on \(M\) is a function \(\|\cdot\|: M \to \bbR_+\) such that
@@ -24,5 +27,23 @@
     \begin{remark}\label{rmk:semi-norms_bounded_by_each_other_induces_the_same_topologies}
         If two semi-norms (resp. norms) on an abelian group \(M\) are bounded by each other, then they induce the same topology on \(M\).
     \end{remark}
+
+    \begin{definition}\label{def:residue_semi-norm}
+        Let \(M\) be a semi-normed abelian group and \(N \subseteq M\) be a subgroup.
+        The \emph{residue semi-norm} on the quotient group \(M/N\) is defined as
+        \[
+            \|x + N\|_{M/N} = \inf_{y \in N} \|x + y\|_M.
+        \]
+    \end{definition}
+
+    \begin{remark}\label{rmk:residue_semi-norm}
+        The residue semi-norm is a norm if and only if \(N\) is closed in \(M\).
+    \end{remark}
+
+    \begin{definition}\label{def:bounded_and_admissible_homomorphism}
+        Let \(M\) and \(N\) be two semi-normed abelian groups.
+        A group homomorphism \(f: M \to N\) is called \emph{bounded} if there exists a constant \(C > 0\) such that \(\forall x \in M, \|f(x)\|_N \leq C\|x\|_M\).
+        A bounded homomorphism \(f: M \to N\) is called \emph{admissible} if the induced isomorphism \(M/\ker f \to \im f\) is an isometry, i.e., \(\forall x \in M, \|f(x)\|_N = \inf_{y \in \ker f} \|x + y\|_M\).
+    \end{definition}
 
     \Yang{To be continued...}
