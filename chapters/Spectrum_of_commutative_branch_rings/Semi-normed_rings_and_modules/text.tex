@@ -1,7 +1,7 @@
 \section{Semi-normed Rings and Modules}
 
 
-\subsection{Semi-normed abelian groups}
+\subsection{Semi-normed algebraic structures}
 
     \begin{definition}\label{def:semi-normed_abelian_group}
         Let \(M\) be an abelian group.
@@ -12,11 +12,6 @@
         \end{itemize}
         If we further have \(\|x\| = 0 \iff x = 0\), then we say \(\|\cdot\|\) is a \emph{norm}.
         A \emph{semi-normed abelian group} (resp. \emph{normed abelian group}) is an abelian group equipped with a semi-norm (resp. norm).
-    \end{definition}
-
-    \begin{definition}\label{def:complete_semi-normed_abelian_group}
-        A semi-norm (resp. norm) on an abelian group \(M\) induces a pseudo-metric (resp. metric) \(d(x,y) = \|x - y\|\) on \(M\).
-        A semi-normed (resp. normed) abelian group \(M\) is called \emph{complete} if it is complete as a pseudo-metric (resp. metric) space.
     \end{definition}
 
     \begin{definition}\label{def:bounded_semi-norm}
@@ -43,7 +38,89 @@
     \begin{definition}\label{def:bounded_and_admissible_homomorphism}
         Let \(M\) and \(N\) be two semi-normed abelian groups.
         A group homomorphism \(f: M \to N\) is called \emph{bounded} if there exists a constant \(C > 0\) such that \(\forall x \in M, \|f(x)\|_N \leq C\|x\|_M\).
-        A bounded homomorphism \(f: M \to N\) is called \emph{admissible} if the induced isomorphism \(M/\ker f \to \im f\) is an isometry, i.e., \(\forall x \in M, \|f(x)\|_N = \inf_{y \in \ker f} \|x + y\|_M\).
+        
+        A bounded homomorphism \(f: M \to N\) is called \emph{admissible} if the induced isomorphism \(M/\ker f \to \Image f\) is an isometry, i.e., \(\forall x \in M, \|f(x)\|_N = \inf_{y \in \ker f} \|x + y\|_M\).
     \end{definition}
+
+    \begin{definition}\label{def:semi-normed_rings}
+        Let \(R\) be a ring (commutative with unity).
+        A \emph{semi-norm} on \(R\) is a semi-norm \(\|\cdot\|\) on the underlying abelian group of \(R\) such that \(\forall x,y \in R, \|xy\| \leq \|x\|\|y\|\) and \(\|1\| = 1\).
+        A \emph{semi-normed ring} is a ring equipped with a semi-norm.
+    \end{definition}
+
+    \begin{definition}\label{def:multiplicative_and_power_multiplicative_semi-norm}
+        A semi-norm \(\|\cdot\|\) on a ring \(R\) is called \emph{multiplicative} if \(\forall x,y \in R, \|xy\| = \|x\|\|y\|\).
+        It is called \emph{power-multiplicative} if \(\forall x \in R, \|x^n\| = \|x\|^n\) for all integers \(n \geq 1\).
+        A power-multiplicative semi-norm is also called \emph{uniform}.
+    \end{definition}
+
+    \begin{remark}\label{rmk:additive_and_multiplicative_valuation_on_a_field}
+        Let \(\kk\) be a field.
+        Recall that a \emph{valuation} on \(\kk\) is a function \(v: \kk \to \bbR \cup \{\infty\}\) such that
+        \begin{itemize}
+            \item (non-degeneracy) \(v(x) = \infty \iff x = 0\);
+            \item (normalization) \(v(1) = 0\);
+            \item (additivity) \(\forall x,y \in \kk, v(xy) = v(x) + v(y)\);
+            \item (triangle inequality) \(\forall x,y \in \kk, v(x + y) \geq \min\{v(x), v(y)\}\).
+        \end{itemize}
+        \Yang{To be checked.}
+    \end{remark}
+
+    \begin{definition}\label{def:semi-normed_modules}
+        Let \((R, \|\cdot\|_R)\) be a normed ring.
+        A \emph{semi-normed \(R\)-module} is a pair \((M, \|\cdot\|_M)\) where \(M\) is an \(R\)-module and \(\|\cdot\|_M\) is a semi-norm on the underlying abelian group of \(M\) such that there exists \(C > 0\) with \(\forall a \in R, x \in M, \|ax\|_M \leq C \|a\|_R \|x\|_M\).
+    \end{definition}
+
+
+    \Yang{To be continued...}
+
+
+\subsection{Banach rings}
+
+    \begin{definition}\label{def:complete_semi-normed_abelian_group}
+        A semi-norm (resp. norm) on an abelian group \(M\) induces a pseudo-metric (resp. metric) \(d(x,y) = \|x - y\|\) on \(M\).
+        A semi-normed (resp. normed) abelian group \(M\) is called \emph{complete} if it is complete as a pseudo-metric (resp. metric) space.
+    \end{definition}
+
+    Let \(R\) be a normed ring and \(M,N\) be semi-normed \(R\)-modules.
+    There is a natural semi-norm on the tensor product \(M \otimes_R N\) defined as
+    \[
+        \|z\|_{M \otimes_R N} = \inf \left\{ \sum_{i} \|x_i\|_M \|y_i\|_N : z = \sum_i x_i \otimes y_i, x_i \in M, y_i \in N \right\}.
+    \]
+
+    \begin{definition}\label{def:complete_tensor_product}
+        Let \(R\) be a complete normed ring and \(M,N\) complete semi-normed \(R\)-modules.
+        The \emph{complete tensor product} \(M \widehat{\otimes}_R N\) is defined as the completion of the semi-normed \(R\)-module \(M \otimes_R N\).
+    \end{definition}
+
+    \begin{definition}\label{def:banach_ring}
+        A \emph{Banach ring} is a complete normed ring.
+    \end{definition}
+
+    \Yang{To be continued...}
+
+
+\subsection{Examples}
+
+    \begin{example}\label{eg:trivial_normed_rings}
+        Let \(R\) be arbitrary ring.
+        The \emph{trivial norm} on \(R\) is defined as \(\|x\| = 0\) if \(x = 0\) and \(\|x\| = 1\) if \(x \neq 0\).
+        The ring \(R\) equipped with the trivial norm is a normed ring.
+    \end{example}
+
+    \begin{example}\label{eg:C_and_R_as_complete_fields}
+        The fields \(\bbC\) and \(\bbR\) equipped with the usual absolute value are complete fields.
+    \end{example}
+
+    \begin{example}\label{eg:p-adic_fields_as_complete_fields}
+        The field \(\bbQ_p\) of \(p\)-adic numbers equipped with the \(p\)-adic norm is a complete non-Archimedean field.
+    \end{example}
+
+    \begin{example}\label{eg:k_t_as_banach_rings}
+        Let \(\kk\) be a complete field.
+        The ring of formal power series 
+
+        \Yang{To be completed.}
+    \end{example}
 
     \Yang{To be continued...}
