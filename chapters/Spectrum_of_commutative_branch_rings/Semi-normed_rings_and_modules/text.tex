@@ -97,6 +97,36 @@
         A \emph{Banach ring} is a complete normed ring.
     \end{definition}
 
+    \begin{definition}\label{def:completion_of_normed_algebraic_structures}
+        Let \((A, \|\cdot\|_A)\) be a normed algebraic structure (e.g., a normed vector space, a normed ring, etc.).
+        The \emph{completion} of \(A\) is the smallest complete normed algebraic structure \(A^{\mathrm{c}}\) such that \(A\) is isometrically embedded in \(A^{\mathrm{c}}\).
+        \Yang{To be continued.}
+    \end{definition}
+
+    \begin{definition}\label{def:spectral_radius_on_Banach_rings}
+        Let \(R\) be a Banach ring.
+        For each \(f \in R\), the \emph{spectral radius} of \(f\) is defined as
+        \[
+            \rho(f) = \lim_{n \to \infty} \|f^n\|^{1/n}.
+        \]
+    \end{definition}
+
+    \begin{proposition}\label{prop:spectral_radius_defines_a_power-multiplicative_semi-norm}
+        Let \(R\) be a Banach ring.
+        The spectral radius \(\rho(\cdot)\) defines a power-multiplicative semi-norm on \(R\) that is bounded by the given norm on \(R\).
+    \end{proposition}
+
+    \begin{definition}\label{def:uniformization_of_banach_rings}
+        Let \(R\) be a Banach ring.
+        The \emph{uniformization} of \(R\) is the Banach ring with the universal property among all bounded morphisms from \(R\) to uniform Banach rings.
+        \Yang{To be continued.}
+    \end{definition}
+
+    \begin{proposition}\label{prop:the_uniformization_of_banach_rings_given_by_spectral_radius}
+        Let \(R\) be a Banach ring.
+        The completion of \(R\) with respect to the spectral radius \(\rho(\cdot)\) is the uniformization of \(R\).
+    \end{proposition}
+
     \Yang{To be continued...}
 
 
@@ -116,11 +146,19 @@
         The field \(\bbQ_p\) of \(p\)-adic numbers equipped with the \(p\)-adic norm is a complete non-Archimedean field.
     \end{example}
 
-    \begin{example}\label{eg:k_t_as_banach_rings}
-        Let \(\kk\) be a complete field.
-        The ring of formal power series 
-
-        \Yang{To be completed.}
+    \begin{example}\label{eg:ring_of_absolutely_convergent_power_series_as_banach_rings}
+        Let \(R\) be a banach ring and \(r > 0\) be a real number.
+        We define the ring of absolutely convergent power series over \(\kk\) with radius \(r\) as
+        \[ R<T/r> \coloneqq \left\{\sum_{n=0}^{\infty} a_n T^n \in R[[T]] : \sum_{n=0}^{\infty} \|a_n\| r^n < \infty \right\}. \]
+        Equipped with the norm \(\|\sum_{n=0}^{\infty} a_n T^n\| = \sum_{n=0}^{\infty} \|a_n\| r^n\), the ring \(R<T/r>\) is a Banach ring.
+        \Yang{To be checked.}
     \end{example}
 
+    \begin{example}\label{eg:affinoid_algebra_as_banach_rings}
+        Let \(\kk\) be a non-Archimedean complete field.
+        The \emph{affinoid \(\kk\)-algebra} is defined as 
+        \[ \kk\{T_1/r_1, \ldots, T_n/r_n\} \coloneqq \left\{\sum_{I \in \bbN^n} a_I T^I \in \kk[[T_1, \ldots, T_n]] : \lim_{|I| \to \infty} |a_I| r^I = 0 \right\}, \]
+        where \(r = (r_1, \ldots, r_n)\) is an n-tuple of positive real numbers and \(T^I = T_1^{i_1} \cdots T_n^{i_n}\) for \(I = (i_1, \ldots, i_n)\), and \(|I| = i_1 + \cdots + i_n\).
+        Equipped with the norm \(\|\sum_{I \in \bbN^n} a_I T^I\| = \sup_{I \in \bbN^n} |a_I| r^I\), the affinoid \(\kk\)-algebra \(\kk\{T_1/r_1, \ldots, T_n/r_n\}\) is a Banach \(\kk\)-algebra.
+    \end{example}
     \Yang{To be continued...}

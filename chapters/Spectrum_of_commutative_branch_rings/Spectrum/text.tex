@@ -1,1 +1,47 @@
 \section{Spectrum}
+
+\subsection{Definition}
+
+    \begin{definition}\label{def:spectrum_of_Banach_rings}
+        Let \(R\) be a Banach ring.
+        The \emph{spectrum} \(\scrM(R)\) of \(R\) is defined as the set of all multiplicative semi-norms on \(R\) that are bounded with respect to the given norm on \(R\).
+        For every point \(x \in \scrM(R)\), we denote the corresponding multiplicative semi-norm by \(|\cdot|_x\).
+        We equip \(\scrM(R)\) with the weakest topology such that for each \(f \in R\), the evaluation map \(\scrM(R) \to \bbR_+\), defined by \(x \mapsto |f|_x\), is continuous.
+    \end{definition}
+
+    For \(x \in \scrM(R)\), the kernel of the multiplicative semi-norm \(|\cdot|_x\) is a closed prime ideal of \(R\), denoted by \(\wp_x\).
+    The semi-norm \(|\cdot|_x\) induces a multiplicative norm on the residue field \(\rkk(x) = \Frac(R/\wp_x)\), denoted by \(|\cdot|_{x}\) as well. 
+
+    \begin{definition}\label{def:character_of_banach_rings}
+        Let \(R\) be a Banach ring.
+        A \emph{character} of \(R\) is a bounded ring homomorphism \(\chi: R \to K\), where \(K\) is a complete valued field.
+        Two characters \(\chi_1: R \to K_1\) and \(\chi_2: R \to K_2\) are said to be \emph{equivalent} if there exists an isometric field extension \(L\) of both \(K_1\) and \(K_2\) such that the following diagram commutes:
+        \[
+            \begin{tikzcd}
+                R \arrow{r}{\chi_1} \arrow[d, "\chi_2"'] & K_1 \arrow{d} \\
+                K_2 \arrow{r} & L \\
+            \end{tikzcd}
+        \]
+    \end{definition}
+
+    \begin{definition}\label{def:pullback_of_ring_homomorphism_of_banach_rings_on_spectrum}
+        Let \(f: R \to S\) be a bounded ring homomorphism of Banach rings.
+        The \emph{pullback} map \(f^*: \scrM(S) \to \scrM(R)\) is defined by \(f^*(x) = x \circ f\) for each \(x \in \scrM(S)\).
+        \Yang{To be revised.}
+    \end{definition}
+
+    \begin{proposition}\label{prop:spectrum_of_banach_rings_and_equivalence_class_of_characters}
+        Let \(R\) be a Banach ring.
+        The spectrum \(\scrM(R)\) is in bijection with the equivalence classes of characters of \(R\).
+    \end{proposition}
+
+    \begin{theorem}\label{thm:spectrum_of_Banach_rings_is_nonempty_compact_Hausdorff}
+        Let \(R\) be a Banach ring.
+        The spectrum \(\scrM(R)\) is a nonempty compact Hausdorff space.
+    \end{theorem}
+    \begin{proof}
+        \Yang{To be continued.}
+    \end{proof}
+
+
+\subsection{Examples}
