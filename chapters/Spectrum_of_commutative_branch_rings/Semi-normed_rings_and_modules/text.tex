@@ -51,37 +51,61 @@
     \begin{definition}\label{def:multiplicative_and_power_multiplicative_semi-norm}
         A semi-norm \(\|\cdot\|\) on a ring \(R\) is called \emph{multiplicative} if \(\forall x,y \in R, \|xy\| = \|x\|\|y\|\).
         It is called \emph{power-multiplicative} if \(\forall x \in R, \|x^n\| = \|x\|^n\) for all integers \(n \geq 1\).
-        A power-multiplicative semi-norm is also called \emph{uniform}.
+        % A power-multiplicative semi-norm is also called \emph{uniform}.
     \end{definition}
-
-    \begin{remark}\label{rmk:additive_and_multiplicative_valuation_on_a_field}
-        Let \(\kk\) be a field.
-        Recall that a \emph{valuation} on \(\kk\) is a function \(v: \kk \to \bbR \cup \{\infty\}\) such that
-        \begin{itemize}
-            \item (non-degeneracy) \(v(x) = \infty \iff x = 0\);
-            \item (normalization) \(v(1) = 0\);
-            \item (additivity) \(\forall x,y \in \kk, v(xy) = v(x) + v(y)\);
-            \item (triangle inequality) \(\forall x,y \in \kk, v(x + y) \geq \min\{v(x), v(y)\}\).
-        \end{itemize}
-        \Yang{To be checked.}
-    \end{remark}
 
     \begin{definition}\label{def:semi-normed_modules}
         Let \((R, \|\cdot\|_R)\) be a normed ring.
         A \emph{semi-normed \(R\)-module} is a pair \((M, \|\cdot\|_M)\) where \(M\) is an \(R\)-module and \(\|\cdot\|_M\) is a semi-norm on the underlying abelian group of \(M\) such that there exists \(C > 0\) with \(\forall a \in R, x \in M, \|ax\|_M \leq C \|a\|_R \|x\|_M\).
     \end{definition}
 
+    One can talk about boundedness, admissibility and residue semi-norms in the contexts of semi-normed rings and semi-normed modules similar to those in semi-normed abelian groups.
 
-    \Yang{To be continued...}
-
-
-\subsection{Banach rings}
-
-    \begin{definition}\label{def:complete_semi-normed_abelian_group}
-        A semi-norm (resp. norm) on an abelian group \(M\) induces a pseudo-metric (resp. metric) \(d(x,y) = \|x - y\|\) on \(M\).
-        A semi-normed (resp. normed) abelian group \(M\) is called \emph{complete} if it is complete as a pseudo-metric (resp. metric) space.
+    \begin{definition}\label{def:Archimedean_valuation_field}
+        A multiplicative norm on a field is also called an \emph{absolute value}.
+        A \emph{valuation field} is a field equipped with an absolute value.
+        A valuation field \((\kk, |\cdot|)\) is called \emph{non-Archimedean} if \(\forall x,y \in \kk, |x + y| \leq \max\{|x|, |y|\}\), i.e., the norm satisfies the ultrametric inequality.
+        Otherwise, it is called \emph{Archimedean}.
     \end{definition}
 
+    \begin{remark}\label{rmk:additive_and_multiplicative_valuation_on_a_field}
+        Let \(\kk\) be a field.
+        Recall that a \emph{valuation} on \(\kk\) is a function \(v: \kk^\times \to \bbR\) such that
+        \begin{itemize}
+            \item \(\forall x,y \in \kk^\times, v(xy) = v(x) + v(y)\);
+            \item \(\forall x,y \in \kk^\times, v(x + y) \geq \min\{v(x), v(y)\}\).
+        \end{itemize}
+        We can extend \(v\) to the whole field \(\kk\) by defining \(v(0) = +\infty\).
+        Fix a real number \(\varepsilon \in (0,1)\).
+        Then \(v\) induces an absolute value \(|\cdot|_v: \kk \to \bbR_+\) defined by \(|x|_v = \varepsilon^{v(x)}\) for each \(x \in \kk\).
+
+        In some literature, the valuation \(v\) is called an \emph{additive valuation} and the induced absolute value \(|\cdot|_v\) is called a \emph{multiplicative valuation}.
+        In this note, the term \emph{valuation} always refers to the additive valuation.
+    \end{remark}
+    % \Yang{To be continued...}
+
+\subsection{banach rings}
+
+    \begin{definition}\label{def:complete_semi-normed_abelian_group}
+        A (semi-)norm on an abelian group \(M\) induces a (pseudo-)metric \(d(x,y) = \|x - y\|\) on \(M\).
+        A (semi-)normed abelian group \(M\) is called \emph{complete} if it is complete as a (pseudo-)metric space.
+    \end{definition}
+
+    \begin{definition}\label{def:banach_ring}
+        A \emph{banach ring} is a complete normed ring.
+    \end{definition}
+
+    \begin{definition}\label{def:complete_field}
+        A \emph{complete field} is a valuation field which is complete as a metric space.
+    \end{definition}
+
+    \begin{definition}\label{def:completion_of_normed_algebraic_structures}
+        Let \((A, \|\cdot\|_A)\) be a (semi-)normed algebraic structure, e.g., a (semi-)normed abelian group, a (semi-)normed ring, or a (semi-)normed module.
+        The \emph{completion} of \(A\), denoted by \(\widehat{A}\), is the completion of \(A\) as a (pseudo-)metric space.
+        Since \(A\) is dense in its completion, the algebraic operations and (semi-)norms on \(A\) can be uniquely extended to the completion.
+        % \Yang{To be continued.}
+    \end{definition}
+    
     Let \(R\) be a normed ring and \(M,N\) be semi-normed \(R\)-modules.
     There is a natural semi-norm on the tensor product \(M \otimes_R N\) defined as
     \[
@@ -93,41 +117,47 @@
         The \emph{complete tensor product} \(M \widehat{\otimes}_R N\) is defined as the completion of the semi-normed \(R\)-module \(M \otimes_R N\).
     \end{definition}
 
-    \begin{definition}\label{def:banach_ring}
-        A \emph{Banach ring} is a complete normed ring.
-    \end{definition}
-
-    \begin{definition}\label{def:completion_of_normed_algebraic_structures}
-        Let \((A, \|\cdot\|_A)\) be a normed algebraic structure (e.g., a normed vector space, a normed ring, etc.).
-        The \emph{completion} of \(A\) is the smallest complete normed algebraic structure \(A^{\mathrm{c}}\) such that \(A\) is isometrically embedded in \(A^{\mathrm{c}}\).
-        \Yang{To be continued.}
-    \end{definition}
-
-    \begin{definition}\label{def:spectral_radius_on_Banach_rings}
-        Let \(R\) be a Banach ring.
+    \begin{definition}\label{def:spectral_radius_on_banach_rings}
+        Let \(R\) be a banach ring.
         For each \(f \in R\), the \emph{spectral radius} of \(f\) is defined as
         \[
             \rho(f) = \lim_{n \to \infty} \|f^n\|^{1/n}.
         \]
     \end{definition}
 
+    \begin{definition}\label{def:uniform_banach_ring}
+        A banach ring \(R\) is called \emph{uniform} if its norm is power-multiplicative.
+    \end{definition}
+
     \begin{proposition}\label{prop:spectral_radius_defines_a_power-multiplicative_semi-norm}
-        Let \(R\) be a Banach ring.
-        The spectral radius \(\rho(\cdot)\) defines a power-multiplicative semi-norm on \(R\) that is bounded by the given norm on \(R\).
+        Let \((R,\|\cdot\|)\) be a banach ring.
+        The spectral radius \(\rho(\cdot)\) defines a power-multiplicative semi-norm on \(R\) that is bounded by \(\|\cdot\|\).
     \end{proposition}
+    \begin{proof}
+        \Yang{To be continued.}
+    \end{proof}
+
+    \begin{definition}\label{def:quasi_nilpotent_element}
+        Let \(R\) be a banach ring.
+        An element \(f \in R\) is called \emph{quasi-nilpotent} if \(\rho(f) = 0\).
+        All quasi-nilpotent elements of \(R\) form an ideal, denoted by \(\Qnil(R)\).
+    \end{definition}
 
     \begin{definition}\label{def:uniformization_of_banach_rings}
-        Let \(R\) be a Banach ring.
-        The \emph{uniformization} of \(R\) is the Banach ring with the universal property among all bounded morphisms from \(R\) to uniform Banach rings.
+        Let \(R\) be a banach ring.
+        The \emph{uniformization} of \(R\), denoted by \(R \to R^u\), is the banach ring with the universal property among all bounded homomorphisms from \(R\) to uniform banach rings.
         \Yang{To be continued.}
     \end{definition}
 
     \begin{proposition}\label{prop:the_uniformization_of_banach_rings_given_by_spectral_radius}
-        Let \(R\) be a Banach ring.
-        The completion of \(R\) with respect to the spectral radius \(\rho(\cdot)\) is the uniformization of \(R\).
+        Let \(R\) be a banach ring.
+        The completion of \(R/\Qnil(R)\) with respect to the spectral radius \(\rho(\cdot)\) is the uniformization of \(R\).
     \end{proposition}
+    \begin{proof}
+        \Yang{To be continued.}
+    \end{proof}
 
-    \Yang{To be continued...}
+    % \Yang{To be continued...}
 
 
 \subsection{Examples}
@@ -149,16 +179,18 @@
     \begin{example}\label{eg:ring_of_absolutely_convergent_power_series_as_banach_rings}
         Let \(R\) be a banach ring and \(r > 0\) be a real number.
         We define the ring of absolutely convergent power series over \(\kk\) with radius \(r\) as
-        \[ R<T/r> \coloneqq \left\{\sum_{n=0}^{\infty} a_n T^n \in R[[T]] : \sum_{n=0}^{\infty} \|a_n\| r^n < \infty \right\}. \]
-        Equipped with the norm \(\|\sum_{n=0}^{\infty} a_n T^n\| = \sum_{n=0}^{\infty} \|a_n\| r^n\), the ring \(R<T/r>\) is a Banach ring.
+        \[ R\left<T/r\right> \coloneqq \left\{\sum_{n=0}^{\infty} a_n T^n \in R[[T]] : \sum_{n=0}^{\infty} \|a_n\| r^n < \infty \right\}. \]
+        Equipped with the norm \(\|\sum_{n=0}^{\infty} a_n T^n\| = \sum_{n=0}^{\infty} \|a_n\| r^n\), the ring \(R\left<T/r\right>\) is a banach ring.
+
+        When \(R = \kk\) is a 
         \Yang{To be checked.}
     \end{example}
 
-    \begin{example}\label{eg:affinoid_algebra_as_banach_rings}
-        Let \(\kk\) be a non-Archimedean complete field.
-        The \emph{affinoid \(\kk\)-algebra} is defined as 
-        \[ \kk\{T_1/r_1, \ldots, T_n/r_n\} \coloneqq \left\{\sum_{I \in \bbN^n} a_I T^I \in \kk[[T_1, \ldots, T_n]] : \lim_{|I| \to \infty} |a_I| r^I = 0 \right\}, \]
-        where \(r = (r_1, \ldots, r_n)\) is an n-tuple of positive real numbers and \(T^I = T_1^{i_1} \cdots T_n^{i_n}\) for \(I = (i_1, \ldots, i_n)\), and \(|I| = i_1 + \cdots + i_n\).
-        Equipped with the norm \(\|\sum_{I \in \bbN^n} a_I T^I\| = \sup_{I \in \bbN^n} |a_I| r^I\), the affinoid \(\kk\)-algebra \(\kk\{T_1/r_1, \ldots, T_n/r_n\}\) is a Banach \(\kk\)-algebra.
-    \end{example}
+    % \begin{example}\label{eg:ring_of_absolutely_convergent_power_series_over_non_Archimedean_field_as_banach_rings}
+    %     Let \(\kk\) be a non-Archimedean complete field.
+    %     We define
+    %     \[ \kk\{T_1/r_1, \ldots, T_n/r_n\} \coloneqq \left\{\sum_{I \in \bbN^n} a_I T^I \in \kk[[T_1, \ldots, T_n]] : \lim_{|I| \to \infty} |a_I| r^I = 0 \right\}, \]
+    %     where \(r = (r_1, \ldots, r_n)\) is an n-tuple of positive real numbers, \(T^I = T_1^{i_1} \cdots T_n^{i_n}\) for \(I = (i_1, \ldots, i_n)\), and \(|I| = i_1 + \cdots + i_n\).
+    %     Equipped with the norm \(\|\sum_{I \in \bbN^n} a_I T^I\| = \sup_{I \in \bbN^n} |a_I| r^I\), the affinoid \(\kk\)-algebra \(\kk\{T_1/r_1, \ldots, T_n/r_n\}\) is a banach \(\kk\)-algebra.
+    % \end{example}
     \Yang{To be continued...}
