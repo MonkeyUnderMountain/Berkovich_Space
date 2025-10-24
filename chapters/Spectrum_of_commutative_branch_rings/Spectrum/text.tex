@@ -87,6 +87,20 @@
         \Yang{To be checked.}
     \end{remark}
 
+    \begin{proposition}\label{prop:the_Galois_action_on_the_spectrum_of_banach_rings}
+        Let \(K/k\) be a Galois extension of complete fields, and let \(R\) be a Banach \(k\)-algebra.
+        The Galois group \(\Gal(K/k)\) acts on the spectrum \(\scrM(R \widehat{\otimes}_k K)\) via
+        \[
+            g \cdot x: f \mapsto |(1 \otimes g^{-1})(f)|_x
+        \]
+        for each \(g \in \Gal(K/k)\), \(x \in \scrM(R \widehat{\otimes}_k K)\) and \(f \in R \widehat{\otimes}_k K\).
+        Moreover, the natural map \(\scrM(R \widehat{\otimes}_k K) \to \scrM(R)\) induces a homeomorphism
+        \[
+            \scrM(R \widehat{\otimes}_k K) / \Gal(K/k) \xrightarrow{\sim} \scrM(R).
+        \]
+        \Yang{To be checked.}
+    \end{proposition}
+
 
 \subsection{Examples}
 
@@ -110,9 +124,16 @@
     We list some types of points in the spectrum \(\scrM(A)\).
 
     For each \(a \in \kk\) with \(|a| \leq r\), we have the \emph{type I} point \(x_a\) corresponding to the evaluation at \(a\), i.e., \(|f|_{x_a} := |f(a)|\) for each \(f \in A\).
-    For each closed disk \(E(a,s) = \{b \in \kk : |b - a| \leq s\}\) with center \(a \in \kk\) and radius \(s \leq r\), we have the point \(x_{a,s}\) corresponding to the multiplicative semi-norm defined by
-    \[ |f|_{x_{a,s}} := \sup_{b \in E(a,s)} |f(b)| \]
+    For each closed disk \(E = E(a,s) := \{b \in \kk : |b - a| \leq s\}\) with center \(a \in \kk\) and radius \(s \leq r\), we have the point \(x_{a,s}\) corresponding to the multiplicative semi-norm defined by
+    \[ |f|_{x_E} := \sup_{b \in E(a,s)} |f(b)| \]
     for each \(f \in A\).
+    If \(s \in |\kk^\times|\), then the point \(x_E\) is called a \emph{type II} point; otherwise, it is called a \emph{type III} point.
+    
+    Let \(\{E^{(s)}\}_s\) be a family of closed disks in \(\kk\) such that \(E^{(s)}\) is of radius \(s\), \(E^{(s_1)} \subsetneq E^{(s_2)}\) for any \(s_1 < s_2\) and \(\bigcap_s E^{(s)} = \emptyset\).
+    Then we have the point \(x_{\{E^{(s)}\}}\) corresponding to the multiplicative semi-norm defined by
+    \[ |f|_{x_{\{E^{(s)}\}}} := \inf_s |f|_{x_{E^{(s)}}} \]
+    for each \(f \in A\).
+    Such a point is called a \emph{type IV} point.
 
     \Yang{To be completed.}
     % \end{example}
@@ -120,15 +141,27 @@
     \begin{proposition}\label{prop:four_types_of_points_in_spectrum_of_Tate_algebra_in_one_variable}
         Let \(\kk\) be a complete non-archimedean field, and let \(r > 0\) be a positive real number.
         Consider the Tate algebra \(\kk\{r^{-1}T\}\) equipped with the Gauss norm.
-        The points in the spectrum \(\scrM(\kk\{r^{-1}T\})\) can be classified into four types:
-        \begin{itemize}
-            \item Type I: Points corresponding to evaluation at \(\kk\)-rational points in the closed disk of radius \(r\).
-            \item Type II: Points corresponding to multiplicative semi-norms associated with closed disks of radius in \(|\kk^\times|\) centered at points in the closed disk of radius \(r\).
-            \item Type III: Points corresponding to multiplicative semi-norms associated with closed disks of radius not in \(|\kk^\times|\) centered at points in the closed disk of radius \(r\).
-            \item Type IV: Points corresponding to multiplicative semi-norms that are not associated with any disk, often arising as limits of Type II or Type III points.
-        \end{itemize}
+        The points in the spectrum \(\scrM(\kk\{r^{-1}T\})\) can be classified into four types as described above.
         \Yang{To be checked}
     \end{proposition}
     \begin{proof}
         \Yang{To be completed.}
     \end{proof}
+
+    \begin{proposition}\label{prop:the_complete_residue_field_of_all_four_types_points_in__spectrum_of_Tate_algebra_in_one_variable}
+        Let \(\kk\) be a complete non-archimedean field, and let \(r > 0\) be a positive real number.
+        Consider the Tate algebra \(\kk\{r^{-1}T\}\) equipped with the Gauss norm.
+        The completed residue fields of the four types of points in the spectrum \(\scrM(\kk\{r^{-1}T\})\) are described as follows:
+        \begin{itemize}
+            \item For a type I point \(x_a\) with \(a \in \kk\) and \(|a| \leq r\), the completed residue field \(\scrH(x_a)\) is isomorphic to \(\kk\).
+            \item For a type II point \(x_{a,s}\) with \(a \in \kk\) and \(s \in |\kk^\times|\), the completed residue field \(\scrH(x_{a,s})\) is isomorphic to the field of Laurent series over the residue field \(\calk_\kk\), i.e., \(\calk_\kk((t))\).
+            \item For a type III point \(x_{a,s}\) with \(a \in \kk\) and \(s \notin |\kk^\times|\), the completed residue field \(\scrH(x_{a,s})\) is isomorphic to a transcendental extension of \(\calk_\kk\) of degree one.
+            \item For a type IV point \(x_{\{E^{(s)}\}}\), the completed residue field \(\scrH(x_{\{E^{(s)}\}})\) is isomorphic to a transcendental extension of \(\calk_\kk\) of infinite degree.
+        \end{itemize}
+        \Yang{To be checked.}
+    \end{proposition}
+
+    \begin{example}\label{eg:completed_residue_field_in_spectrum_of_Tate_algebra_in_one_variable_over_Q_p}
+        The completed residue field \(\scrH(x_a)\) for a type I point \(x_a\) with \(a \in \kk\) and \(|a| \leq r\) is isomorphic to \(\kk\).
+        \Yang{To be complete.}
+    \end{example}
