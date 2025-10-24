@@ -1,13 +1,23 @@
 \section{Affinoid algebras}
 
-
     \begin{definition}\label{def:affinoid_algebras}
         Let \(\kk\) be a non-archimedean field. 
         A banach \(\kk\)-algebra \(A\) is called a \emph{ affinoid \(\kk\)-algebra} if there exists an admissible surjective homomorphism
         \[
-            \varphi: \kk\langle r_1^{-1} T_1, \ldots, r_n^{-1} T_n \rangle \twoheadrightarrow A
+            \varphi: \kk\{ r_1^{-1} T_1, \ldots, r_n^{-1} T_n \} \twoheadrightarrow A
         \]
         for some \(n \in \bbN\) and \(r_1, \ldots, r_n \in \bbR_{>0}\).
 
         If one can choose \(r_1 = \cdots = r_n = 1\), then we say that \(A\) is a \emph{strict affinoid \(\kk\)-algebra}.
     \end{definition}
+
+    \begin{definition}\label{def:restricted_Laurent_series}
+        Let \(\kk\) be a non-archimedean field.
+        We define the \emph{ring of restricted Laurent series} over \(\kk\) as 
+        \[ \KK_r = \left\{\sum_{n \in \bbZ} a_n T^n : a_n \in \kk, \lim_{|n| \to \infty} |a_n| r^n = 0 \right\} \]
+        equipped with the norm
+        \[ \|f\| = \sup_{n \in \bbZ} |a_n| r^n. \]
+    \end{definition}
+
+
+\subsection{finite Banach module}
