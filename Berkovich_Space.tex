@@ -6,7 +6,7 @@
 \newcommand{\Yang}[1]{\textcolor{red}{Yang: #1}}
 
 
-\title{}
+\title{Berkovich Space}
 \author{Tianle Yang}
 \date{\today}
 \authorpage{\href{https://www.tianleyang.com}{https://www.tianleyang.com}}
@@ -21,7 +21,7 @@
 
 % available on the mode "\sectionlevel=book".
 \authoremail{\href{mailto:loveandjustice@88.com}{loveandjustice@88.com}}
-\texsource{\href{https://github.com/MonkeyUnderMountain/TexTemplates}{github.com/MonkeyUnderMountain/TexTemplates}}
+\texsource{\href{https://github.com/MonkeyUnderMountain/Berkovich_Space.git}{github.com/MonkeyUnderMountain/Berkovich\_Space}}
 \version{0.1.0}
 
 
@@ -31,11 +31,17 @@
 
     \tableofcontents % 生成目录
 
-    % \chapter{}
-    %    \input{}
+    The main references are \cite{Ber90,BGR84}.
 
-    % \chapter{}
+    \chapter{Commutative banach algebras}
+       \input{chapters/Commutative_branch_rings/Semi-normed_rings_and_modules/text.tex}
+       \input{chapters/Commutative_branch_rings/Affinoid_algebras/text.tex}
 
+    \chapter{Affinoid spaces}
+       \input{chapters/Affinoid_spaces/Spectrum/text.tex}
+       \input{chapters/Affinoid_spaces/Affinoid_domains/text.tex}
+
+    \chapter{Analytic spaces}
     % \appendix
 
     % \chapter{}
