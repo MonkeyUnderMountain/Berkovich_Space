@@ -27,25 +27,34 @@
 
 \begin{document}
 
-    \maketitle
+   \maketitle
 
-    \tableofcontents % 生成目录
+   \tableofcontents % 生成目录
 
-    The main references are \cite{Ber90,BGR84}.
 
-    \chapter{Commutative banach algebras}
-       \input{chapters/Commutative_branch_rings/Semi-normed_rings_and_modules/text.tex}
-       \input{chapters/Commutative_branch_rings/Affinoid_algebras/text.tex}
+   \chapter*{Preface}
+   \addcontentsline{toc}{chapter}{Preface}
 
-    \chapter{Affinoid spaces}
-       \input{chapters/Affinoid_spaces/Spectrum/text.tex}
-       \input{chapters/Affinoid_spaces/Affinoid_domains/text.tex}
+   This document provides an introduction to Berkovich spaces, a fundamental concept in non-archimedean analytic geometry. 
+   The theory of Berkovich spaces offers a powerful framework for studying analytic varieties over non-archimedean valued fields, providing a geometric approach that bridges algebraic and analytic methods.
 
-    \chapter{Analytic spaces}
-    % \appendix
+   % The material is organized to build systematically from the foundational concepts of commutative Banach algebras through affinoid spaces to the general theory of analytic spaces. 
+   % Each chapter includes detailed proofs and examples to illustrate the key concepts and techniques.
+   The main references are \cite{Ber90,BGR84}.
 
-    % \chapter{}
+   \chapter{Commutative banach algebras}
+      \input{chapters/Commutative_branch_rings/Semi-normed_rings_and_modules/text.tex}
+      \input{chapters/Commutative_branch_rings/Affinoid_algebras/text.tex}
 
-    \printbibliography[heading=bibintoc, title={References}] % 打印参考文献
+   \chapter{Affinoid spaces}
+      \input{chapters/Affinoid_spaces/Spectrum/text.tex}
+      \input{chapters/Affinoid_spaces/Affinoid_domains/text.tex}
+
+   \chapter{Analytic spaces}
+   % \appendix
+
+   % \chapter{}
+
+   \printbibliography[heading=bibintoc, title={References}] % 打印参考文献
 
 \end{document}
