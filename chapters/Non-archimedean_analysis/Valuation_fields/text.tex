@@ -1,0 +1,49 @@
+\section{Valuation fields}
+
+
+    \begin{definition}\label{def:valuation_field}
+        Let \(\kk\) be a field.
+        An \emph{absolute value} on \(\kk\) is a function \(\|\cdot|:\kk\to\bbR_{\ge0}\) satisfying the following properties for all \(x,y\in\kk\):
+        \begin{enumerate}
+            \item \(\|x\|=0\) if and only if \(x=0\);
+            \item \(\|xy\|=\|x\|\cdot\|y\|\);
+            \item \(\|x+y\|\leq\|x\|+\|y\|\).
+        \end{enumerate}
+        A field \(\kk\) equipped with an absolute value \(\|\cdot\|\) is called a \emph{valuation field}.
+    \end{definition}
+
+    \begin{remark}\label{rmk:additive_and_multiplicative_valuation_on_a_field}
+        Let \(\kk\) be a field.
+        Recall that a \emph{valuation} on \(\kk\) is a function \(v: \kk^\times \to \bbR\) such that
+        \begin{itemize}
+            \item \(\forall x,y \in \kk^\times, v(xy) = v(x) + v(y)\);
+            \item \(\forall x,y \in \kk^\times, v(x + y) \geq \min\{v(x), v(y)\}\).
+        \end{itemize}
+        We can extend \(v\) to the whole field \(\kk\) by defining \(v(0) = +\infty\).
+        Fix a real number \(\varepsilon \in (0,1)\).
+        Then \(v\) induces an absolute value \(|\cdot|_v: \kk \to \bbR_+\) defined by \(|x|_v = \varepsilon^{v(x)}\) for each \(x \in \kk\).
+
+        In some literature, the valuation \(v\) is called an \emph{additive valuation} and the induced absolute value \(|\cdot|_v\) is called a \emph{multiplicative valuation}.
+        In this note, the term \emph{valuation} always refers to the additive valuation.
+    \end{remark}
+
+    \begin{definition}\label{def:complete_valuation_field}
+        Let \((\kk,\|\cdot\|)\) be a valuation field.
+        We say that \(\kk\) is \emph{complete} if the metric \(d(x,y) := \|x - y\|\) makes \(\kk\) a complete metric space.
+    \end{definition}
+
+    \begin{lemma}\label{lem:completion_of_valuation_field}
+        Let \((\kk,\|\cdot\|)\) be a valuation field.
+        Let \((\widehat{\kk},\|\cdot\|)\) be its completion as a metric space.
+        Then the operations of addition and multiplication on \(\kk\) can be extended to \(\widehat{\kk}\) uniquely, making \((\widehat{\kk},\|\cdot\|)\) a complete valuation field containing \(\kk\) as a dense subfield.
+    \end{lemma}
+
+    % \begin{theorem}[Classification of absolute values on \(\bbQ\)]\label{thm:classification_absolute_values_Q}
+    %     Let \(\|\cdot\|\) be an absolute value on \(\bbQ\).
+    %     Then \(\|\cdot\|\) is either equivalent to the usual absolute value \(|\cdot|_\infty\) or to a \(p\)-adic absolute value \(|\cdot|_p\) for some prime \(p\).
+    %     \Yang{The name is to be added.}
+    % \end{theorem}
+
+    \begin{definition}\label{def:spherically_complete}
+        A valuation field \((\kk,\|\cdot\|)\) is called \emph{spherically complete} if every decreasing sequence of closed balls in \(\kk\) has a non-empty intersection.
+    \end{definition}
