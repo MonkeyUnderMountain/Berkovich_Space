@@ -30,8 +30,7 @@
 
    \maketitle
 
-   \tableofcontents % 生成目录
-
+   \frontmatter
 
    \chapter*{Preface}
    \addcontentsline{toc}{chapter}{Preface}
@@ -43,6 +42,12 @@
    % Each chapter includes detailed proofs and examples to illustrate the key concepts and techniques.
    The main references are \cite{Ber90,BGR84}.
 
+
+   \tableofcontents % 生成目录
+
+   \mainmatter
+
+
    \chapter{Commutative banach algebras}
       % \input{chapters/Commutative_branch_rings/Valuation_fields/text.tex}
       \input{chapters/Commutative_branch_rings/Semi-normed_rings_and_modules/text.tex}
@@ -51,6 +56,7 @@
    \chapter{Affinoid spaces}
       \input{chapters/Affinoid_spaces/Spectrum/text.tex}
       \input{chapters/Affinoid_spaces/Affinoid_domains/text.tex}
+      \input{chapters/Affinoid_spaces/Reduction_map/text.tex}
 
    \chapter{Analytic spaces}
 
