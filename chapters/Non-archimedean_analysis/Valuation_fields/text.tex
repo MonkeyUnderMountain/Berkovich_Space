@@ -1,56 +1,6 @@
 \section{Valuation fields}
 
-
-    % \begin{definition}\label{def:valuation_field}
-    %     Let \(\kk\) be a field.
-    %     An \emph{absolute value} on \(\kk\) is a function \(\|\cdot|:\kk\to\bbR_{\ge0}\) satisfying the following properties for all \(x,y\in\kk\):
-    %     \begin{enumerate}
-    %         \item \(\|x\|=0\) if and only if \(x=0\);
-    %         \item \(\|xy\|=\|x\|\cdot\|y\|\);
-    %         \item \(\|x+y\|\leq\|x\|+\|y\|\).
-    %     \end{enumerate}
-    %     A field \(\kk\) equipped with an absolute value \(\|\cdot\|\) is called a \emph{valuation field}.
-    % \end{definition}
-
-    % \begin{remark}\label{rmk:additive_and_multiplicative_valuation_on_a_field}
-    %     Let \(\kk\) be a field.
-    %     Recall that a \emph{valuation} on \(\kk\) is a function \(v: \kk^\times \to \bbR\) such that
-    %     \begin{itemize}
-    %         \item \(\forall x,y \in \kk^\times, v(xy) = v(x) + v(y)\);
-    %         \item \(\forall x,y \in \kk^\times, v(x + y) \geq \min\{v(x), v(y)\}\).
-    %     \end{itemize}
-    %     We can extend \(v\) to the whole field \(\kk\) by defining \(v(0) = +\infty\).
-    %     Fix a real number \(\varepsilon \in (0,1)\).
-    %     Then \(v\) induces an absolute value \(|\cdot|_v: \kk \to \bbR_+\) defined by \(|x|_v = \varepsilon^{v(x)}\) for each \(x \in \kk\).
-
-    %     In some literature, the valuation \(v\) is called an \emph{additive valuation} and the induced absolute value \(|\cdot|_v\) is called a \emph{multiplicative valuation}.
-    %     In this note, the term \emph{valuation} always refers to the additive valuation.
-    % \end{remark}
-
-    % \begin{definition}\label{def:complete_valuation_field}
-    %     Let \((\kk,\|\cdot\|)\) be a valuation field.
-    %     We say that \(\kk\) is \emph{complete} if the metric \(d(x,y) := \|x - y\|\) makes \(\kk\) a complete metric space.
-    % \end{definition}
-
-    % \begin{lemma}\label{lem:completion_of_valuation_field}
-    %     Let \((\kk,\|\cdot\|)\) be a valuation field.
-    %     Let \((\widehat{\kk},\|\cdot\|)\) be its completion as a metric space.
-    %     Then the operations of addition and multiplication on \(\kk\) can be extended to \(\widehat{\kk}\) uniquely, making \((\widehat{\kk},\|\cdot\|)\) a complete valuation field containing \(\kk\) as a dense subfield.
-    % \end{lemma}
-
-    % % \begin{theorem}[Classification of absolute values on \(\bbQ\)]\label{thm:classification_absolute_values_Q}
-    % %     Let \(\|\cdot\|\) be an absolute value on \(\bbQ\).
-    % %     Then \(\|\cdot\|\) is either equivalent to the usual absolute value \(|\cdot|_\infty\) or to a \(p\)-adic absolute value \(|\cdot|_p\) for some prime \(p\).
-    % %     \Yang{The name is to be added.}
-    % % \end{theorem}
-
-    % \begin{definition}\label{def:spherically_complete}
-    %     A valuation field \((\kk,\|\cdot\|)\) is called \emph{spherically complete} if every decreasing sequence of closed balls in \(\kk\) has a non-empty intersection.
-    % \end{definition}
-
-    % \section{Valuation fields}
-
-\subsection{absolute values and completion}
+\subsection{Absolute values and completion}
 
     \begin{definition}\label{def:valuation_field}
         Let \(\kk\) be a field.
@@ -88,18 +38,21 @@
         Let \((\widehat{\kk},\|\cdot\|)\) be its completion as a metric space.
         Then the operations of addition and multiplication on \(\kk\) can be extended to \(\widehat{\kk}\) uniquely, making \((\widehat{\kk},\|\cdot\|)\) a complete valuation field containing \(\kk\) as a dense subfield.
     \end{lemma}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
 
-    % \begin{theorem}[Classification of absolute values on \(\bbQ\)]\label{thm:classification_absolute_values_Q}
-    %     Let \(\|\cdot\|\) be an absolute value on \(\bbQ\).
-    %     Then \(\|\cdot\|\) is either equivalent to the usual absolute value \(|\cdot|_\infty\) or to a \(p\)-adic absolute value \(|\cdot|_p\) for some prime \(p\).
-    %     \Yang{The name is to be added.}
-    % \end{theorem}
+    Unlike the real number field \(\bbR\), even a valuation field is complete, we can not expect the theorem of nested intervals to hold.
 
     \begin{definition}\label{def:spherically_complete}
         A valuation field \((\kk,\|\cdot\|)\) is called \emph{spherically complete} if every decreasing sequence of closed balls in \(\kk\) has a non-empty intersection.
     \end{definition}
 
-\subsection{Non-archimedean fields and ultra-metric spaces}
+    \begin{example}\label{eg:p-adic_complex_field_is_not_spherically_complete}
+        The field \(\bbC_p\) of \(p\)-adic complex numbers is not spherically complete, see \Yang{to be added.}
+    \end{example}
+
+\subsection{Non-archimedean fields}
 
     \begin{definition}\label{def:non-archimedean_fields}
         Let \((\kk,\|\cdot\|)\) be a valuation field.
@@ -124,16 +77,35 @@
 
     \Yang{Is the valuation on residue field trivial?}
 
-    \begin{theorem}[Hessel's lemma]\label{thm:Hessel_lemma}
-        Let \(\kk\) be a non-archimedean field and \(\calk_\kk\) be its residue field.
-        For any polynomial \(\widetilde{f}(X) \in \calk_\kk[X]\) and any simple root \(\widetilde{a} \in \calk_\kk\) of \(\widetilde{f}(X)\), there exists a root \(a \in \kk^\circ\) of \(f(X) \in \kk^\circ[X]\) such that the image of \(a\) in \(\calk_\kk\) is \(\widetilde{a}\).
-        \Yang{To be checked.}
-    \end{theorem}
+    \begin{lemma}\label{prop:totally_bounded_and_complete_and_compact}
+        Recall that a metric space is \emph{totally bounded} if for every \(\varepsilon > 0\), it can be covered by finitely many balls of radius \(\varepsilon\).
+        A metric space is compact if and only if it is complete and totally bounded.
+    \end{lemma}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
 
-    % \begin{definition}\label{def:ultra-metric_space}
-    %     A metric space \((X,d)\) is called an \emph{ultra-metric space} if its metric \(d\) satisfies the \emph{strong triangle inequality}:
-    %     \[ d(x,z) \leq \max\{d(x,y), d(y,z)\},\quad\forall x,y,z\in X. \]
-    % \end{definition}
+    \begin{definition}\label{def:residue_absolute_value_on_residue_fields}
+        Let \(\kk\) be a non-archimedean field.
+        The \emph{residue absolute value} on the residue field \(\calk_\kk\) is defined as
+        \[ |x| := \inf_{y \in \varphi^{-1}(x)} \|y\|, \quad \forall x \in \calk_\kk, \]
+        where \(\varphi: \kk^\circ \to \calk_\kk\) is the canonical projection.
+    \end{definition}
+
+    \begin{proposition}\label{prop:residue_absolute_value_on_residue_fields_is_trivial}
+        Let \(\kk\) be a non-archimedean field.
+        Then the residue absolute value on the residue field \(\calk_\kk\) is trivial.
+    \end{proposition}
+    \begin{proof}
+        For any \(x \in \calk_\kk\), if \(x = 0\), then by definition \(|x| = 0\).
+        If \(x \neq 0\), then \(\forall y \in \varphi^{-1}(x)\), we have \(y \in \kk^\circ \setminus \kk^{\circ\circ}\), i.e., \(\|y\| = 1\).
+        Thus by definition \(|x| = 1\).
+        % \Yang{To be added.}
+    \end{proof}
+
+    \begin{slogan}
+        Locally compact \(\iff\) complete + pro-finite.
+    \end{slogan}
 
     % \begin{proposition}\label{prop:balls_in_ultra-metric_space}
     %     Let \((X,d)\) be an ultra-metric space.
@@ -155,49 +127,5 @@
     % \end{proposition}
 
 
-\subsection[p-adic fields]{\(p\)-adic fields}
 
-    % Recall the \(p\)-adic absolute value on \(\bbQ\) and its completion, the field \(\bbQ_p\) of \(p\)-adic numbers.
     
-    \begin{construction}\label{constr:p-adic_absolute_value_on_number_field}
-        Let \(K\) be a number field and \(\frakp\) be a prime ideal of the ring of integers \(\calO_K\) of \(K\).
-        Considering the localization \((\calO_K)_\frakp\) of \(\calO_K\) at \(\frakp\), which is a discrete valuation ring, denote by \(v_\frakp: K^\times \to \bbZ\) the corresponding discrete valuation.
-        The \emph{\(p\)-adic absolute value} on \(K\) associated to \(\frakp\) is defined as
-        \[ |x|_\frakp := N(\frakp)^{-v_\frakp(x)},\quad\forall x \in K, \]
-        where \(N(\frakp) := \#(\calO_K / \frakp)\) is the norm of \(\frakp\).
-
-        The completion of \(K\) with respect to the \(p\)-adic absolute value \(|\cdot|_\frakp\) is denoted by \(K_\frakp\), called the \emph{\(\frakp\)-adic field}.
-    \end{construction}
-
-    One can just focus on the case \(K = \bbQ\) and \(\frakp = (p)\) for a prime number \(p\).
-
-    \begin{example}\label{eg:p-adic_field}
-        Let \(p\) be a prime number. 
-        For every \(r \in \bbQ\), we can write \(r\) as \(r = p^n \frac{a}{b}\), where \(n \in \bbZ\) and \(a,b \in \bbZ\) are integers not divisible by \(p\).
-        The \emph{\(p\)-adic absolute value} on \(\bbQ\) is defined as
-        \[ |r|_p := p^{-n}. \]
-      
-        The \(p\)-adic field \(\bbQ_p\) can be described concretely as follows:
-        \[ \bbQ_p = \left\{ \sum_{i = n}^{+\infty} a_i p^i \middle| n \in \bbZ, a_i \in \{0, 1, \ldots, p-1\} \right\}. \]
-        For \(x = \sum_{i = n}^{+\infty} a_i p^i \in \bbQ_p\) with \(a_n \neq 0\), its \(p\)-adic absolute value is given by \(|x|_p = p^{-n}\).
-        The operations of addition and multiplication on \(\bbQ_p\) are defined similarly as those on decimal expansions.
-    \end{example}
-
-    \begin{construction}\label{constr:p-adic_complex_number}
-        Let \(p\) be a prime number.
-        The field \(\bbC_p\) of \emph{\(p\)-adic complex numbers} is defined as the completion of the algebraic closure of \(\bbQ_p\) with respect to the unique extension of the \(p\)-adic absolute value \(|\cdot|_p\) on \(\bbQ_p\).
-        The field \(\bbC_p\) is algebraically closed and complete with respect to \(|\cdot|_p\).
-        \Yang{To be completed.}
-    \end{construction}
-
-    \begin{proposition}\label{prop:p-adic_complex_number_is_not_spherically_complete}
-        The field \(\bbC_p\) of \(p\)-adic complex numbers is not spherically complete.
-    \end{proposition}
-
-    \begin{construction}\label{constr:spherically_complete_p-adic_fields}
-        Let \(p\) be a prime number.
-        \Yang{We construct the \emph{spherically complete \(p\)-adic field} \(\Omega_p\).}
-        \Yang{To be completed.}
-    \end{construction}
-
-    \Yang{What is the relation between the finite extension of \(\bbQ_p\) and \(K_\frakp\)?}
