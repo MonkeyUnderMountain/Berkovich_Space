@@ -28,14 +28,22 @@
         In this note, the term \emph{valuation} always refers to the additive valuation.
     \end{remark}
 
+    \begin{definition}\label{def:equivalent_of_absolute_values}
+        Let \(\kk\) be a field.
+        Two absolute values \(\|\cdot\|_1\) and \(\|\cdot\|_2\) on \(\kk\) are said to be \emph{equivalent} if there exists a real number \(c \in (0,1)\) such that
+        \[ \|x\|_1 = \|x\|_2^c, \quad \forall x \in \kk. \]
+        \Yang{To be checked.}
+    \end{definition}
+
+    Note that equivalent absolute values induce the same topology on the field \(\kk\).
+
     \begin{definition}\label{def:complete_valuation_field}
         Let \((\kk,\|\cdot\|)\) be a valuation field.
         We say that \(\kk\) is \emph{complete} if the metric \(d(x,y) := \|x - y\|\) makes \(\kk\) a complete metric space.
     \end{definition}
 
     \begin{lemma}\label{lem:completion_of_valuation_field}
-        Let \((\kk,\|\cdot\|)\) be a valuation field.
-        Let \((\widehat{\kk},\|\cdot\|)\) be its completion as a metric space.
+        Let \((\kk,\|\cdot\|)\) be a valuation field and \((\widehat{\kk},\|\cdot\|)\) its completion as a metric space.
         Then the operations of addition and multiplication on \(\kk\) can be extended to \(\widehat{\kk}\) uniquely, making \((\widehat{\kk},\|\cdot\|)\) a complete valuation field containing \(\kk\) as a dense subfield.
     \end{lemma}
     \begin{proof}
@@ -103,9 +111,25 @@
         % \Yang{To be added.}
     \end{proof}
 
+
+
+    \begin{proposition}\label{prop:recover_complete_non-archimedean_fields_from_projective_limits}
+        Let \(\kk\) be a non-archimedean field.
+        Set \(I_r := \{x \in \kk\colon \|x\| < r\}\) for each \(r \in (0,1)\).
+        They are ideals of the ring of integers \(\kk^\circ\).
+        Then we have 
+        \[ \widehat{\kk}^\circ \cong \varprojlim_{r > 0} \kk^\circ / I_r. \]
+        \Yang{To be checked.}
+    \end{proposition}
+
     \begin{slogan}
-        Locally compact \(\iff\) complete + pro-finite.
+        Locally compact \(\iff\) pro-finite.
     \end{slogan}
+
+    \begin{proposition}\label{prop:locally_compact_NA_field_iff_it_is_pro-finite}
+        Let \(\kk\) be a non-archimedean field.
+        Then \(\kk\) is totally bounded iff \(\kk^\circ / I_r\) is finite for each \(r \in (0,1)\).
+    \end{proposition}
 
     % \begin{proposition}\label{prop:balls_in_ultra-metric_space}
     %     Let \((X,d)\) be an ultra-metric space.
