@@ -26,6 +26,21 @@
         The operations of addition and multiplication on \(\bbQ_p\) are defined similarly as those on decimal expansions.
     \end{example}
 
+    \begin{proposition}\label{prop:group_structure_of_Q_p_times}
+        The multiplicative group \(\bbQ_p^\times\) of the \(p\)-adic field \(\bbQ_p\) admits the following decomposition:
+        \[ \bbQ_p^\times \cong p^\bbZ \times \bbZ_p^\times, \]
+        where \(p^\bbZ := \{p^n \mid n \in \bbZ\}\) and \(\bbZ_p^\times := \{x \in \bbQ_p \mid |x|_p = 1\}\) is the group of units of the ring of \(p\)-adic integers \(\bbZ_p\).
+        \Yang{To be checked.}
+    \end{proposition}
+
+    \Yang{What is the relation between the finite extension of \(\bbQ_p\) and \(K_\frakp\)?}
+
+\subsection{Completion}
+
+    \begin{proposition}\label{prop:algebraically_closure_of_Q_p_is_not_complete}
+        The algebraic closure \(\overline{\bbQ}_p\) of \(\bbQ_p\) is not complete with respect to the extension of the \(p\)-adic absolute value \(|\cdot|_p\).
+    \end{proposition}
+    
     \begin{construction}\label{constr:p-adic_complex_number}
         Let \(p\) be a prime number.
         The field \(\bbC_p\) of \emph{\(p\)-adic complex numbers} is defined as the completion of the algebraic closure of \(\bbQ_p\) with respect to the unique extension of the \(p\)-adic absolute value \(|\cdot|_p\) on \(\bbQ_p\).
@@ -33,7 +48,7 @@
         \Yang{To be completed.}
     \end{construction}
 
-    \begin{proposition}\label{prop:p-adic_complex_number_is_not_spherically_complete}
+    \begin{proposition}\label{prop:C_p_is_not_spherically_complete}
         The field \(\bbC_p\) of \(p\)-adic complex numbers is not spherically complete.
     \end{proposition}
 
@@ -42,7 +57,3 @@
         \Yang{We construct the \emph{spherically complete \(p\)-adic field} \(\Omega_p\).}
         \Yang{To be completed.}
     \end{construction}
-
-    \Yang{What is the relation between the finite extension of \(\bbQ_p\) and \(K_\frakp\)?}
-
-\subsection[p-adic complex numbers]{\(p\)-adic complex numbers}

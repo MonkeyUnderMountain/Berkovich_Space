@@ -28,14 +28,64 @@
         In this note, the term \emph{valuation} always refers to the additive valuation.
     \end{remark}
 
+    \begin{example}\label{eg:trivial_absolute_value_on_any_fields}
+        Let \(\kk\) be a field.
+        The \emph{trivial absolute value} on \(\kk\) is defined as
+        \[ \|x\| := \begin{cases}
+            0, & x = 0; \\
+            1, & x \neq 0.
+        \end{cases} \]
+    \end{example}
+
+    \begin{definition}\label{def:valuation_group}
+        The \emph{valuation group} of a valuation field \((\kk,\|\cdot\|)\) is defined as the subgroup of \(\bbR_{>0}\) given by
+        \[ |\kk^\times| := \{\|x\|\colon x \in \kk^\times\}. \]
+        \Yang{To be revised.}
+    \end{definition}
+
     \begin{definition}\label{def:equivalent_of_absolute_values}
         Let \(\kk\) be a field.
         Two absolute values \(\|\cdot\|_1\) and \(\|\cdot\|_2\) on \(\kk\) are said to be \emph{equivalent} if there exists a real number \(c \in (0,1)\) such that
         \[ \|x\|_1 = \|x\|_2^c, \quad \forall x \in \kk. \]
-        \Yang{To be checked.}
     \end{definition}
 
     Note that equivalent absolute values induce the same topology on the field \(\kk\).
+    Moreover, the following lemma shows that the converse is also true.
+
+    \begin{lemma}\label{prop:equivalent_of_absolute_values_and_topology_and_unit_disk}
+        Let \(\kk\) be a field and \(\|\cdot\|_1\), \(\|\cdot\|_2\) be two absolute values on \(\kk\).
+        Then the following statements are equivalent:
+        \begin{enumerate}
+            \item \(\|\cdot\|_1\) and \(\|\cdot\|_2\) are equivalent;
+            \item \(\|\cdot\|_1\) and \(\|\cdot\|_2\) induce the same topology on \(\kk\);
+            \item The unit disks \(D_1 = \{x \in \kk\colon \|x\|_1 < 1\}\) and \(D_2 = \{x \in \kk\colon \|x\|_2 < 1\}\) are the same.
+        \end{enumerate}
+    \end{lemma}
+    \begin{proof}
+        The implications (a) \(\Rightarrow\) (b) is obvious.
+        Now we prove (b) \(\Rightarrow\) (c).
+        For any \(x \in D_1\), we have \(x^n \to 0\) as \(n \to \infty\) under the absolute value \(\|\cdot\|_1\) and thus under \(\|\cdot\|_2\).
+        Therefore, \(\|x\|_2^n \to 0\) as \(n \to \infty\), which implies that \(\|x\|_2 < 1\), i.e., \(x \in D_2\).
+        Similarly, we can prove that \(D_2 \subseteq D_1\).
+
+        Finally, we prove (c) \(\Rightarrow\) (a).
+        If \(\|\cdot\|_1\) is trivial, then \(D_1 = \{0\}\) and thus \(\|\cdot\|_2\) is also trivial.
+        In this case, they are equivalent.
+        Suppose that both \(\|\cdot\|_1\) and \(\|\cdot\|_2\) are non-trivial.
+        Pick any \(x,y \notin D_1 = D_2\).
+        Then there exist real numbers \(\alpha, \beta > 0\) such that \(\|x\|_1 = \|x\|_2^\alpha\) and \(\|y\|_1 = \|y\|_2^\beta\).
+        Suppose the contrary that \(\alpha \neq \beta\).
+        Consider the domain \(\Omega \subseteq \bbZ^2\) defined by
+        \[ \begin{cases}
+            n \log \|x\|_2 < m \log \|y\|_2; \\
+            n \alpha \log \|x\|_2 > m \beta \log \|y\|_2.
+        \end{cases} \]
+        Since \(\alpha \neq \beta\), the two lines defined by the equalities are not parallel.
+        Thus \(\Omega\) is non-empty.
+        Pick \((n,m) \in \Omega\) and set \(z := x^n y^{-m}\).
+        Then we have \(\|z\|_2 < 1\) and \(\|z\|_1 > 1\), a contradiction.
+    \end{proof}
+
 
     \begin{definition}\label{def:complete_valuation_field}
         Let \((\kk,\|\cdot\|)\) be a valuation field.
@@ -47,8 +97,27 @@
         Then the operations of addition and multiplication on \(\kk\) can be extended to \(\widehat{\kk}\) uniquely, making \((\widehat{\kk},\|\cdot\|)\) a complete valuation field containing \(\kk\) as a dense subfield.
     \end{lemma}
     \begin{proof}
-        \Yang{To be added.}
+        Simple analysis.
     \end{proof}
+    % \begin{proof}
+    %     Recall that 
+    %     \[ \widehat{\kk} := \{\text{cauchy sequences in } \kk\} / \sim, \]
+    %     where \((x_n) \sim (y_n)\) if \(\lim_{n \to \infty} \|x_n - y_n\| = 0\).
+    %     For any two elements \(x = [(x_n)], y = [(y_n)] \in \widehat{\kk}\), we set 
+    %     \[ x + y := [(x_n + y_n)], \quad xy := [(x_n y_n)], \quad -x := [(-x_n)], \quad x^{-1} := [(x_n^{-1})], \]
+    %     where the last one is defined only when \(x \neq 0\).
+    %     We have 
+    %     \begin{align*}
+    %         \|(x_n+y_n) - (x_m+y_m)\| & \leq \|x_n - x_m\| + \|y_n - y_m\|; \\
+    %         \|-x_n - (-x_m)\| & = \|x_n - x_m\|;    \\
+    %         \|x_ny_n - x_my_m\| & \leq \|x_n\| \|y_n - y_m\| + \|y_m\| \|x_n - x_m\|;   \\
+    %         \|x_n^{-1} - x_m^{-1}\| & \leq \frac{1}{\|x_n\|\|x_m\|} \left( \|x_n - x_m\| \right).
+    %     \end{align*}
+    %     Hence all of these sequence are cauchy.
+    %     Then we can define all operations, the laws of operations follow from laws on \(\kk\) and the fact \(\kk\) is dense in \(\overline{\kk}\).
+
+    %     \Yang{To be added.}
+    % \end{proof}
 
     Unlike the real number field \(\bbR\), even a valuation field is complete, we can not expect the theorem of nested intervals to hold.
 
@@ -83,15 +152,15 @@
         \[ \calk_\kk := \widetilde{\kk} := \kk^\circ / \kk^{\circ\circ}. \]
     \end{definition}
 
-    \Yang{Is the valuation on residue field trivial?}
+    % \Yang{Is the valuation on residue field trivial?}
 
-    \begin{lemma}\label{prop:totally_bounded_and_complete_and_compact}
-        Recall that a metric space is \emph{totally bounded} if for every \(\varepsilon > 0\), it can be covered by finitely many balls of radius \(\varepsilon\).
-        A metric space is compact if and only if it is complete and totally bounded.
-    \end{lemma}
-    \begin{proof}
-        \Yang{To be added.}
-    \end{proof}
+    % \begin{lemma}\label{prop:totally_bounded_and_complete_and_compact}
+    %     Recall that a metric space is \emph{totally bounded} if for every \(\varepsilon > 0\), it can be covered by finitely many balls of radius \(\varepsilon\).
+    %     A metric space is compact if and only if it is complete and totally bounded.
+    % \end{lemma}
+    % \begin{proof}
+    %     \Yang{To be added.}
+    % \end{proof}
 
     \begin{definition}\label{def:residue_absolute_value_on_residue_fields}
         Let \(\kk\) be a non-archimedean field.
@@ -129,6 +198,12 @@
     \begin{proposition}\label{prop:locally_compact_NA_field_iff_it_is_pro-finite}
         Let \(\kk\) be a non-archimedean field.
         Then \(\kk\) is totally bounded iff \(\kk^\circ / I_r\) is finite for each \(r \in (0,1)\).
+    \end{proposition}
+
+    \begin{proposition}\label{prop:}
+        \(\kk^\circ\) is noetherian iff \(\kk\) is a discrete valuation field.
+        and complete.
+        \Yang{To be revised.}
     \end{proposition}
 
     % \begin{proposition}\label{prop:balls_in_ultra-metric_space}
