@@ -1,12 +1,80 @@
 \section{Residue fields and reductions}
 
+\subsection{Recover non-archimedean complete fields algebraically}
+    
+    In this subsection, let \(\kk\) be a non-archimedean field.
+    Set \(I_{r,<} := \{x \in \kk\colon \|x\| < r\}\) and \(I_{r,\leq} := \{x \in \kk\colon \|x\| \leq r\}\) for each \(r \in (0,1)\).
+
+    \begin{proposition}\label{prop:ideal_of_integers_ring_of_NA_field}
+        The sets \(I_{r,<}\) and \(I_{r,\leq}\) are ideals of the ring of integers \(\kk^\circ\).
+        Conversely, any ideal of \(\kk^\circ\) is of the form \(I_{r,<}\) or \(I_{r,\leq}\) for some \(r \in (0,1)\).
+        \Yang{To be checked.}
+    \end{proposition}
+    \begin{proof}
+        \Yang{To be checked.}
+    \end{proof}
+
+    \begin{proposition}\label{prop:recover_complete_non-archimedean_fields_from_projective_limits}
+        We have 
+        \[ \widehat{\kk}^\circ \cong \varprojlim_{r \in (0,1)} \kk^\circ / I_r. \]
+        \Yang{To be checked.}
+    \end{proposition}
+
+    \begin{proposition}\label{prop:locally_compact_NA_field_iff_it_is_pro-finite}
+        Let \(\kk\) be a non-archimedean field.
+        Then \(\kk\) is totally bounded iff \(\kk^\circ / I_r\) is finite for each \(r \in (0,1)\).
+        Moreover, if \(\kk\) is complete, then it is locally compact iff \(\kk^\circ/I_r\) is finite for each \(r \in (0,1)\).
+        \Yang{To be checked.}
+    \end{proposition}
+    \begin{slogan}
+        ``Locally compact \(\iff\) pro-finite.''
+    \end{slogan}
+    \begin{proof}
+        
+    \end{proof}
+
+    \begin{proposition}\label{prop:integers_ring_of_NA_field_is_noetherian_iff_discrete_valuation}
+        The ring \(\kk^\circ\) is noetherian iff \(\kk\) is a discrete valuation field.
+        \Yang{To be revised.}
+    \end{proposition}
+
+    \begin{proposition}\label{prop:locally_compact_NA_fields_iff_finite_residue_field_and_discrete_valuation}
+        Let \(\kk\) be a complete non-archimedean field. 
+        Then \(\kk\) is locally compact iff \(\kk\) is a discrete valuation field and its residue field \(\calk_\kk\) is finite.
+        \Yang{To be checked.}
+    \end{proposition}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
+
+\subsection{Hensel's Lemma}
+
     \begin{theorem}[Hensel's lemma]\label{prop:Hensel_lemma}
-        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(f(T) \in \kk^\circ[T]\) be a monic polynomial.
-        Suppose that the reduction \(\widetilde{f}(T) \in \calk_\kk[T]\) of \(f(T)\) factors as
-        \[ \widetilde{f}(T) = g(T) h(T), \]
+        Let \(\kk\) be a complete non-archimedean field and \(F(T) \in \kk^\circ[T]\) a monic polynomial.
+        Suppose that the reduction \(f(T) \in \calk_\kk[T]\) of \(F(T)\) factors as
+        \[ f(T) = g(T) h(T), \]
         where \(g(T), h(T) \in \calk_\kk[T]\) are monic polynomials that are coprime in \(\calk_\kk[T]\).
         Then there exist monic polynomials \(G(T), H(T) \in \kk^\circ[T]\) such that
-        \[ f(T) = G(T) H(T), \]
-        and the reductions \(\widetilde{G}(T), \widetilde{H}(T) \in \calk_\kk[T]\) of \(G(T), H(T)\) are \(g(T), h(T)\) respectively.
+        \[ F(T) = G(T) H(T), \]
+        and the reductions of \(G(T), H(T)\) in \(\calk_\kk[T]\) are \(g(T), h(T)\) respectively.
         \Yang{To be checked.}
     \end{theorem}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
+    \begin{corollary}\label{prop:Hensel_lemma_to_solve_polynomial}
+        Let \(\kk\) be a complete non-archimedean field and \(F(T) \in \kk^\circ[T]\) a monic polynomial.
+        Suppose that the reduction \(f(T) \in \calk_\kk[T]\) of \(F(T)\) has a simple root \(\alpha \in \calk_\kk\).
+        Then there exists a root \(a \in \kk^\circ\) of \(F(T)\) whose reduction is \(\alpha\).
+        \Yang{To be revised.}
+    \end{corollary}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
+
+\subsection{Newton polygons}
+
+    \Yang{To be filled.}

@@ -38,9 +38,8 @@
     \end{example}
 
     \begin{definition}\label{def:valuation_group}
-        The \emph{valuation group} of a valuation field \((\kk,\|\cdot\|)\) is defined as the subgroup of \(\bbR_{>0}\) given by
+        The \emph{(multiplicative) valuation group} of a valuation field \((\kk,\|\cdot\|)\) is defined as the subgroup of \(\bbR_{>0}\) given by
         \[ |\kk^\times| := \{\|x\|\colon x \in \kk^\times\}. \]
-        \Yang{To be revised.}
     \end{definition}
 
     \begin{definition}\label{def:equivalent_of_absolute_values}
@@ -86,7 +85,6 @@
         Then we have \(\|z\|_2 < 1\) and \(\|z\|_1 > 1\), a contradiction.
     \end{proof}
 
-
     \begin{definition}\label{def:complete_valuation_field}
         Let \((\kk,\|\cdot\|)\) be a valuation field.
         We say that \(\kk\) is \emph{complete} if the metric \(d(x,y) := \|x - y\|\) makes \(\kk\) a complete metric space.
@@ -99,25 +97,26 @@
     \begin{proof}
         Simple analysis.
     \end{proof}
-    % \begin{proof}
-    %     Recall that 
-    %     \[ \widehat{\kk} := \{\text{cauchy sequences in } \kk\} / \sim, \]
-    %     where \((x_n) \sim (y_n)\) if \(\lim_{n \to \infty} \|x_n - y_n\| = 0\).
-    %     For any two elements \(x = [(x_n)], y = [(y_n)] \in \widehat{\kk}\), we set 
-    %     \[ x + y := [(x_n + y_n)], \quad xy := [(x_n y_n)], \quad -x := [(-x_n)], \quad x^{-1} := [(x_n^{-1})], \]
-    %     where the last one is defined only when \(x \neq 0\).
-    %     We have 
-    %     \begin{align*}
-    %         \|(x_n+y_n) - (x_m+y_m)\| & \leq \|x_n - x_m\| + \|y_n - y_m\|; \\
-    %         \|-x_n - (-x_m)\| & = \|x_n - x_m\|;    \\
-    %         \|x_ny_n - x_my_m\| & \leq \|x_n\| \|y_n - y_m\| + \|y_m\| \|x_n - x_m\|;   \\
-    %         \|x_n^{-1} - x_m^{-1}\| & \leq \frac{1}{\|x_n\|\|x_m\|} \left( \|x_n - x_m\| \right).
-    %     \end{align*}
-    %     Hence all of these sequence are cauchy.
-    %     Then we can define all operations, the laws of operations follow from laws on \(\kk\) and the fact \(\kk\) is dense in \(\overline{\kk}\).
 
-    %     \Yang{To be added.}
-    % \end{proof}
+    \begin{example}\label{eg:usual_absolute_value_on_Q}
+        Let \(|\cdot|_\infty\) be the usual absolute value on the field \(\bbQ\) of rational numbers.
+        Then \((\bbQ, |\cdot|_\infty)\) is a valuation field.
+        Its completion is the field \(\bbR\) of real numbers equipped with the usual absolute value.
+    \end{example}
+
+    \begin{example}\label{eg:p-adic_absolute_value_on_Q}
+        Let \(p\) be a prime number.
+        For any non-zero rational number \(x \in \bbQ\), we can write it as \(x = p^n \frac{a}{b}\), where \(n \in \bbZ\) and \(a,b \in \bbZ\) are integers not divisible by \(p\).
+        The \emph{\(p\)-adic absolute value} on \(\bbQ\) is defined as
+        \[ |x|_p := \begin{cases}
+            0, & x = 0; \\
+            p^{-n}, & x = p^n \frac{a}{b} \text{ as above}.
+        \end{cases} \]
+        Then \((\bbQ, |\cdot|_p)\) is a valuation field.
+        Its completion is the field 
+        \[ \bbQ_p = \left\{\sum_{n = k}^{+\infty} a_n p^n \colon k \in \bbZ, a_n \in \{0,1,\ldots,p-1\}\right\} \]
+        of \(p\)-adic numbers equipped with the \(p\)-adic absolute value; see \Yang{to be added.}.
+    \end{example}
 
     Unlike the real number field \(\bbR\), even a valuation field is complete, we can not expect the theorem of nested intervals to hold.
 
@@ -177,54 +176,29 @@
         For any \(x \in \calk_\kk\), if \(x = 0\), then by definition \(|x| = 0\).
         If \(x \neq 0\), then \(\forall y \in \varphi^{-1}(x)\), we have \(y \in \kk^\circ \setminus \kk^{\circ\circ}\), i.e., \(\|y\| = 1\).
         Thus by definition \(|x| = 1\).
-        % \Yang{To be added.}
     \end{proof}
 
+    % \begin{proposition}\label{prop:recover_complete_non-archimedean_fields_from_projective_limits}
+    %     Let \(\kk\) be a non-archimedean field.
+    %     Set \(I_r := \{x \in \kk\colon \|x\| < r\}\) for each \(r \in (0,1)\).
+    %     They are ideals of the ring of integers \(\kk^\circ\).
+    %     Then we have 
+    %     \[ \widehat{\kk}^\circ \cong \varprojlim_{r > 0} \kk^\circ / I_r. \]
+    %     \Yang{To be checked.}
+    % \end{proposition}
 
+    % \begin{slogan}
+    %     Locally compact \(\iff\) pro-finite.
+    % \end{slogan}
 
-    \begin{proposition}\label{prop:recover_complete_non-archimedean_fields_from_projective_limits}
-        Let \(\kk\) be a non-archimedean field.
-        Set \(I_r := \{x \in \kk\colon \|x\| < r\}\) for each \(r \in (0,1)\).
-        They are ideals of the ring of integers \(\kk^\circ\).
-        Then we have 
-        \[ \widehat{\kk}^\circ \cong \varprojlim_{r > 0} \kk^\circ / I_r. \]
-        \Yang{To be checked.}
-    \end{proposition}
+    % \begin{proposition}\label{prop:locally_compact_NA_field_iff_it_is_pro-finite}
+    %     Let \(\kk\) be a non-archimedean field.
+    %     Then \(\kk\) is totally bounded iff \(\kk^\circ / I_r\) is finite for each \(r \in (0,1)\).
+    % \end{proposition}
 
-    \begin{slogan}
-        Locally compact \(\iff\) pro-finite.
-    \end{slogan}
-
-    \begin{proposition}\label{prop:locally_compact_NA_field_iff_it_is_pro-finite}
-        Let \(\kk\) be a non-archimedean field.
-        Then \(\kk\) is totally bounded iff \(\kk^\circ / I_r\) is finite for each \(r \in (0,1)\).
-    \end{proposition}
-
-    \begin{proposition}\label{prop:}
-        \(\kk^\circ\) is noetherian iff \(\kk\) is a discrete valuation field.
-        and complete.
-        \Yang{To be revised.}
-    \end{proposition}
-
-    % \begin{proposition}\label{prop:balls_in_ultra-metric_space}
-    %     Let \((X,d)\) be an ultra-metric space.
-    %     Then for any \(x \in X\) and \(r > 0\), the closed ball \(B(x,r) := \{y \in X\colon d(x,y) \leq r\}\) satisfies the following properties:
-    %     \begin{enumerate}
-    %         \item For any \(y \in B(x,r)\), we have \(B(x,r) = B(y,r)\).
-    %         \item Any two closed balls in \(X\) are either disjoint or one is contained in the other.
-    %     \end{enumerate}
+    % \begin{proposition}\label{prop:}
+    %     \(\kk^\circ\) is noetherian iff \(\kk\) is a discrete valuation field.
+    %     and complete.
     %     \Yang{To be revised.}
     % \end{proposition}
 
-    % We will use \(B(x,r)\) to denote the open ball with center \(x\) and radius \(r\).
-    % We will use \(E(x,r)\) to denote the closed ball with center \(x\) and radius \(r\).
-
-    % \begin{proposition}\label{prop:ultra-metric_space_is_totally_disconnected}
-    %     Let \((X,d)\) be an ultra-metric space.
-    %     Then \(X\) is totally disconnected, i.e., the only connected subsets of \(X\) are the singletons.
-    %     \Yang{To be revised.}
-    % \end{proposition}
-
-
-
-    

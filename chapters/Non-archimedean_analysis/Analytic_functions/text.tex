@@ -1,6 +1,25 @@
 \section{Analytic functions}
 
-\subsection{Continuous functions}
+\subsection{Failure of continuous and differentiable functions}
+
+    \begin{definition}\label{def:differentiable_functions}
+        Let \((\kk,\|\cdot\|)\) be a non-archimedean field and \(U \subset \kk\) be an open subset.
+        A function \(f:U \to \kk\) is said to be \emph{differentiable} at a point \(a \in U\) if the limit
+        \[
+            f'(a) := \lim_{x \to a} \frac{f(x)-f(a)}{x-a}
+        \]
+        exists in \(\kk\).
+        If \(f\) is differentiable at every point in \(U\), we say that \(f\) is differentiable on \(U\).
+        \Yang{to be revised.}
+    \end{definition}
+
+    \begin{proposition}\label{prop:failure_of_mean_valuable_theorem}
+        Let \((\kk,\|\cdot\|)\) be a non-archimedean field.
+        Then there exists a continuous function \(f:\kk \to \kk\) such that for any \(x,y \in \kk\) with \(x \neq y\), we have
+        \[
+            \frac{f(x)-f(y)}{x-y} = 0.
+        \]
+    \end{proposition}
 
 \subsection{Power series}
 
@@ -10,8 +29,10 @@
         \Yang{To be checked.}
     \end{proposition}
 
-\subsection{Tate algebras}
-
     \begin{definition}\label{def:Tate_algebra}
         Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field.
     \end{definition}
+
+\subsection{Analytic functions}
+
+    As in the case of real analysis, we can define analytic functions over non-archimedean fields using power series.

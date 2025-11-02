@@ -1,25 +1,79 @@
 \section{Ultra-metric spaces}
 
+    We will use \(B(x,r)\) (resp. \(E(x,r)\)) to denote the open ball (resp. closed ball) with center \(x\) and radius \(r\).
+    % We will use \(E(x,r)\) to denote the closed ball with center \(x\) and radius \(r\).
+
     \begin{definition}\label{def:ultra-metric_space}
         A metric space \((X,d)\) is called an \emph{ultra-metric space} if its metric \(d\) satisfies the \emph{strong triangle inequality}:
         \[ d(x,z) \leq \max\{d(x,y), d(y,z)\},\quad\forall x,y,z\in X. \]
     \end{definition}
 
-    \begin{proposition}\label{prop:balls_in_ultra-metric_space}
-        Let \((X,d)\) be an ultra-metric space.
-        Then for any \(x \in X\) and \(r > 0\), the closed ball \(B(x,r) := \{y \in X\colon d(x,y) \leq r\}\) satisfies the following properties:
-        \begin{enumerate}
-            \item For any \(y \in B(x,r)\), we have \(B(x,r) = B(y,r)\).
-            \item Any two closed balls in \(X\) are either disjoint or one is contained in the other.
-        \end{enumerate}
-        \Yang{To be revised.}
-    \end{proposition}
+    If \((\kk,\|\cdot\|)\) is a non-archimedean field, then the metric \(d(x,y) := \|x-y\|\) on \(\kk\) makes \((\kk,d)\) an ultra-metric space.
 
-    We will use \(B(x,r)\) to denote the open ball with center \(x\) and radius \(r\).
-    We will use \(E(x,r)\) to denote the closed ball with center \(x\) and radius \(r\).
-
-    \begin{proposition}\label{prop:ultra-metric_space_is_totally_disconnected}
+    \begin{proposition}\label{prop:all_triangles_in_ultra-metric_space_are_isosceles}
         Let \((X,d)\) be an ultra-metric space.
-        Then \(X\) is totally disconnected, i.e., the only connected subsets of \(X\) are the singletons.
-        \Yang{To be revised.}
+        Then for any \(x,y,z \in X\), at least two of the three distances \(d(x,y), d(y,z), d(z,x)\) are equal.
+        And the third distance is less than or equal to the common value of the other two.
     \end{proposition}
+    \begin{proof}
+        Suppose that \(d(x,y) \geq d(y,z)\).
+        By the strong triangle inequality, we have
+        \[ d(x,z) \leq \max\{d(x,y), d(y,z)\} = d(x,y). \]
+        On the other hand, by the strong triangle inequality again, we have
+        \[ d(x,y) \leq \max\{d(x,z), d(z,y)\} = \max\{d(x,z), d(y,z)\} \leq d(x,y). \]
+        This shows that \(d(x,y) = \max\{d(x,z), d(y,z)\}\).
+        Thus either \(d(x,z) = d(x,y) \geq d(y,z)\) or \(d(y,z) = d(x,y) \geq d(x,z)\).
+        %\Yang{To be continued.}
+    \end{proof}
+
+    \begin{proposition}\label{prop:balls_in_ultra-metric_space_form_a_tree}
+        Let \((X,d)\) be an ultra-metric space.
+        Let \(D_i\) be (open or closed) ball in \(X\) for \(i=1,2\).
+        If \(D_1 \cap D_2 \neq \emptyset\), then either \(D_1 \subseteq D_2\) or \(D_2 \subseteq D_1\).
+    \end{proposition}
+    \begin{proof}
+        Suppose that \(D_i\) has center \(x_i\) and radius \(r_i\) for \(i=1,2\).
+        Let \(y \in D_1 \cap D_2\).
+        We have 
+        \[ d(x_1,x_2) \leq \max\{d(x_1,y), d(y,x_2)\}. \]
+        Without loss of generality, we may assume that \(d(x_1,x_2) \leq d(x_1,y)\).
+        It follows that \(x_2 \in D_1\) since \(d(x_1,y) < r_1\) (or \(\leq r_1\)).
+
+        If there exists \(z \in D_2 \setminus D_1\), we claim that \(D_1 \subseteq D_2\).
+        We have \(d(x_1,z) > d(x_1,x_2)\).
+        Then by \cref{prop:all_triangles_in_ultra-metric_space_are_isosceles},
+        \[ r_1 \leq d(x_1,z) = d(x_2,z) \leq r_2. \]
+        In particular, if \(D_2\) is an open ball, then we have strict inequality \(r_1 < r_2\).
+        For any \(w \in D_1\), we have 
+        \[ d(x_2,w) \leq \max\{d(x_2,x_1), d(x_1,w)\} \leq r_1 \leq r_2. \]
+        Thus \(w \in D_2\) whatever \(D_2\) is open or closed, and it shows that \(D_1 \subseteq D_2\).
+    \end{proof}
+
+    \begin{proposition}\label{prop:all_balls_in_ultra-metric_space_are_clopen}
+        Let \((X,d)\) be an ultra-metric space.
+        Then both \(B(x,r)\) and \(E(x,r)\) are closed and open subsets of \(X\) for any \(x \in X\) and \(r > 0\).
+    \end{proposition}
+    \begin{proof}
+        We show that the sphere \(S(x,r) := \{y \in X \mid d(x,y) = r\}\) is open in \(X\).
+        Note that if \(y \in S(x,r)\), then for any \(r' < r\), we have \(B(y,r') \cap E(x,r) \neq \emptyset\) and \(x \in E(x,r) \setminus B(y,r')\).
+        Thus by \cref{prop:balls_in_ultra-metric_space_form_a_tree}, we have \(B(y,r') \subseteq E(x,r)\).
+        If \(B(y,r') \cap B(x,r) \neq \emptyset\), then by \cref{prop:balls_in_ultra-metric_space_form_a_tree} again, we have \(B(y,r') \subseteq B(x,r)\).
+        However, \(y \in B(y,r') \setminus B(x,r)\), a contradiction.
+        Thus \(B(y,r') \subseteq E(x,r) \setminus B(x,r) = S(x,r)\).
+        It yields that \(S(x,r) = \bigcup_{y \in S(x,r)} B(y,r/2)\) is open in \(X\).
+
+        Since \(E(x,r) = B(x,r) \cup S(x,r)\) and \(B(x,r) = E(x,r) \setminus S(x,r)\), both \(B(x,r)\) and \(E(x,r)\) are open and closed in \(X\).
+    \end{proof}
+
+    \begin{corollary}\label{prop:ultra-metric_space_is_totally_disconnected}
+        Let \((X,d)\) be an ultra-metric space.
+        Then \(X\) is totally disconnected, i.e., the only connected subsets of \(X\) are the set with at most one point.
+    \end{corollary}
+    \begin{proof}
+        Suppose that \(S \subset X\) has at least two distinct points \(x,y \in S\).
+        Let \(r := d(x,y) > 0\).
+        Consider the open ball \(B(x,r/2)\).
+        By \cref{prop:all_balls_in_ultra-metric_space_are_clopen}, \(B(x,r/2)\) is both open and closed in \(X\).
+        Thus \(B(x,r/2) \cap S\) is both open and closed in \(S\), however, it is non-empty and not equal to \(S\) since it contains \(x\) but not \(y\).
+        This shows that \(S\) is disconnected.
+    \end{proof}
