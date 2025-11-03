@@ -3,48 +3,105 @@
 \subsection{Recover non-archimedean complete fields algebraically}
     
     In this subsection, let \(\kk\) be a non-archimedean field.
-    Set \(I_{r,<} := \{x \in \kk\colon \|x\| < r\}\) and \(I_{r,\leq} := \{x \in \kk\colon \|x\| \leq r\}\) for each \(r \in (0,1)\).
+    Set \(I_{r,<} := B(0,r)\) and \(I_{r,\leq} := E(0,r)\) for each \(r \in [0,1]\).
 
     \begin{proposition}\label{prop:ideal_of_integers_ring_of_NA_field}
         The sets \(I_{r,<}\) and \(I_{r,\leq}\) are ideals of the ring of integers \(\kk^\circ\).
         Conversely, any ideal of \(\kk^\circ\) is of the form \(I_{r,<}\) or \(I_{r,\leq}\) for some \(r \in (0,1)\).
-        \Yang{To be checked.}
+        % \Yang{To be checked.}
     \end{proposition}
     \begin{proof}
-        \Yang{To be checked.}
+        Let \(I\) be an ideal of \(\kk^\circ\).
+        Set \(r = \sup\{ |a| : a \in I \} \) (resp. \(r= \max\{ |a| : a \in I \} \) when the maximum exists).
+        Then, by definition, we have \(I \subset I_{r,<}\) (resp. \(I \subset I_{r,\leq}\)).
+        For every \(x \in \kk^\circ\) with \(|x| < r\) (resp. \(|x| \leq r\)), there exists \(a \in I\) such that \(|x| \leq |a|\).
+        Thus, \(|x/a| \leq 1\) and so \(x/a \in \kk^\circ\).
+        Since \(I\) is an ideal, we have \(x = (x/a) a \in I\).
+        Therefore, \(I_{r,<} \subset I\) (resp. \(I_{r,\leq} \subset I\)).
     \end{proof}
 
     \begin{proposition}\label{prop:recover_complete_non-archimedean_fields_from_projective_limits}
-        We have 
-        \[ \widehat{\kk}^\circ \cong \varprojlim_{r \in (0,1)} \kk^\circ / I_r. \]
-        \Yang{To be checked.}
+        Let \(I_r\) be either \(I_{r,<}\) or \(I_{r,\leq}\) for each \(r \in (0,1)\).
+        Suppose \(\{r_n \in (0,1)\}_{n \in \bbN }\) is a decreasing sequence converging to \(0\).
+        Then the completion \(\widehat{\kk}\) of \(\kk\) is isomorphic to the projective limit
+        \[ \widehat{\kk}^\circ \cong \varprojlim_{n \in \bbN} \kk^\circ / I_{r_n}. \]
+        % \Yang{To be checked.}
     \end{proposition}
+    \begin{proof}
+        For every \(x \in \widehat{\kk}^\circ\), there exists a cauchy sequence \(\{x_m\}_{m \in \bbN}\) in \(\kk^\circ\) converging to \(x\).
+        Since \(\{r_n\}_{n \in \bbN}\) converges to \(0\), for each \(n \in \bbN\), there exists \(M_n \in \bbN\) such that for all \(m, m' \geq M_n\), we have \(|x_m - x_{m'}| < r_n\).
+        Thus, the sequence \(\{x_m + I_{r_n}\}_{m \in \bbN}\) is eventually constant in \(\kk^\circ / I_{r_n}\).
+        Define a map
+        \[
+            \Phi : \widehat{\kk}^\circ \to \varprojlim_{n \in \bbN} \kk^\circ / I_{r_n}, \quad x \mapsto \left(\lim_{m\to \infty} x_m + I_{r_n}\right)_{n \in \bbN}.
+        \]
+        It is straightforward to verify that \(\Phi\) is a well-defined ring homomorphism.
+
+        Conversely, for every \((a_n + I_{r_n})_{n \in \bbN} \in \varprojlim_{n \in \bbN} \kk^\circ / I_{r_n}\), we can choose a representative \(a_n \in \kk^\circ\) for each \(n\).
+        We claim that the sequence \(\{a_n\}_{n \in \bbN}\) is a cauchy sequence in \(\kk^\circ\).
+        Indeed, for every \(\varepsilon > 0\), there exists \(N \in \bbN\) such that \(r_N < \varepsilon\).
+        For all \(m, n \geq N\), since \(a_n + I_{r_n}\) maps to \(a_m + I_{r_m}\) under the natural projection, we have \(|a_n - a_m| < r_N < \varepsilon\).
+        Thus, \(\{a_n\}_{n \in \bbN}\) converges to some \(x \in \widehat{\kk}^\circ\).
+        Easily see that the limit \(x\) is independent of the choice of representatives \(\{a_n\}_{n \in \bbN}\).
+        This gives a map
+        \[
+            \Psi : \varprojlim_{n \in \bbN} \kk^\circ / I_{r_n} \to \widehat{\kk}^\circ, \quad (a_n + I_{r_n})_{n \in \bbN} \mapsto \lim_{n\to \infty} a_n.
+        \]
+        Direct verification shows that \(\Psi = \Phi^{-1}\).
+    \end{proof}
 
     \begin{proposition}\label{prop:locally_compact_NA_field_iff_it_is_pro-finite}
         Let \(\kk\) be a non-archimedean field.
-        Then \(\kk\) is totally bounded iff \(\kk^\circ / I_r\) is finite for each \(r \in (0,1)\).
+        Then \(\kk^\circ\) is totally bounded iff \(\kk^\circ / I_{r,<}\) and \(\kk^\circ / I_{r,\leq}\) are finite for each \(r \in [0,1]\).
         Moreover, if \(\kk\) is complete, then it is locally compact iff \(\kk^\circ/I_r\) is finite for each \(r \in (0,1)\).
-        \Yang{To be checked.}
+        % \Yang{To be checked.}
     \end{proposition}
     \begin{slogan}
         ``Locally compact \(\iff\) pro-finite.''
     \end{slogan}
     \begin{proof}
-        
+        We just prove the case for \(I_r = I_{r,<}\). 
+        The case for \(I_r = I_{r,\leq}\) is similar.
+
+        Suppose that \(\kk^\circ / I_r\) is finite for each \(r \in [0,1]\).
+        Then for every \(\varepsilon > 0\), there exists \(r \in (0,1)\) such that \(r < \varepsilon\) and \(\kk^\circ / I_r\) is finite.
+        Let \(\{a_1 + I_r, \ldots, a_n + I_r\}\) be the complete set of representatives of \(\kk^\circ / I_r\).
+        Then the balls \(B(a_i,r)\) for \(i=1,\ldots,n\) cover \(\kk^\circ\).
+
+        Conversely, suppose that \(\kk^\circ/I_r\) is infinite for some \(r \in [0,1]\).
+        Then there exists an infinite set \(\{a_n\}\) with \(|a_n| \in [r,1]\) such that their images in \(\kk^\circ / I_r\) are distinct.
+        In particular, for every \(m \neq n\), we have \(|a_n - a_m| \geq r\).
+        Any subsequence of \(\{a_n\}\) is not cauchy.
+        Thus, \(\kk^\circ\) is not totally bounded.
     \end{proof}
 
     \begin{proposition}\label{prop:integers_ring_of_NA_field_is_noetherian_iff_discrete_valuation}
         The ring \(\kk^\circ\) is noetherian iff \(\kk\) is a discrete valuation field.
-        \Yang{To be revised.}
+        % \Yang{To be revised.}
     \end{proposition}
+    \begin{proof}
+        Note that \(|\kk^\times| \subset \bbR_{>0}\) is a multiplicative subgroup.
+        If \(\kk\) is not a discrete valuation field, then \(|\kk^\times|\) is dense in \(\bbR_{>0}\).
+        In particular, there exists a strictly ascending sequence \(r_n \in |\kk^\times| \cap (0,1)\).
+        Then the ideals \(I_{r_n,\leq}\) form a strictly ascending chain of ideals in \(\kk^\circ\).
+
+        The converse is standard since now \(\kk^\circ\) is a discrete valuation ring.
+    \end{proof}
 
     \begin{proposition}\label{prop:locally_compact_NA_fields_iff_finite_residue_field_and_discrete_valuation}
         Let \(\kk\) be a complete non-archimedean field. 
         Then \(\kk\) is locally compact iff \(\kk\) is a discrete valuation field and its residue field \(\calk_\kk\) is finite.
-        \Yang{To be checked.}
+        % \Yang{To be checked.}
     \end{proposition}
     \begin{proof}
-        \Yang{To be added.}
+        The necessity follows from \cref{prop:locally_compact_NA_field_iff_it_is_pro-finite}.
+        For the sufficiency, suppose that \(\kk\) is a discrete valuation field whose residue field \(\calk_\kk\) is finite.
+        Let \(\pi \in \kk^\circ\) be a uniformizer.
+        We only need to show that \(\kk^\circ/ \pi^n \kk^\circ\) is finite for each \(n \in \bbN\).
+        Note that there is an isomorphism
+        \[ \pi^{n-1} \kk^\circ / \pi^n \kk^\circ \cong \calk_\kk, \quad x + \pi^n \kk^\circ \mapsto \overline{x/\pi^{n-1}}. \]
+        Thus, by induction on \(n\), we conclude that \(\kk^\circ / \pi^n \kk^\circ\) is finite.
+        % \Yang{To be added.}
     \end{proof}
 
 
@@ -58,20 +115,48 @@
         Then there exist monic polynomials \(G(T), H(T) \in \kk^\circ[T]\) such that
         \[ F(T) = G(T) H(T), \]
         and the reductions of \(G(T), H(T)\) in \(\calk_\kk[T]\) are \(g(T), h(T)\) respectively.
-        \Yang{To be checked.}
+        % \Yang{To be checked.}
     \end{theorem}
     \begin{proof}
-        \Yang{To be added.}
+        Since \(\gcd(g,h) = 1\) in \(\calk_\kk[T]\), there exist polynomials \(u(T), v(T) \in \calk_\kk[T]\) such that \(ug + vh = 1\) and \(\deg u < \deg h, \deg v < \deg g\).
+        Choose lifts \(G_0(T), H_0(T), U(T), V(T) \in \kk^\circ[T]\) of \(g(T), h(T), u(T), v(T)\) respectively preserving their degrees such that \(G_0\) and \(H_0\) are monic.
+        Then there exist \(r<1\) such that 
+        \[ U(T) G_0(T) + V(T) H_0(T) \equiv 1 \mod I_{r},\quad F(T) - G_0(T) H_0(T) \equiv 0 \mod I_{r}, \]
+        where \(I_{r} = \{ a \in \kk^\circ : |a| < r \}\).
+
+        We will construct a sequence of monic polynomials \(\{G_n(T)\}_{n \in \bbN}\) and \(\{H_n(T)\}_{n \in \bbN}\) in \(\kk^\circ[T]\) such that for each \(n \in \bbN\),
+        \[ G_n(T) \equiv G_{n-1}(T) \mod I_{r^n}, \quad H_n(T) \equiv H_{n-1}(T) \mod I_{r^n}, \]
+        and
+        \[ F(T) - G_n(T) H_n(T) \equiv 0 \mod I_{r^{n+1}}. \]
+        If we have such sequences, then their coefficients converge in the complete ring \(\kk^\circ\).
+        Let \(G(T)\) and \(H(T)\) be the limits of \(\{G_n(T)\}\) and \(\{H_n(T)\}\) respectively.
+        Then we have \(F(T) = G(T) H(T)\) and the reductions of \(G(T), H(T)\) in \(\calk_\kk[T]\) are \(g(T), h(T)\) respectively.
+
+        The case \(n=0\) is done by the above construction.
+        Now suppose that we have constructed \(G_n(T)\) and \(H_n(T)\) for some \(n \geq 0\).
+        Since \(G_n - G_0 \equiv 0 \mod I_{r}\) and \(H_n - H_0 \equiv 0 \mod I_{r}\), we have
+        \[ U G_n + V H_n = U G_0 + V H_0 + U (G_n - G_0) + V (H_n - H_0) \equiv 1 \mod I_{r}. \]
+        Set \(\Delta_n(T) = F(T) - G_n(T) H_n(T) \in I_{r^{n+1}}[T]\) and \(\epsilon_n = U \Delta_n, \delta_n = V \Delta_n \in I_{r^{n+1}}[T]\).
+        Then we have 
+        \begin{align*}
+            (G_n + \epsilon_n)(H_n + \delta_n) - F_n &= G_n H_n + G_n \delta_n + H_n \epsilon_n + \epsilon_n \delta_n - F_n \\
+            &= (U G_n + V H_n - 1) \Delta_n + \epsilon_n \delta_n \in I_{r^{n+2}}[T].
+        \end{align*}
+        Thus, we can set
+        \[ G_{n+1}(T) = G_n(T) + \epsilon_n(T), \quad H_{n+1}(T) = H_n(T) + \delta_n(T). \]
+        % \Yang{To be added.}
     \end{proof}
 
     \begin{corollary}\label{prop:Hensel_lemma_to_solve_polynomial}
         Let \(\kk\) be a complete non-archimedean field and \(F(T) \in \kk^\circ[T]\) a monic polynomial.
-        Suppose that the reduction \(f(T) \in \calk_\kk[T]\) of \(F(T)\) has a simple root \(\alpha \in \calk_\kk\).
-        Then there exists a root \(a \in \kk^\circ\) of \(F(T)\) whose reduction is \(\alpha\).
-        \Yang{To be revised.}
+        Suppose that the reduction \(f(T) \in \calk_\kk[T]\) of \(F(T)\) has a simple root \(a \in \calk_\kk\).
+        Then there exists a root \(\alpha \in \kk^\circ\) of \(F(T)\) whose reduction is \(a\).
+        % \Yang{To be revised.}
     \end{corollary}
     \begin{proof}
-        \Yang{To be added.}
+        Since \(a\) is a simple root of \(f(T)\), we have the factorization \(f(T) = (T - a) h(T)\) for some monic polynomial \(h(T) \in \calk_\kk[T]\) with \(h(a) \neq 0\).
+        Then the result follows from \cref{prop:Hensel_lemma}.
+        % \Yang{To be added.}
     \end{proof}
 
 
