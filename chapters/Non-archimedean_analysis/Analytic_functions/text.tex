@@ -23,6 +23,18 @@
 
 \subsection{Power series}
 
+    \begin{lemma}\label{prop:convergence_of_series}
+        Let \((\kk,\|\cdot\|)\) be a non-archimedean field and \(\sum_{n=0}^{+\infty} a_n\) be a series in \(\kk\).
+        Then the series \(\sum_{n=0}^{+\infty} a_n\) converges if and only if \(\lim_{n \to +\infty} a_n = 0\).
+        \Yang{To be checked.}
+    \end{lemma}
+
+    \begin{proposition}\label{prop:convergent_radius_of_power_series}
+        Let \((\kk,\|\cdot\|)\) be a non-archimedean field and \(\sum_{n=0}^{+\infty} a_n (x - c)^n\) be a power series in \(\kk\).
+        Then there exists a radius of convergence \(R \in \bbR_{\geq 0} \cup \{+\infty\}\) such that the series converges for all \(x \in \kk\) with \(\|x - c\| < R\) and diverges for all \(x \in \kk\) with \(\|x - c\| > R\).
+        \Yang{To be revised.}
+    \end{proposition}
+
     \begin{proposition}\label{prop:convergent_series_over_non_archimedean_fields}
         Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(\sum_{n=0}^{+\infty} a_n\) be a series in \(\kk\).
         Then the series \(\sum_{n=0}^{+\infty} a_n\) converges if and only if \(\lim_{n \to +\infty} a_n = 0\).
@@ -33,6 +45,32 @@
         Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field.
     \end{definition}
 
-\subsection{Analytic functions}
+    \begin{proposition}\label{prop:norm_of_Tate_algebra_coincides_with_the_suprum_norm}
+        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field.
+        Then the norm on the Tate algebra \(\kk\langle x_1, \ldots, x_n \rangle\) coincides with the supremum norm on the closed unit polydisc in \(\kk^n\).
+        \Yang{To be checked.}
+        
+    \end{proposition}
+
+\subsection{Analytic functions and maps}
 
     As in the case of real analysis, we can define analytic functions over non-archimedean fields using power series.
+
+    \begin{definition}\label{def:analytic_functions}
+        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(U \subset \kk\) be an open subset.
+        A function \(f:U \to \kk\) is said to be \emph{analytic} at a point \(c \in U\) if there exists a power series \(\sum_{n=0}^{+\infty} a_n (x - c)^n\) that converges to \(f(x)\) for all \(x\) in some neighborhood of \(c\).
+        If \(f\) is analytic at every point in \(U\), we say that \(f\) is analytic on \(U\).
+        \Yang{to be revised.}
+    \end{definition}
+
+    \begin{theorem}\label{prop:analytic_function_is_lipschitz}
+        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(U \subset \kk\) be an open subset.
+        If \(f:U \to \kk\) is an analytic function, then \(f\) is locally Lipschitz continuous on \(U\).
+        \Yang{To be checked.}
+    \end{theorem}
+
+    \begin{theorem}\label{prop:maximal_module_principle}
+        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(U \subset \kk\) be an open subset.
+        If \(f:U \to \kk\) is an analytic function, then \(f\) satisfies the maximum modulus principle, i.e., if there exists a point \(x_0 \in U\) such that \(\|f(x_0)\| \geq \|f(x)\|\) for all \(x \in U\), then \(f\) is constant on \(U\).
+        \Yang{To be checked.}
+    \end{theorem}

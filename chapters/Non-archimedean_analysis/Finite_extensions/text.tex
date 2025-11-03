@@ -2,23 +2,88 @@
 
 \subsection{Finite-dimensional vector space}
 
+    \begin{definition}\label{def:norm_on_vector_space_over_valuation_field}
+        Let \(\kk\) be a valuation field and \(V\) a vector space over \(\kk\).
+        A \emph{norm} on \(V\) is a function \(\|\cdot\|: V \to \bbR_{\geq 0}\) satisfying the following properties for all \(x, y \in V\) and \(a \in \kk\):
+        \begin{enumerate}
+            \item \(\|x\| = 0\) if and only if \(x = 0\);
+            \item \(\|a x\| = |a| \cdot \|x\|\);
+            \item \(\|x + y\| \leq \|x\| + \|y\|\).
+        \end{enumerate}
+    \end{definition}
+
+    \begin{definition}\label{def:equivalent_norm_on_vector_space}
+        Let \(\kk\) be a valuation field and \(V\) a vector space over \(\kk\).
+        Two norms \(\|\cdot\|_1\) and \(\|\cdot\|_2\) on \(V\) are said to be \emph{equivalent} if there exist positive constants \(C_1, C_2 > 0\) such that for all \(x \in V\),
+        \[
+            C_1 \|x\|_1 \leq \|x\|_2 \leq C_2 \|x\|_1.
+        \]
+    \end{definition}
+
+    \begin{lemma}\label{prop:norms_are_equivalent_iff_induces_the_same_topology}
+        Let \(\kk\) be a valuation field and \(V\) a vector space over \(\kk\).
+        Two norms \(\|\cdot\|_1\) and \(\|\cdot\|_2\) on \(V\) are equivalent if and only if they induce the same topology on \(V\).
+    \end{lemma}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
     \begin{proposition}\label{prop:norm_on_finite_dimensional_vector_space_are_equivalent}
         Let \(V\) be a finite-dimensional vector space over a complete non-archimedean field \(\kk\).
         Then all norms on \(V\) are equivalent.
         \Yang{To be checked.}
     \end{proposition}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
+    \begin{proposition}\label{prop:finite_dimensional_vector_space_over_complete_fields_is_complete}
+        Let \(V\) be a finite-dimensional vector space over a complete valuation field \(\kk\).
+        Then \(V\) is complete with respect to any norm on \(V\).
+    \end{proposition}
 
 
 \subsection{Finite field extensions}
+
+    \begin{construction}\label{cons:absolute_value_on_finite_extension_of_valuation_fields}
+        Let \(\kk\) be a valuation field and \(\bfl\) a finite extension of \(\kk\) with degree \(n = [\bfl : \kk]\).
+        For any \(a \in \bfl\), define
+        \[
+            |a|_{\bfl} := |N_{\bfl/\kk}(a)|_{\kk}^{1/n},
+        \]
+        where \(N_{\bfl/\kk}(a)\) is the norm of \(a\) from \(\bfl\) to \(\kk\).
+        By \cref{prop:absolute_value_induced_by_norm_is_an_absolute_value}, \(|\cdot|_{\bfl}\) is an absolute value on \(\bfl\) extending the absolute value \(|\cdot|_{\kk}\) on \(\kk\).
+        \Yang{To be checked.}
+    \end{construction}
+
+    \begin{lemma}\label{prop:absolute_value_induced_by_norm_is_an_absolute_value}
+        Let \(\kk\) be a valuation field and \(\bfl\) a finite extension of \(\kk\).
+        Then the function \(|\cdot|_{\bfl}\) defined in \cref{cons:absolute_value_on_finite_extension_of_valuation_fields} is an absolute value on \(\bfl\) extending the absolute value on \(\kk\).
+
+        Moreover, if \(\kk\) is non-archimedean, then so is \(\bfl\).        
+    \end{lemma}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
 
     \begin{proposition}\label{prop:absolute_value_on_finite_extension_of_valuation_fields}
         Let \(\kk\) be a complete non-archimedean field and \(\bfl\) a finite extension of \(\kk\).
         Then the absolute value on \(\bfl\) is uniquely determined by the absolute value on \(\kk\).
         \Yang{To be checked.}
     \end{proposition}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
+    \begin{remark}\label{rmk:compatiblity_of_extension_and_completion}
+        \Yang{I want to discuss some compatiblity of extension and completion.}
+    \end{remark}
 
     \begin{proposition}\label{prop:completion_of_algebraically_closed_valuation_fields_is_algebraically_closed}
         Let \(\kk\) be an algebraically closed non-archimedean field.
         Then its completion \(\widehat{\kk}\) is also algebraically closed.
         \Yang{To be checked.}
     \end{proposition}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
