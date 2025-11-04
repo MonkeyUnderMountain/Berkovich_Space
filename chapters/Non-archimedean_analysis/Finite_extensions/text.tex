@@ -12,6 +12,23 @@
         \end{enumerate}
     \end{definition}
 
+    \begin{example}\label{def:maximal_norm_on_finite-dimensional_vector_space}
+        Let \(\kk\) be a valuation field and \(V\) a finite-dimensional vector space over \(\kk\) with basis \(\{e_1, e_2, \ldots, e_n\}\).
+        For any \(x = a_1 e_1 + a_2 e_2 + \cdots + a_n e_n \in V\), define
+        \[
+            \|x\|_{\max} := \max_{1 \leq i \leq n} |a_i|.
+        \]
+        Then \(\|\cdot\|_{\max}\) is a norm on \(V\), called the \emph{maximal norm} with respect to the basis \(\{e_1, e_2, \ldots, e_n\}\).
+    \end{example}
+
+    \begin{example}\label{def:1-norm_no_finite-dimensional_vector_space}
+        Setting as in \cref{def:maximal_norm_on_finite-dimensional_vector_space}, for any \(x = a_1 e_1 + a_2 e_2 + \cdots + a_n e_n \in V\), define
+        \[
+            \|x\|_1 := |a_1| + |a_2| + \cdots + |a_n|.
+        \]
+        Then \(\|\cdot\|_1\) is also a norm on \(V\).
+    \end{example}
+
     \begin{definition}\label{def:equivalent_norm_on_vector_space}
         Let \(\kk\) be a valuation field and \(V\) a vector space over \(\kk\).
         Two norms \(\|\cdot\|_1\) and \(\|\cdot\|_2\) on \(V\) are said to be \emph{equivalent} if there exist positive constants \(C_1, C_2 > 0\) such that for all \(x \in V\),
@@ -25,53 +42,159 @@
         Two norms \(\|\cdot\|_1\) and \(\|\cdot\|_2\) on \(V\) are equivalent if and only if they induce the same topology on \(V\).
     \end{lemma}
     \begin{proof}
-        \Yang{To be added.}
-    \end{proof}
-
-    \begin{proposition}\label{prop:norm_on_finite_dimensional_vector_space_are_equivalent}
-        Let \(V\) be a finite-dimensional vector space over a complete non-archimedean field \(\kk\).
-        Then all norms on \(V\) are equivalent.
-        \Yang{To be checked.}
-    \end{proposition}
-    \begin{proof}
-        \Yang{To be added.}
+        The sufficiency is clear.
+        Now suppose that \(\|\cdot\|_1\) and \(\|\cdot\|_2\) induce the same topology on \(V\).
+        Hence the unit open ball with respect to \(\|\cdot\|_1\) contains a unit open ball with respect to \(\|\cdot\|_2\).
+        That is, 
+        \[ \{x \in V : \|x\|_1 < 1\} \supseteq \{x \in V : \|x\|_2 < C\}. \]
+        Then for every \(x \in V\) with \(\|x\|_1 = 1\), we have \(\|x\|_2 \geq C = C \|x\|_1\).
+        By scaling, we get that for every \(x \in V\),
+        \[ \|x\|_2 \geq C \|x\|_1. \]
+        Similar for the other direction, we conclude that \(\|\cdot\|_1\) and \(\|\cdot\|_2\) are equivalent.
     \end{proof}
 
     \begin{proposition}\label{prop:finite_dimensional_vector_space_over_complete_fields_is_complete}
-        Let \(V\) be a finite-dimensional vector space over a complete valuation field \(\kk\).
-        Then \(V\) is complete with respect to any norm on \(V\).
+        Let \(V\) be a normed finite-dimensional vector space over a complete valuation field \(\kk\).
+        Then \(V\) is complete.
     \end{proposition}
-
-
-\subsection{Finite field extensions}
-
-    \begin{construction}\label{cons:absolute_value_on_finite_extension_of_valuation_fields}
-        Let \(\kk\) be a valuation field and \(\bfl\) a finite extension of \(\kk\) with degree \(n = [\bfl : \kk]\).
-        For any \(a \in \bfl\), define
-        \[
-            |a|_{\bfl} := |N_{\bfl/\kk}(a)|_{\kk}^{1/n},
-        \]
-        where \(N_{\bfl/\kk}(a)\) is the norm of \(a\) from \(\bfl\) to \(\kk\).
-        By \cref{prop:absolute_value_induced_by_norm_is_an_absolute_value}, \(|\cdot|_{\bfl}\) is an absolute value on \(\bfl\) extending the absolute value \(|\cdot|_{\kk}\) on \(\kk\).
-        \Yang{To be checked.}
-    \end{construction}
-
-    \begin{lemma}\label{prop:absolute_value_induced_by_norm_is_an_absolute_value}
-        Let \(\kk\) be a valuation field and \(\bfl\) a finite extension of \(\kk\).
-        Then the function \(|\cdot|_{\bfl}\) defined in \cref{cons:absolute_value_on_finite_extension_of_valuation_fields} is an absolute value on \(\bfl\) extending the absolute value on \(\kk\).
-
-        Moreover, if \(\kk\) is non-archimedean, then so is \(\bfl\).        
-    \end{lemma}
     \begin{proof}
         \Yang{To be added.}
     \end{proof}
 
-    \begin{proposition}\label{prop:absolute_value_on_finite_extension_of_valuation_fields}
-        Let \(\kk\) be a complete non-archimedean field and \(\bfl\) a finite extension of \(\kk\).
-        Then the absolute value on \(\bfl\) is uniquely determined by the absolute value on \(\kk\).
-        \Yang{To be checked.}
-    \end{proposition}
+    \begin{theorem}\label{prop:norm_on_finite_dimensional_vector_space_are_equivalent}
+        Let \(V\) be a finite-dimensional vector space over a complete field \(\kk\).
+        Then all norms on \(V\) are equivalent.
+    \end{theorem}
     \begin{proof}
+        Fix a basis \(\{e_1, e_2, \ldots, e_n\}\) of \(V\) and let \(\|\cdot\|_{\max}\) be the maximal norm with respect to this basis as in \cref{def:maximal_norm_on_finite-dimensional_vector_space}.
+        Let \(\|\cdot\|\) be any norm on \(V\).
+        It suffices to show that \(\|\cdot\|\) and \(\|\cdot\|_{\max}\) are equivalent.
+        First we have 
+        \[ \|y\| \leq \sum_{i=1}^n |a_i| \|e_i\| \leq \left(\sum_{i=1}^n \|e_i\|\right) \|y\|_{\max} \]
+        for any \(y = a_1 e_1 + a_2 e_2 + \cdots + a_n e_n \in V\).
+        It remains to show that there exists a constant \(C > 0\) such that for any \(y \in V\),
+        \[ \|y\|_{\max} \leq C \|y\|. \]
+        \Yang{To be added.}
+    \end{proof}
+
+    \begin{remark}\label{rmk:finite-dimensional_vector_space_over_non_complete_fields}
+        If the base field \(\kk\) is not complete, then \cref{prop:norm_on_finite_dimensional_vector_space_are_equivalent} may fail.
+        For example, let \(\kk = \bbQ\) with the usual absolute value, and let \(V = \bbQ[\alpha]\) with \(\alpha^2-\alpha-1=0\).
+        There are two embeddings of \(V\) into \(\bbR\):
+        \[ \iota_1: a + b\alpha \mapsto a + b\frac{1+\sqrt{5}}{2}, \quad \iota_2: a + b\alpha \mapsto a + b\frac{1-\sqrt{5}}{2}. \]
+        Define two norms on \(V\) by
+        \[
+            \|x\|_1 := |\iota_1(x)|, \quad \|x\|_2 := |\iota_2(x)|,
+        \]
+        where \(|\cdot|\) is the usual absolute value on \(\bbR\).
+        Then \(\|\cdot\|_1\) and \(\|\cdot\|_2\) are not equivalent since \(\iota_2(\alpha^n) \to 0\) as \(n \to \infty\) while \(\iota_1(\alpha^n) \to \infty\).
+    \end{remark}
+
+    The following lemma is a classical result in functional analysis, which will be used in the next subsection.
+
+    \begin{lemma}\label{prop:operator_norm_on_M_n_k_with_k_complete}
+        Let \(\kk\) be a complete field and \(V\) a normed finite-dimensional vector space over \(\kk\).
+        Then 
+        \[ \|\cdot\| : \End_{\kk}(V) \to \bbR_{\geq 0}, \quad T \mapsto \sup_{x \in V \setminus \{0\}} \frac{\|T(x)\|}{\|x\|} \]
+        defines a norm on the \(\kk\)-vector space \(\End_{\kk}(V)\) satisfying
+        \[ \|AB\| \leq \|A\| \cdot \|B\|, \quad \forall A, B \in \End_{\kk}(V). \]
+    \end{lemma}
+    \begin{proof}
+        First we show the existence of the supremum, i.e., there exists \(C > 0\) such that for all \(x \in V \setminus \{0\}\), \(\|T(x)\| \leq C \|x\|\).
+        Fix a basis \(\{e_1, e_2, \ldots, e_n\}\) of \(V\) and let \(\|\cdot\|_{\max}\) be the maximal norm with respect to this basis.
+        Since all norms on \(V\) are bounded by each other by \cref{prop:norm_on_finite_dimensional_vector_space_are_equivalent}, we only need to show that there exists \(C > 0\) such that for all \(x \in V \setminus \{0\}\), \(\|T(x)\|_{1} \leq C \|x\|_{\max}\).
+        Write \(T(e_i) = \sum_{j=1}^n a_{ij} e_j\) for \(1 \leq i \leq n\).
+        For any \(x = \sum_{i=1}^n x_i e_i \in V\), we have
+        \[ \|T(x)\|_1 = \left\|\sum_{j=1}^n \left(\sum_{i=1}^n a_{ij} x_i\right) e_j \right\|_1 = \sum_{j=1}^n \left|\sum_{i=1}^n a_{ij} x_i\right| \leq \left(\sum_{1 \leq i, j \leq n} |a_{ij}|\right) \|x\|_{\max}. \]
+        Thus the supremum is finite.
+
+        The linearity and positive-definiteness of \(\|\cdot\|\) are clear.
+        It remains to show the triangle inequality and sub-multiplicativity.
+        For any \(A, B \in \End_{\kk}(V)\), we have
+        \[ \frac{\|(A + B)(x)\|}{\|x\|} = \frac{\|A(x)\|}{\|x\|} + \frac{\|B(x)\|}{\|x\|} \leq \|A\| + \|B\|. \]
+        Taking supremum over all \(x \in V \setminus \{0\}\) gives \(\|A + B\| \leq \|A\| + \|B\|\).
+        We have 
+        \[ \|AB(x)\| \leq \|A\| \cdot \|B(x)\| \leq \|A\| \cdot \|B\| \cdot \|x\| \]
+        and hence \(\|AB(x)\|/\|x\| \leq \|A\| \cdot \|B\|\).
+        Taking supremum we get \(\|AB\| \leq \|A\| \cdot \|B\|\). 
+    \end{proof}
+
+\subsection{Finite field extensions}
+
+    % \begin{construction}\label{cons:absolute_value_on_finite_extension_of_valuation_fields}
+    %     Let \(\kk\) be a complete field and \(\bfl\) a finite extension of \(\kk\) with degree \(n = [\bfl : \kk]\).
+    %     For any \(a \in \bfl\), define
+    %     \[
+    %         |a|_{\bfl} := |N_{\bfl/\kk}(a)|_{\kk}^{1/n},
+    %     \]
+    %     where \(N_{\bfl/\kk}(a)\) is the norm of \(a\) from \(\bfl\) to \(\kk\).
+    %     More concretely, viewing \(\bfl\) as an \(n\)-dimensional vector space over \(\kk\), let \(m_a: \bfl \to \bfl\) be the \(\kk\)-linear map defined by multiplication by \(a\).
+    %     Then \(N_{\bfl/\kk}(a) = \det(m_a)\).
+    %     By \cref{prop:absolute_value_induced_by_norm_is_an_absolute_value}, \(|\cdot|_{\bfl}\) is an absolute value on \(\bfl\) extending the absolute value \(|\cdot|_{\kk}\) on \(\kk\).
+    %     \Yang{To be checked.}
+    % \end{construction}
+
+    % \begin{lemma}\label{prop:absolute_value_induced_by_norm_is_an_absolute_value}
+    %     Let \(\kk\) be a complete field and \(\bfl\) a finite extension of \(\kk\).
+    %     Then the function \(|\cdot|_{\bfl}\) defined in \cref{cons:absolute_value_on_finite_extension_of_valuation_fields} is an absolute value on \(\bfl\) extending the absolute value on \(\kk\).
+
+    %     Moreover, if \(\kk\) is non-archimedean, then so is \(\bfl\).        
+    % \end{lemma}
+    % \begin{proof}
+    %     \Yang{To be added.}
+    % \end{proof}
+
+    \begin{theorem}\label{prop:absolute_value_on_finite_extension_of_complete_fields}
+        Let \(\kk\) be a complete field and \(\bfl\) a finite extension of \(\kk\).
+        Then the absolute value on \(\bfl\) is uniquely determined by the absolute value on \(\kk\).
+        Furthermore, we have 
+        \[ \|\cdot\|_{\bfl} = \|N_{\bfl/\kk}(\cdot)\|_{\kk}^{1/n}, \]
+        where \(n = [\bfl : \kk]\) and \(N_{\bfl/\kk}\) is the norm map from \(\bfl\) to \(\kk\).
+        % \Yang{To be checked.}
+    \end{theorem}
+    \begin{proof}
+        Fix a norm \(\|\cdot\|_V\) on the \(\kk\)-vector space \(V = \bfl\).
+        The norm \(\|\cdot\|_V\) induces an operator norm \(\|\cdot\|_{\op}\) on the \(\kk\)-vector space \(\End_{\kk}(V)\) as in \cref{prop:operator_norm_on_M_n_k_with_k_complete}.
+        For any \(a \in \bfl\), let \(\mu_a \in \End_{\kk}(V)\) be the \(\kk\)-linear map defined by multiplication by \(a\).
+        Note that \(a \mapsto \mu_a\) is a \(\kk\)-algebra homomorphism and if \(a \in \kk\), \(\|\mu_a\|_{\op} = \|a\|_{\kk}\).
+
+        \begin{step}\label{step_in_thm_absolute_value_on_finite_extension_of_complete_fields:the_field_norm_is_the_spectral_radius}
+            Show that 
+            \[ \|N_{\bfl/\kk}(a)\|_{\kk} = \lim_{m \to \infty} \sqrt[m]{\|\mu_{a^{mn}}\|_{\op}} \eqqcolon \rho(a^n). \]
+        \end{step}
+
+        The existence of the limit \(\rho(a) = \lim_{m \to \infty} \sqrt[m]{\|\mu_{a^m}\|_{\op}}\) follows from the sub-multiplicativity of the operator norm.
+        And note that \(\rho(a^n) = \rho(a)^n\) for all \(a \in \bfl\) and \(n \in \bbN\).
+        We can assume that \(a \neq 0\).
+        Let \(b = a^n/N_{\bfl/\kk}(a) \in \bfl\).
+        Then \(N_{\bfl/\kk}(b) = 1\) and 
+        \[ \rho(b) = \lim_{m \to \infty} \sqrt[m]{\|\mu_{b^m}\|_{\op}} = \lim_{m \to \infty} \sqrt[m]{\frac{\|\mu_{a^{mn}}\|_{\op}}{\|N_{\bfl/\kk}(a)^m\|_{\kk}}} = \frac{\rho(a^n)}{\|N_{\bfl/\kk}(a)\|_{\kk}} \]
+        since \(N_{\bfl/\kk}\) is multiplicative and \(N_{\bfl/\kk}(a) \in \kk\).
+        Thus it suffices to show that \(\rho(b) = 1\). 
+
+        Suppose that \(\rho(b) < 1\).
+        Then there exists \(\delta \in (0,1)\) and \(M > 0\) such that for all \(m \geq M\), \(\|\mu_{b^m}\|_{\op} < \delta^m\).
+        In particular, we have \(\mu_{b^m} \to 0\) as \(m \to \infty\) in the normed vector space \(\End_{\kk}(V)\).
+        However, note that \(\det\) is continuous on \(\End_{\kk}(V)\) (since it is a polynomial in the entries of the matrix representation).
+        Thus we have \(N_{\bfl/\kk}(b^m) = \det(\mu_{b^m}) \to 0\) as \(m \to \infty\), contradicting the fact that \(N_{\bfl/\kk}(b^m) = 1\) for all \(m\).
+        
+        if \(\rho(b) > 1\), 
+        \Yang{We can not get \(\rho(b^{-1}) < 1\) directly.}
+
+        \begin{step}\label{step_in_thm_absolute_value_on_finite_extension_of_complete_fields:triangle_inequality}
+            Show that 
+            \[ \rho(a + b) \leq \rho(a) + \rho(b) \]
+            and hence \(\|\cdot\|_{\bfl} = \|N_{\bfl/\kk}(\cdot)\|_{\kk}^{1/n}\) defines an absolute value on \(\bfl\) extending that on \(\kk\).
+        \end{step}
+
+
+        \begin{step}\label{step_in_thm_absolute_value_on_finite_extension_of_complete_fields:uniqueness_of_absolute_value}
+            Show the uniqueness of the absolute value on \(\bfl\) extending that on \(\kk\).
+        \end{step}
+
+
+
+
         \Yang{To be added.}
     \end{proof}
 
@@ -82,7 +205,7 @@
     \begin{proposition}\label{prop:completion_of_algebraically_closed_valuation_fields_is_algebraically_closed}
         Let \(\kk\) be an algebraically closed non-archimedean field.
         Then its completion \(\widehat{\kk}\) is also algebraically closed.
-        \Yang{To be checked.}
+        % \Yang{To be checked.}
     \end{proposition}
     \begin{proof}
         \Yang{To be added.}
