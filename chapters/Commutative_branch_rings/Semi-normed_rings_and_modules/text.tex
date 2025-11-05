@@ -138,50 +138,50 @@
     % \Yang{To be continued...}
 
 
-\subsection{Complete field}
+% \subsection{Complete field}
 
-    \begin{definition}\label{def:valuation_field}
-        A multiplicative norm on a field is also called an \emph{absolute value}.
-        A \emph{valuation field} is a field equipped with an absolute value.
-    \end{definition}
+%     \begin{definition}\label{def:valuation_field}
+%         A multiplicative norm on a field is also called an \emph{absolute value}.
+%         A \emph{valuation field} is a field equipped with an absolute value.
+%     \end{definition}
 
-    \begin{remark}\label{rmk:additive_and_multiplicative_valuation_on_a_field}
-        Let \(\kk\) be a field.
-        Recall that a \emph{valuation} on \(\kk\) is a function \(v: \kk^\times \to \bbR\) such that
-        \begin{itemize}
-            \item \(\forall x,y \in \kk^\times, v(xy) = v(x) + v(y)\);
-            \item \(\forall x,y \in \kk^\times, v(x + y) \geq \min\{v(x), v(y)\}\).
-        \end{itemize}
-        We can extend \(v\) to the whole field \(\kk\) by defining \(v(0) = +\infty\).
-        Fix a real number \(\varepsilon \in (0,1)\).
-        Then \(v\) induces an absolute value \(|\cdot|_v: \kk \to \bbR_+\) defined by \(|x|_v = \varepsilon^{v(x)}\) for each \(x \in \kk\).
+%     \begin{remark}\label{rmk:additive_and_multiplicative_valuation_on_a_field}
+%         Let \(\kk\) be a field.
+%         Recall that a \emph{valuation} on \(\kk\) is a function \(v: \kk^\times \to \bbR\) such that
+%         \begin{itemize}
+%             \item \(\forall x,y \in \kk^\times, v(xy) = v(x) + v(y)\);
+%             \item \(\forall x,y \in \kk^\times, v(x + y) \geq \min\{v(x), v(y)\}\).
+%         \end{itemize}
+%         We can extend \(v\) to the whole field \(\kk\) by defining \(v(0) = +\infty\).
+%         Fix a real number \(\varepsilon \in (0,1)\).
+%         Then \(v\) induces an absolute value \(|\cdot|_v: \kk \to \bbR_+\) defined by \(|x|_v = \varepsilon^{v(x)}\) for each \(x \in \kk\).
 
-        In some literature, the valuation \(v\) is called an \emph{additive valuation} and the induced absolute value \(|\cdot|_v\) is called a \emph{multiplicative valuation}.
-        In this note, the term \emph{valuation} always refers to the additive valuation.
-    \end{remark}
+%         In some literature, the valuation \(v\) is called an \emph{additive valuation} and the induced absolute value \(|\cdot|_v\) is called a \emph{multiplicative valuation}.
+%         In this note, the term \emph{valuation} always refers to the additive valuation.
+%     \end{remark}
 
-    \begin{definition}\label{def:non-archimedean_valuation}
-        A valuation field \((\kk, |\cdot|)\) is called \emph{non-Archimedean} if \(\forall x,y \in \kk, |x + y| \leq \max\{|x|, |y|\}\), i.e., the norm satisfies the ultrametric inequality.
-        Otherwise, it is called \emph{Archimedean}.
-    \end{definition}
+%     \begin{definition}\label{def:non-archimedean_valuation}
+%         A valuation field \((\kk, |\cdot|)\) is called \emph{non-Archimedean} if \(\forall x,y \in \kk, |x + y| \leq \max\{|x|, |y|\}\), i.e., the norm satisfies the ultrametric inequality.
+%         Otherwise, it is called \emph{Archimedean}.
+%     \end{definition}
     
-    \begin{definition}\label{def:complete_field}
-        A \emph{complete field} is a valuation field which is complete as a metric space.
-    \end{definition}
+%     \begin{definition}\label{def:complete_field}
+%         A \emph{complete field} is a valuation field which is complete as a metric space.
+%     \end{definition}
 
-    \begin{lemma}\label{lem:ring_of_integers_of_non-archimedean_field}
-        Let \(\kk\) be a non-Archimedean complete field.
-        Then the set \(\kk^\circ = \{x \in \kk : |x| \leq 1\}\) is a subring of \(\kk\), which is a local ring.
-        Moreover, the set \(\kk^{\circ\circ} = \{x \in \kk : |x| < 1\}\) is the maximal ideal of \(\kk^\circ\).
-    \end{lemma}
+%     \begin{lemma}\label{lem:ring_of_integers_of_non-archimedean_field}
+%         Let \(\kk\) be a non-Archimedean complete field.
+%         Then the set \(\kk^\circ = \{x \in \kk : |x| \leq 1\}\) is a subring of \(\kk\), which is a local ring.
+%         Moreover, the set \(\kk^{\circ\circ} = \{x \in \kk : |x| < 1\}\) is the maximal ideal of \(\kk^\circ\).
+%     \end{lemma}
 
-    \begin{definition}\label{def:ring_of_integers_of_non-archimedean_field}
-        Let \(\kk\) be a non-Archimedean complete field.
-        The subring \(\kk^\circ\) is called the \emph{ring of integers} of \(\kk\).
-        The set \(\kk^{\circ\circ} = \{x \in \kk : |x| < 1\}\) is the maximal ideal of \(\kk^\circ\).
-        The residue field \(\calk_\kk = \kk^\circ / \kk^{\circ\circ}\) is called the \emph{residue field} of \(\kk\).
-        \Yang{To be revised.}
-    \end{definition}
+%     \begin{definition}\label{def:ring_of_integers_of_non-archimedean_field}
+%         Let \(\kk\) be a non-Archimedean complete field.
+%         The subring \(\kk^\circ\) is called the \emph{ring of integers} of \(\kk\).
+%         The set \(\kk^{\circ\circ} = \{x \in \kk : |x| < 1\}\) is the maximal ideal of \(\kk^\circ\).
+%         The residue field \(\calk_\kk = \kk^\circ / \kk^{\circ\circ}\) is called the \emph{residue field} of \(\kk\).
+%         \Yang{To be revised.}
+%     \end{definition}
 
     % Notation test \(\calk_\kk\) or \(\widetilde{\kk}\) or \(\rkk_\kk\) for the residue field of \(\kk\).
     % \(\calk_{\bbQ_p}\)

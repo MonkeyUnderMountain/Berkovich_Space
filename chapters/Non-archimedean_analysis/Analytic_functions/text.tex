@@ -1,67 +1,161 @@
 \section{Analytic functions}
 
-\subsection{Failure of continuous and differentiable functions}
+\subsection{Strictly differentiable functions}
+
+    Recalling the definition of differentiable functions over valuation fields.
 
     \begin{definition}\label{def:differentiable_functions}
-        Let \((\kk,\|\cdot\|)\) be a non-archimedean field and \(U \subset \kk\) be an open subset.
+        Let \(\kk\) be a valuation field and \(U \subset \kk\) be an open subset.
         A function \(f:U \to \kk\) is said to be \emph{differentiable} at a point \(a \in U\) if the limit
         \[
             f'(a) := \lim_{x \to a} \frac{f(x)-f(a)}{x-a}
         \]
         exists in \(\kk\).
         If \(f\) is differentiable at every point in \(U\), we say that \(f\) is differentiable on \(U\).
-        \Yang{to be revised.}
     \end{definition}
 
-    \begin{proposition}\label{prop:failure_of_mean_valuable_theorem}
-        Let \((\kk,\|\cdot\|)\) be a non-archimedean field.
-        Then there exists a continuous function \(f:\kk \to \kk\) such that for any \(x,y \in \kk\) with \(x \neq y\), we have
-        \[
-            \frac{f(x)-f(y)}{x-y} = 0.
-        \]
+    Unlike the case of real or complex analysis, the differentiable functions over non-archimedean fields may behave very differently.
+    There exists differentiable functions with zero derivative that are not locally constant.
+
+    \begin{proposition}\label{prop:existence_of_almost_constant_functions}
+        Let \(\kk\) be a non-archimedean field.
+        Then there exists a function \(f:\kk \to \kk\) that is differentiable everywhere with \(f'(x) = 0\) for all \(x \in \kk\), but \(f\) is not locally constant.
+        % \Yang{To be checked.}
     \end{proposition}
+    \begin{proof}
+        Fix \(r \in (0,1)\).
+        Consider a descending sequence of open ball \(\{B(0,r^n)\}\) and \(a_n \in \kk\) with \(\|a_n\| = r^{2n}\).
+        Define 
+        \[ f:\kk \to \kk, \quad x \mapsto \begin{cases}
+            a_n, & x \in B(0,r^n) \setminus B(0,r^{n+1}) \\
+            0, & x = 0
+        \end{cases} \]
+        Then 
+        \[ f'(0) = \lim_{x \to 0} \frac{f(x)-f(0)}{x-0} = \lim_{n \to \infty} \frac{a_n - 0}{x_n - 0} \]
+        for any sequence \(x_n \to 0\) with \(x_n \in B(0,r^n) \setminus B(0,r^{n+1})\).
+        Since \(\|x_n\| \geq r^{n+1}\), we have
+        \[ \left\| \frac{a_n}{x_n} \right\| \leq \frac{r^{2n}}{r^{n+1}} = r^{n-1} \to 0 \]
+        as \(n \to \infty\).
+        Thus \(f'(0) = 0\) and then \(f'(x) = 0\) for all \(x \in \kk\).
+        However, \(f\) is not locally constant near \(0\).
+    \end{proof}
 
-\subsection{Power series}
+    \begin{definition}\label{def:strictly_differentiable_function}
+        Let \(\kk\) be a valuation field and \(U \subset \kk\) be an open subset.
+        A function \(f:U \to \kk\) is said to be \emph{strictly differentiable} at a point \(a \in U\) if the limit
+        \[
+            f'(a) := \lim_{\substack{(x,y) \to (a,a) \\ x \neq y}} \frac{f(x)-f(y)}{x-y}
+        \]
+        exists in \(\kk\).
+        If \(f\) is strictly differentiable at every point in \(U\), we say that \(f\) is strictly differentiable on \(U\).
+    \end{definition}
 
-    \begin{lemma}\label{prop:convergence_of_series}
-        Let \((\kk,\|\cdot\|)\) be a non-archimedean field and \(\sum_{n=0}^{+\infty} a_n\) be a series in \(\kk\).
+    \begin{remark}\label{rmk:strictly_differentiable_function_on_archimedean_fields}
+        If \(\kk\) is a complete archimedean field (i.e., \(\bbR\) or \(\bbC\)), then a function \(f:U \to \kk\) is strictly differentiable at a point \(a \in U\) if and only if \(f\) is differentiable at \(a\) and the derivative \(f'\) is continuous at \(a\).
+        % \Yang{To be added.}
+    \end{remark}
+
+    \begin{proposition}\label{prop:strictly_differentiable_functions_are_locally_isometric}
+        Let \(\kk\) be a non-archimedean complete field and \(U \subset \kk\) be an open subset.
+        Suppose that \(f:U \to \kk\) is strictly differentiable and \(f'(a) \neq 0\) for some \(a \in U\).
+        There exists an open neighborhood \(V \subset U\) of \(a\) such that \(x \mapsto f(x)/f'(a)\) is an isometry on \(V\).
+        % \Yang{To be checked.}
+    \end{proposition}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
+\subsection{Tate algebras}
+
+    \begin{lemma}\label{prop:convergence_of_series_over_non_archimedean_fields}
+        Let \(\kk\) be a non-archimedean field and \(\sum_{n=0}^{+\infty} a_n\) be a series in \(\kk\).
         Then the series \(\sum_{n=0}^{+\infty} a_n\) converges if and only if \(\lim_{n \to +\infty} a_n = 0\).
-        \Yang{To be checked.}
+        % \Yang{To be checked.}
     \end{lemma}
+    \begin{proof}
+        The necessity is clear and true for all fields.
+        Suppose that \(\lim_{n \to +\infty} a_n = 0\).
+        
+        \Yang{To be added.}
+    \end{proof}
 
     \begin{proposition}\label{prop:convergent_radius_of_power_series}
-        Let \((\kk,\|\cdot\|)\) be a non-archimedean field and \(\sum_{n=0}^{+\infty} a_n (x - c)^n\) be a power series in \(\kk\).
-        Then there exists a radius of convergence \(R \in \bbR_{\geq 0} \cup \{+\infty\}\) such that the series converges for all \(x \in \kk\) with \(\|x - c\| < R\) and diverges for all \(x \in \kk\) with \(\|x - c\| > R\).
-        \Yang{To be revised.}
+        Let \(\kk\) be a non-archimedean field and \(f = \sum_{n=0}^{+\infty} a_n x^n \in \kk[[x]]\).
+        Set 
+        \[
+            R := \frac{1}{\limsup_{n \to +\infty} \|a_n\|^{1/n}} \in \bbR_{\geq 0} \cup \{+\infty\}.
+        \]
+        Then we have 
+        \begin{enumerate}
+            \item if \(R = 0\), then the series \(f(x)\) converges only at \(x = 0\);
+            \item if \(R = +\infty\), then the series \(f(x)\) converges for all \(x \in \kk\);
+            \item if \(0 < R < +\infty\), then the series \(f(x)\) converges for all \(x \in \kk\) with \(\|x\| < R\) and diverges for all \(x \in \kk\) with \(\|x\| > R\).
+        \end{enumerate}
+        Suppose that \(0 < R < +\infty\).
+        Then the series \(f(x)\) converges for all \(x \in \kk\) with \(\|x\| = R\) if and only if \(\lim_{n \to +\infty} \|a_n\| R^n = 0\).
+        
+        % \Yang{To be revised.}
     \end{proposition}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
 
-    \begin{proposition}\label{prop:convergent_series_over_non_archimedean_fields}
-        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(\sum_{n=0}^{+\infty} a_n\) be a series in \(\kk\).
-        Then the series \(\sum_{n=0}^{+\infty} a_n\) converges if and only if \(\lim_{n \to +\infty} a_n = 0\).
-        \Yang{To be checked.}
-    \end{proposition}
+    \begin{notation}\label{notation:mult-label_for_Tate_algebra}
+        Let \(T = (T_1, \ldots, T_n)\) be a tuple of \(n\) indeterminates, \(r = (r_1, \ldots, r_n)\) be a tuple of \(n\) positive real numbers, and \(\alpha = (\alpha_1, \ldots, \alpha_n) \in \bbN^n\) be a multi-index.
+        We use the following notations:
+        \begin{itemize}
+            \item \(T^\alpha := T_1^{\alpha_1} T_2^{\alpha_2} \cdots T_n^{\alpha_n}\) and \(r^\alpha := r_1^{\alpha_1} r_2^{\alpha_2} \cdots r_n^{\alpha_n}\);
+            \item \(\underline{T/r} := (T_1/r_1, T_2/r_2, \ldots, T_n/r_n)\);
+            \item \(E(x,r) = \{y \in \kk^n \mid \|y_i - x_i\| \leq r_i, i = 1, \ldots, n\}\) and \(B(x,r) = \{y \in \kk^n \mid \|y_i - x_i\| < r_i, i = 1, \ldots, n\}\) for \(x = (x_1, \ldots, x_n) \in \kk^n\).
+        \end{itemize}
+    \end{notation}
 
     \begin{definition}\label{def:Tate_algebra}
-        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field.
+        Let \(\kk\) be a complete non-archimedean field.
+        Let \(T = (T_1, \ldots, T_n)\) be a tuple of \(n\) indeterminates and \(r = (r_1, \ldots, r_n)\) be a tuple of \(n\) positive real numbers.
+        The \emph{Tate algebra} (or \emph{restricted power series}) is defined as 
+        \[
+            \kk\langle \underline{r^{-1}T} \rangle := \kk \{ \underline{r^{-1}T} \} := \left\{ \sum_{\alpha \in \bbN^n} a_\alpha T^\alpha \mid a_\alpha \in \kk, \lim_{\|\alpha\| \to +\infty} \|a_\alpha\| r^\alpha = 0 \right\}.
+        \]
     \end{definition}
+
+    \begin{proposition}\label{prop:Tate_algebra_is_a_branch_algebra_over_k}
+        Let \(\kk\) be a complete non-archimedean field.
+        Then the Tate algebra \(\kk\langle \underline{T/r} \rangle\) is a Banach \(\kk\)-algebra with respect to the \emph{gauss norm}
+        \[
+            \left\| \sum_{\alpha \in \bbN^n} a_\alpha T^\alpha \right\| := \sup_{\alpha \in \bbN^n} \|a_\alpha\|r^\alpha.
+        \]
+        % \Yang{To be checked.}
+    \end{proposition}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
+    \begin{proposition}\label{prop:Tate_algebra_as_functions_ring}
+        Let \(\kk\) be a complete non-archimedean field.
+        Then the Tate algebra \(\kk\langle \underline{T/r} \rangle\) can be identified with a subring of the ring of all functions from the closed polydisc \(E(0,r) \subset \kk^n\) to \(\kk\).
+        % \Yang{To be checked.}
+    \end{proposition}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
 
     \begin{proposition}\label{prop:norm_of_Tate_algebra_coincides_with_the_suprum_norm}
-        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field.
-        Then the norm on the Tate algebra \(\kk\langle x_1, \ldots, x_n \rangle\) coincides with the supremum norm on the closed unit polydisc in \(\kk^n\).
-        \Yang{To be checked.}
-        
+        Let \(\kk\) be a complete non-archimedean field.
+        Then the gauss norm on the Tate algebra \(\kk\langle x_1, \ldots, x_n \rangle\) coincides with the supremum norm 
+        \[ \|f\|_{\sup} := \sup_{x \in D^n} \|f(x)\|. \]
+        % \Yang{To be checked.}
     \end{proposition}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
 
-\subsection{Analytic functions and maps}
 
-    As in the case of real analysis, we can define analytic functions over non-archimedean fields using power series.
 
-    \begin{definition}\label{def:analytic_functions}
-        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(U \subset \kk\) be an open subset.
-        A function \(f:U \to \kk\) is said to be \emph{analytic} at a point \(c \in U\) if there exists a power series \(\sum_{n=0}^{+\infty} a_n (x - c)^n\) that converges to \(f(x)\) for all \(x\) in some neighborhood of \(c\).
-        If \(f\) is analytic at every point in \(U\), we say that \(f\) is analytic on \(U\).
-        \Yang{to be revised.}
-    \end{definition}
+\subsection{Fundamental properties}
+
+    Then following shows that analytic functions over non-archimedean fields share some nice properties as in the case of complex analysis.
+    \Yang{To be revised.}
 
     \begin{theorem}\label{prop:analytic_function_is_lipschitz}
         Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(U \subset \kk\) be an open subset.
@@ -69,8 +163,8 @@
         \Yang{To be checked.}
     \end{theorem}
 
-    \begin{theorem}\label{prop:maximal_module_principle}
-        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(U \subset \kk\) be an open subset.
-        If \(f:U \to \kk\) is an analytic function, then \(f\) satisfies the maximum modulus principle, i.e., if there exists a point \(x_0 \in U\) such that \(\|f(x_0)\| \geq \|f(x)\|\) for all \(x \in U\), then \(f\) is constant on \(U\).
+    \begin{theorem}[Strassman]\label{prop:rigidity_of_analytic_series}
+        Let \(\kk\) be a complete non-archimedean field and \(f(x) = \sum_{n=0}^{+\infty} a_n x^n\) be an analytic function on the closed unit disc in \(\kk\).
+        Then \(f\) has only finitely many zeros in the closed unit disc unless \(f\) is identically zero.
         \Yang{To be checked.}
     \end{theorem}
