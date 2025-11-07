@@ -77,3 +77,28 @@
         Thus \(B(x,r/2) \cap S\) is both open and closed in \(S\), however, it is non-empty and not equal to \(S\) since it contains \(x\) but not \(y\).
         This shows that \(S\) is disconnected.
     \end{proof}
+
+    \begin{proposition}\label{prop:convergence_in_ultra-metric_space}
+        Let \((X,d)\) be an ultra-metric space.
+        A sequence \(\{x_n\}\) in \(X\) is cauchy if and only if \(d(x_n,x_{n+1}) \to 0\) as \(n \to \infty\).
+    \end{proposition}
+    \begin{proof}
+        The necessity is true for all metric spaces.
+        Suppose that \(d(x_n,x) \to 0\) as \(n \to \infty\).
+        For any \(\varepsilon > 0\), there exists \(N \in \bbN\) such that \(d(x_n,x_{n+1}) < \varepsilon\) for all \(n \geq N\).
+        For any \(m,n \geq N\) with \(m < n\), by the strong triangle inequality, we have
+        \[ d(x_n,x_m) \leq \max\{d(x_n,x_{n-1}), d(x_{n-1},x_m)\} \leq \max\{d(x_n,x_{n-1}), d(x_{n-1},x_{n-2}), \ldots, d(x_{m+1},x_m)\} < \varepsilon. \]
+        This shows that \(\{x_n\}\) is a cauchy sequence.
+    \end{proof}
+
+    % Let \(\{x_{\alpha}\}_{\alpha \in \bbN^n}\) be a net of elements in a metric space \(X\) indexed by multi-indices \(\alpha \in \bbN^n\).
+    % We say that \(\lim_{|\alpha| \to +\infty} x_\alpha = x \in X\) if for every \(\varepsilon > 0\), there exists \(N \in \bbN\) such that for all \(\alpha \in \bbN^n\) with \(|\alpha| > N\), we have \(d(x_\alpha, x) < \varepsilon\).
+    % % We say that \(\{x_\alpha\}_{\alpha \in \bbN^n}\) is a cauchy net if for every \(\varepsilon > 0\), there exists \(N \in \bbN\) such that for all \(\alpha, \beta \in \bbN^n\) with \(|\alpha|, |\beta| > N\), we have \(d(x_\alpha, x_\beta) < \varepsilon\).
+    % % Easily to see that \(\{x_\alpha\}_{\alpha \in \bbN^n}\) is cauchy if it converges.
+    % % And the converse is also true if \(X\) is complete.
+    % More generally, we have the following result for multi-indexed nets.
+
+    % \begin{proposition}\label{prop:convergence_of_multi-index_in_ultra-metric_space}
+    %     Let \((X,d)\) be a complete ultra-metric space.
+    %     A net \(\{x_\lambda\}_{\lambda \in \bbN^n}\) in \(X\) converges iff for every \(\varepsilon > 0\), there exists \(N \in \bbN\) such that for all \(\lambda, \mu \in \bbN^n\) with \(|\lambda|, |\mu| > N\) and \(|\lambda| - |\mu| = 1\), we have \(d(x_\lambda, x_\mu) < \varepsilon\).
+    % \end{proposition}

@@ -50,8 +50,28 @@
         Direct verification shows that \(\Psi = \Phi^{-1}\).
     \end{proof}
 
+    \begin{corollary}\label{prop:residue_field_of_completion_is_equal_to_the_original_fields}
+        Let \(\kk\) be a non-archimedean field and \(\widehat{\kk}\) its completion.
+        Then the residue field \(\calk_{\widehat{\kk}} \cong \calk_\kk\) under the natural embedding \(\kk^\circ \hookrightarrow \widehat{\kk}^\circ\).
+    \end{corollary}
+
+    \begin{corollary}\label{prop:valuation_group_of_completion_is_equal_to_the_original_fields}
+        Let \(\kk\) be a non-archimedean field and \(\widehat{\kk}\) its completion.
+        Then the valuation group \(|\widehat{\kk}^\times|\) of \(\widehat{\kk}\) is equal to the valuation group \(|\kk^\times|\) of \(\kk\).
+    \end{corollary}
+    \begin{proof}
+        Note that 
+        \begin{align*}
+            r \in |\widehat{\kk}^\times| &\iff I_{r,<} \subsetneqq I_{r,\leq} \text{ in } \widehat{\kk}^\circ \\
+            &\iff \widehat{\kk}^\circ / I_{r,<} \to \widehat{\kk}^\circ / I_{r,\leq} \text{ is not an isomorphism} \\
+            &\iff \kk^\circ / I_{r,<} \to \kk^\circ / I_{r,\leq} \text{ is not an isomorphism} \\
+            &\iff I_{r,<} \subsetneqq I_{r,\leq} \text{ in } \kk^\circ \\
+            &\iff r \in |\kk^\times|.
+        \end{align*}
+    \end{proof}
+
     \begin{proposition}\label{prop:locally_compact_NA_field_iff_it_is_pro-finite}
-        Let \(\kk\) be a non-archimedean field.
+        Let \(\kk\) be a non-archimedean field with non-trivial valuation.
         Then \(\kk^\circ\) is totally bounded iff \(\kk^\circ / I_{r,<}\) and \(\kk^\circ / I_{r,\leq}\) are finite for each \(r \in [0,1]\).
         Moreover, if \(\kk\) is complete, then it is locally compact iff \(\kk^\circ/I_r\) is finite for each \(r \in (0,1)\).
         % \Yang{To be checked.}

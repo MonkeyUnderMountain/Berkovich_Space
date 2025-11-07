@@ -121,86 +121,93 @@
 
 \subsection{Finite field extensions}
 
-    % \begin{construction}\label{cons:absolute_value_on_finite_extension_of_valuation_fields}
-    %     Let \(\kk\) be a complete field and \(\bfl\) a finite extension of \(\kk\) with degree \(n = [\bfl : \kk]\).
-    %     For any \(a \in \bfl\), define
-    %     \[
-    %         |a|_{\bfl} := |N_{\bfl/\kk}(a)|_{\kk}^{1/n},
-    %     \]
-    %     where \(N_{\bfl/\kk}(a)\) is the norm of \(a\) from \(\bfl\) to \(\kk\).
-    %     More concretely, viewing \(\bfl\) as an \(n\)-dimensional vector space over \(\kk\), let \(m_a: \bfl \to \bfl\) be the \(\kk\)-linear map defined by multiplication by \(a\).
-    %     Then \(N_{\bfl/\kk}(a) = \det(m_a)\).
-    %     By \cref{prop:absolute_value_induced_by_norm_is_an_absolute_value}, \(|\cdot|_{\bfl}\) is an absolute value on \(\bfl\) extending the absolute value \(|\cdot|_{\kk}\) on \(\kk\).
-    %     \Yang{To be checked.}
-    % \end{construction}
-
-    % \begin{lemma}\label{prop:absolute_value_induced_by_norm_is_an_absolute_value}
-    %     Let \(\kk\) be a complete field and \(\bfl\) a finite extension of \(\kk\).
-    %     Then the function \(|\cdot|_{\bfl}\) defined in \cref{cons:absolute_value_on_finite_extension_of_valuation_fields} is an absolute value on \(\bfl\) extending the absolute value on \(\kk\).
-
-    %     Moreover, if \(\kk\) is non-archimedean, then so is \(\bfl\).        
-    % \end{lemma}
-    % \begin{proof}
-    %     \Yang{To be added.}
-    % \end{proof}
+    \begin{lemma}\label{prop:existence_of_absolute_value_on_finite_extension_of_complete_fields}
+        Let \(\kk\) be a complete field and \(\bfl\) a finite extension of \(\kk\).
+        Then there exists an absolute value on \(\bfl\) extending the absolute value on \(\kk\).
+    \end{lemma}
+    \begin{proof}
+        Fix a norm \(\|\cdot\|_V\) on the \(\kk\)-vector space \(V = \bfl\).
+        The norm \(\|\cdot\|_V\) induces an operator norm \(\|\cdot\|_{\op}\) on the \(\kk\)-vector space \(\End_{\kk}(V)\) as in \cref{prop:operator_norm_on_M_n_k_with_k_complete}.
+        For any \(a \in \bfl\), let \(\mu_a \in \End_{\kk}(V)\) be the \(\kk\)-linear map defined by multiplication by \(a\).
+        Note that \(a \mapsto \mu_a\) gives a embedding of \(\kk\)-algebras and if \(a \in \kk\), \(\|\mu_a\|_{\op} = \|a\|_{\kk}\).
+        Thus the restriction of \(\|\cdot\|_{\op}\) to \(\bfl\) gives an norm on \(\bfl\) extending that on \(\kk\).
+        The normed ring \((\bfl, \|\cdot\|_{\op})\) is a Banach ring since it is a finite-dimensional vector space over the complete field \(\kk\).
+        By \cref{thm:norm_spectrum_of_Banach_rings_is_nonempty}, there exists a multiplicative seminorm \(\|\cdot\|_{\bfl}\) on \(\bfl\) bounded by \(\|\cdot\|_{\op}\).
+        In particular, \(\|\cdot\|_{\bfl}\) is bounded by \(\|\cdot\|_{\kk}\) on \(\kk\).
+        On a field, if one norm is bounded by another norm, then they must be equal (consider the inverse elements).
+        Thus \(\|\cdot\|_{\bfl}\) extends the absolute value on \(\kk\).
+    \end{proof}
 
     \begin{theorem}\label{prop:absolute_value_on_finite_extension_of_complete_fields}
         Let \(\kk\) be a complete field and \(\bfl\) a finite extension of \(\kk\).
-        Then the absolute value on \(\bfl\) is uniquely determined by the absolute value on \(\kk\).
+        Then the absolute value on \(\bfl\) which extends the absolute value on \(\kk\) is uniquely determined by the absolute value on \(\kk\).
         Furthermore, we have 
         \[ \|\cdot\|_{\bfl} = \|N_{\bfl/\kk}(\cdot)\|_{\kk}^{1/n}, \]
         where \(n = [\bfl : \kk]\) and \(N_{\bfl/\kk}\) is the norm map from \(\bfl\) to \(\kk\).
         % \Yang{To be checked.}
     \end{theorem}
     \begin{proof}
-        Fix a norm \(\|\cdot\|_V\) on the \(\kk\)-vector space \(V = \bfl\).
-        The norm \(\|\cdot\|_V\) induces an operator norm \(\|\cdot\|_{\op}\) on the \(\kk\)-vector space \(\End_{\kk}(V)\) as in \cref{prop:operator_norm_on_M_n_k_with_k_complete}.
-        For any \(a \in \bfl\), let \(\mu_a \in \End_{\kk}(V)\) be the \(\kk\)-linear map defined by multiplication by \(a\).
-        Note that \(a \mapsto \mu_a\) is a \(\kk\)-algebra homomorphism and if \(a \in \kk\), \(\|\mu_a\|_{\op} = \|a\|_{\kk}\).
-
-        \begin{step}\label{step_in_thm_absolute_value_on_finite_extension_of_complete_fields:the_field_norm_is_the_spectral_radius}
-            Show that 
-            \[ \|N_{\bfl/\kk}(a)\|_{\kk} = \lim_{m \to \infty} \sqrt[m]{\|\mu_{a^{mn}}\|_{\op}} \eqqcolon \rho(a^n). \]
-        \end{step}
-
-        The existence of the limit \(\rho(a) = \lim_{m \to \infty} \sqrt[m]{\|\mu_{a^m}\|_{\op}}\) follows from the sub-multiplicativity of the operator norm.
-        And note that \(\rho(a^n) = \rho(a)^n\) for all \(a \in \bfl\) and \(n \in \bbN\).
-        We can assume that \(a \neq 0\).
-        Let \(b = a^n/N_{\bfl/\kk}(a) \in \bfl\).
+        Let \(\|\cdot\|_{\bfl}\) be arbitrary absolute value on \(\bfl\) extending that on \(\kk\).
+        We will show that \(\|\cdot\|_{\bfl}\) must be equal to \(\|N_{\bfl/\kk}(\cdot)\|_{\kk}^{1/n}\).
+        For any \(a \in \bfl\), set \(b = a^n/N_{\bfl/\kk}(a) \in \bfl\).
         Then \(N_{\bfl/\kk}(b) = 1\) and 
-        \[ \rho(b) = \lim_{m \to \infty} \sqrt[m]{\|\mu_{b^m}\|_{\op}} = \lim_{m \to \infty} \sqrt[m]{\frac{\|\mu_{a^{mn}}\|_{\op}}{\|N_{\bfl/\kk}(a)^m\|_{\kk}}} = \frac{\rho(a^n)}{\|N_{\bfl/\kk}(a)\|_{\kk}} \]
-        since \(N_{\bfl/\kk}\) is multiplicative and \(N_{\bfl/\kk}(a) \in \kk\).
-        Thus it suffices to show that \(\rho(b) = 1\). 
+        \[ \|b\|_{\bfl} = \frac{\|a\|_{\bfl}^n}{\|N_{\bfl/\kk}(a)\|_{\kk}}. \]
+        Thus it suffices to show that \(\|b\|_{\bfl} = 1\) whenever \(N_{\bfl/\kk}(b) = 1\).
 
-        Suppose that \(\rho(b) < 1\).
-        Then there exists \(\delta \in (0,1)\) and \(M > 0\) such that for all \(m \geq M\), \(\|\mu_{b^m}\|_{\op} < \delta^m\).
-        In particular, we have \(\mu_{b^m} \to 0\) as \(m \to \infty\) in the normed vector space \(\End_{\kk}(V)\).
-        However, note that \(\det\) is continuous on \(\End_{\kk}(V)\) (since it is a polynomial in the entries of the matrix representation).
-        Thus we have \(N_{\bfl/\kk}(b^m) = \det(\mu_{b^m}) \to 0\) as \(m \to \infty\), contradicting the fact that \(N_{\bfl/\kk}(b^m) = 1\) for all \(m\).
+        Note that the norm map \(N_{\bfl/\kk}: \bfl \to \kk\) is the determinant of the \(\kk\)-linear map \(\mu_b \in \End_{\kk}(V)\) defined by multiplication by \(b\).
+        Hence it is continuous on \(\bfl\) (since it is a polynomial in the entries of the matrix representation).
+        If \(\|b\|_{\bfl} < 1\), then \(\|b^m\|_{\bfl} \to 0\) as \(m \to \infty\).
+        Thus \(N_{\bfl/\kk}(b^m) = \det(\mu_{b^m}) \to 0\) as \(m \to \infty\), contradicting the fact that \(N_{\bfl/\kk}(b^m) = 1\) for all \(m\).
+        Similarly, if \(\|b\|_{\bfl} > 1\), then just consider \(b^{-1}\).
+
+        % Fix a norm \(\|\cdot\|_V\) on the \(\kk\)-vector space \(V = \bfl\).
+        % The norm \(\|\cdot\|_V\) induces an operator norm \(\|\cdot\|_{\op}\) on the \(\kk\)-vector space \(\End_{\kk}(V)\) as in \cref{prop:operator_norm_on_M_n_k_with_k_complete}.
+        % For any \(a \in \bfl\), let \(\mu_a \in \End_{\kk}(V)\) be the \(\kk\)-linear map defined by multiplication by \(a\).
+        % Note that \(a \mapsto \mu_a\) is a \(\kk\)-algebra homomorphism and if \(a \in \kk\), \(\|\mu_a\|_{\op} = \|a\|_{\kk}\).
+
+        % \begin{step}\label{step_in_thm_absolute_value_on_finite_extension_of_complete_fields:the_field_norm_is_the_spectral_radius}
+        %     Show that 
+        %     \[ \|N_{\bfl/\kk}(a)\|_{\kk} = \lim_{m \to \infty} \sqrt[m]{\|\mu_{a^{mn}}\|_{\op}} \eqqcolon \rho(a^n). \]
+        % \end{step}
+
+        % The existence of the limit \(\rho(a) = \lim_{m \to \infty} \sqrt[m]{\|\mu_{a^m}\|_{\op}}\) follows from the sub-multiplicativity of the operator norm.
+        % And note that \(\rho(a^n) = \rho(a)^n\) for all \(a \in \bfl\) and \(n \in \bbN\).
+        % We can assume that \(a \neq 0\).
+        % Let \(b = a^n/N_{\bfl/\kk}(a) \in \bfl\).
+        % Then \(N_{\bfl/\kk}(b) = 1\) and 
+        % \[ \rho(b) = \lim_{m \to \infty} \sqrt[m]{\|\mu_{b^m}\|_{\op}} = \lim_{m \to \infty} \sqrt[m]{\frac{\|\mu_{a^{mn}}\|_{\op}}{\|N_{\bfl/\kk}(a)^m\|_{\kk}}} = \frac{\rho(a^n)}{\|N_{\bfl/\kk}(a)\|_{\kk}} \]
+        % since \(N_{\bfl/\kk}\) is multiplicative and \(N_{\bfl/\kk}(a) \in \kk\).
+        % Thus it suffices to show that \(\rho(b) = 1\). 
+
+        % Suppose that \(\rho(b) < 1\).
+        % Then there exists \(\delta \in (0,1)\) and \(M > 0\) such that for all \(m \geq M\), \(\|\mu_{b^m}\|_{\op} < \delta^m\).
+        % In particular, we have \(\mu_{b^m} \to 0\) as \(m \to \infty\) in the normed vector space \(\End_{\kk}(V)\).
+        % However, note that \(\det\) is continuous on \(\End_{\kk}(V)\) (since it is a polynomial in the entries of the matrix representation).
+        % Thus we have \(N_{\bfl/\kk}(b^m) = \det(\mu_{b^m}) \to 0\) as \(m \to \infty\), contradicting the fact that \(N_{\bfl/\kk}(b^m) = 1\) for all \(m\).
         
-        if \(\rho(b) > 1\), 
-        \Yang{We can not get \(\rho(b^{-1}) < 1\) directly.}
+        % if \(\rho(b) > 1\), 
+        % \Yang{We can not get \(\rho(b^{-1}) < 1\) directly.}
 
-        \begin{step}\label{step_in_thm_absolute_value_on_finite_extension_of_complete_fields:triangle_inequality}
-            Show that 
-            \[ \rho(a + b) \leq \rho(a) + \rho(b) \]
-            and hence \(\|\cdot\|_{\bfl} = \|N_{\bfl/\kk}(\cdot)\|_{\kk}^{1/n}\) defines an absolute value on \(\bfl\) extending that on \(\kk\).
-        \end{step}
-
-
-        \begin{step}\label{step_in_thm_absolute_value_on_finite_extension_of_complete_fields:uniqueness_of_absolute_value}
-            Show the uniqueness of the absolute value on \(\bfl\) extending that on \(\kk\).
-        \end{step}
+        % \begin{step}\label{step_in_thm_absolute_value_on_finite_extension_of_complete_fields:triangle_inequality}
+        %     Show that 
+        %     \[ \rho(a + b) \leq \rho(a) + \rho(b) \]
+        %     and hence \(\|\cdot\|_{\bfl} = \|N_{\bfl/\kk}(\cdot)\|_{\kk}^{1/n}\) defines an absolute value on \(\bfl\) extending that on \(\kk\).
+        % \end{step}
 
 
+        % \begin{step}\label{step_in_thm_absolute_value_on_finite_extension_of_complete_fields:uniqueness_of_absolute_value}
+        %     Show the uniqueness of the absolute value on \(\bfl\) extending that on \(\kk\).
+        % \end{step}
 
 
-        \Yang{To be added.}
+
+
+        % \Yang{To be added.}
     \end{proof}
 
-    \begin{remark}\label{rmk:compatiblity_of_extension_and_completion}
-        \Yang{I want to discuss some compatiblity of extension and completion.}
-    \end{remark}
+    % \begin{remark}\label{rmk:compatiblity_of_extension_and_completion}
+    %     \Yang{I want to discuss some compatiblity of extension and completion.}
+    % \end{remark}
 
     \begin{proposition}\label{prop:completion_of_algebraically_closed_valuation_fields_is_algebraically_closed}
         Let \(\kk\) be an algebraically closed non-archimedean field.
@@ -208,5 +215,17 @@
         % \Yang{To be checked.}
     \end{proposition}
     \begin{proof}
-        \Yang{To be added.}
+        Let \(f \in \widehat{\kk}[X]\) be a non-constant polynomial.
+        We will show that \(f\) has a root in \(\widehat{\kk}\).
+        Take a sequence of polynomials \(\{f_n\}_{n \in \bbN}\) in \(\kk[X]\) converging to \(f\) coefficient-wisely.
+        Since \(\kk\) is algebraically closed, each \(f_n\) splits completely in \(\kk\) and hence in \(\widehat{\kk}\).
+        Write \(f_n(X) = \prod_{i=1}^d (X - \alpha_{n,i})\) with \(\alpha_{n,i} \in \widehat{\kk}\).
+
+        Let \(\bfl\) be a finite extension of \(\widehat{\kk}\) such that \(f\) has a root \(\alpha\) in \(\bfl\).
+        For every \(\varepsilon > 0\), if there are infinitely many \(n\) such that \(\alpha_{n,i} \notin B(\alpha, \varepsilon)\) for all \(1 \leq i \leq d\), 
+        then we have \(|f_n(\alpha)| \geq \varepsilon^d\) for infinitely many \(n\), contradicting the fact that \(f_n(\alpha) \to f(\alpha) = 0\).
+        Thus for every \(\varepsilon > 0\), there exists \(N > 0\) such that for all \(n \geq N\), there exists \(1 \leq i \leq d\) with \(\alpha_{n,i} \in B(\alpha, \varepsilon)\).
+        That is, we can find a sequence \(\alpha_{n,i_n} \in \kk\) converging to \(\alpha\).
+        Since \(\widehat{\kk}\) is complete, we have \(\alpha \in \widehat{\kk}\).
+        % \Yang{To be added.}
     \end{proof}
