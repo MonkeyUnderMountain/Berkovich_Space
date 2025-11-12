@@ -37,9 +37,10 @@
         \end{cases} \]
     \end{example}
 
-    \begin{definition}\label{def:valuation_group}
+    \begin{definition}\label{def:valuation_group_of_a_valuation_field}
         The \emph{(multiplicative) valuation group} of a valuation field \((\kk,\|\cdot\|)\) is defined as the subgroup of \(\bbR_{>0}\) given by
         \[ |\kk^\times| := \{\|x\|\colon x \in \kk^\times\}. \]
+        We use the notation \(\sqrt{|\kk^\times|}\) to denote the set \(\{\|x\|^{1/n}\colon x \in \kk^\times, n \in \bbZ_{>0}\}\).
     \end{definition}
 
     \begin{definition}\label{def:equivalent_of_absolute_values}
@@ -117,6 +118,20 @@
         \[ \bbQ_p = \left\{\sum_{n = k}^{+\infty} a_n p^n \colon k \in \bbZ, a_n \in \{0,1,\ldots,p-1\}\right\} \]
         of \(p\)-adic numbers equipped with the \(p\)-adic absolute value; see \Yang{to be added.}.
     \end{example}
+    
+    \begin{proposition}\label{prop:non-trivial_complete_field_is_uncountable}
+        Let \((\kk,\|\cdot\|)\) be a complete valuation field with non-trivial absolute value.
+        Then \(\kk\) is uncountable.
+    \end{proposition}
+    \begin{proof}
+        Since the absolute value \(\|\cdot\|\) is non-trivial, we can construct a sequence \(\{x_n\}_{n=1}^\infty \subseteq \kk\) inductively such that \(\|x_n\| < \|x_{n-1}\|/2\) for any \(n\geq 1\) and \(\|x_0\| < 1\).
+        Then there is an injective map from \(\bbN^{\{0,1\}}\) to \(\kk\) defined by
+        \[ (a_n)_{n=1}^\infty \mapsto \sum_{n=1}^\infty a_n x_n, \quad a_n \in \{0,1\}. \]
+        Since \(\|x_n\| < 2^{-n}\), the series \(\sum_{n=1}^\infty a_n x_n\) converges in \(\kk\).
+        Note \(\|x_n\| > \|\sum_{m\geq n} x_m\|\) for each \(n\), we have that the map is injective.
+        Thus \(\kk\) is uncountable.
+        % \Yang{To be added.}
+    \end{proof}
 
     Unlike the real number field \(\bbR\), even a valuation field is complete, we can not expect the theorem of nested intervals to hold.
 

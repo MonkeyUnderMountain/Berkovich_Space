@@ -65,28 +65,31 @@
 %         \Yang{To be added.}
 %     \end{proof}
 
+    Let \(\kk\) be a complete non-archimedean field with non-trivial valuation.
+    The following example shows that continuous or differentiable functions over \(\kk\) may behave very worse than over archimedean fields.
+    As a substitute, we will focus on convergent power series on a closed polydisc over \(\kk\).
 
-%     \begin{example}\label{eg:existence_of_almost_constant_functions_on_non-archimedean_fields}
-%         Let \(\kk\) be a non-archimedean field with non-trivial valuation.
-%         Then there exists a function \(f:\kk \to \kk\) that is differentiable everywhere with \(f'(x) = 0\) for all \(x \in \kk\), but \(f\) is not locally constant.
-%         % \Yang{To be checked.}
+    \begin{example}\label{eg:existence_of_almost_constant_functions_on_non-archimedean_fields}
+        Let \(\kk\) be a non-archimedean field with non-trivial valuation.
+        Then there exists a function \(f:\kk \to \kk\) that is differentiable everywhere with \(f'(x) = 0\) for all \(x \in \kk\), but \(f\) is not locally constant.
+        % \Yang{To be checked.}
 
-%         Fix \(r \in (0,1)\).
-%         Consider a descending sequence of open ball \(\{B(0,r^n)\}\) and \(a_n \in \kk\) with \(\|a_n\| = r^{2n}\).
-%         Define 
-%         \[ f:\kk \to \kk, \quad x \mapsto \begin{cases}
-%             a_n, & x \in B(0,r^n) \setminus B(0,r^{n+1}) \\
-%             0, & x = 0
-%         \end{cases} \]
-%         Then 
-%         \[ f'(0) = \lim_{x \to 0} \frac{f(x)-f(0)}{x-0} = \lim_{n \to \infty} \frac{a_n - 0}{x_n - 0} \]
-%         for any sequence \(x_n \to 0\) with \(x_n \in B(0,r^n) \setminus B(0,r^{n+1})\).
-%         Since \(\|x_n\| \geq r^{n+1}\), we have
-%         \[ \left\| \frac{a_n}{x_n} \right\| \leq \frac{r^{2n}}{r^{n+1}} = r^{n-1} \to 0 \]
-%         as \(n \to \infty\).
-%         Thus \(f'(0) = 0\) and then \(f'(x) = 0\) for all \(x \in \kk\).
-%         However, \(f\) is not locally constant near \(0\).
-%     \end{example}
+        Fix \(r \in (0,1)\).
+        Consider a descending sequence of open ball \(\{B(0,r^n)\}\) and \(a_n \in \kk\) with \(\|a_n\| = r^{2n}\).
+        Define 
+        \[ f:\kk \to \kk, \quad x \mapsto \begin{cases}
+            a_n, & x \in B(0,r^n) \setminus B(0,r^{n+1}) \\
+            0, & x = 0
+        \end{cases} \]
+        Then 
+        \[ f'(0) = \lim_{x \to 0} \frac{f(x)-f(0)}{x-0} = \lim_{n \to \infty} \frac{a_n - 0}{x_n - 0} \]
+        for any sequence \(x_n \to 0\) with \(x_n \in B(0,r^n) \setminus B(0,r^{n+1})\).
+        Since \(\|x_n\| \geq r^{n+1}\), we have
+        \[ \left\| \frac{a_n}{x_n} \right\| \leq \frac{r^{2n}}{r^{n+1}} = r^{n-1} \to 0 \]
+        as \(n \to \infty\).
+        Thus \(f'(0) = 0\) and then \(f'(x) = 0\) for all \(x \in \kk\).
+        However, \(f\) is not locally constant near \(0\).
+    \end{example}
 
 % \subsection{Restricted power series}
 
@@ -322,6 +325,36 @@
         % Hence above assignments define a homomorphism of \(\kk\)-algebras from \(\kk\{ \underline{T/r} \} \) to the ring of all functions from \(E(0,\underline{r})\) to \(\kk\).
     \end{proof}
 
+        \begin{proposition}\label{prop:analytic_function_is_lipschitz}
+        Let \(\kk\) be a complete non-archimedean field with non-trivial valuation.
+        Then for every \(f \in \kk\{ \underline{T/r} \} \) and \(x,y \in E(0,\underline{r})\), we have
+        \[ \|f(y) - f(x)\|_\kk \leq L \cdot \|y - x\|_{\infty}, \]
+        where \(L = \max_{1 \leq i \leq n} \|f\|_g/r_i\).
+        % \Yang{To be checked.}
+    \end{proposition}
+    \begin{proof}
+        Set \(y - x = (h_1, \ldots, h_n)\) and \(x^{(0)} = x\), \(x^{(i)} = (x_1 + h_1, \ldots, x_i + h_i, x_{i+1}, \ldots, x_n)\) for \(i = 1, \ldots, n\).
+        We have
+        \[ \|f(y) - f(x)\|_\kk \leq \max_{1 \leq i \leq n} \|f(x^{(i)}) - f(x^{(i-1)})\|_\kk. \]
+        We only need to show that for every \(i = 1, \ldots, n\), we have
+        \[ \|f(x^{(i)}) - f(x^{(i-1)})\|_\kk \leq \frac{\|f\|_g}{r_i} \|h_i\|. \]
+        Without loss of generality and for simplicity, we assume that \(y = (x_1 + h, x_2, \ldots, x_n)\) and \(x = (x_1, x_2, \ldots, x_n)\).
+        Note that by the strong triangle inequality, we have \(\|h\| \leq r_1\).
+
+        Let \(f = \sum_{\alpha \in \bbN^n} a_\alpha T^\alpha \in \kk\{ \underline{T/r} \} \).
+        We have
+        \begin{align*}
+            f(y) - f(x) &= \sum_{\alpha \in \bbN^n} a_\alpha \left( (x_1 + h)^{\alpha_1} - x_1^{\alpha_1} \right) x_2^{\alpha_2} \cdots x_n^{\alpha_n} \\
+            &= \sum_{\alpha \in \bbN^n}\sum_{k=1}^{\alpha_1} \binom{\alpha_1}{k} a_\alpha x_1^{\alpha_1 - k} x_2^{\alpha_2} \cdots x_n^{\alpha_n}h^k.
+        \end{align*}
+        Note that
+        \[ \left\|\binom{\alpha_1}{k} a_\alpha x_1^{\alpha_1 - k} x_2^{\alpha_2} \cdots x_n^{\alpha_n} \right\| r_1^{k} \leq \|a_\alpha\| r^\alpha \leq \|f\|_g. \]
+        It follows that
+        \[ \|f(y) - f(x)\|_\kk \leq \max_{\alpha \in \bbN^n} \max_{1 \leq k \leq \alpha_1} \left\{ \left\|\binom{\alpha_1}{k} a_\alpha x_1^{\alpha_1 - k} x_2^{\alpha_2} \cdots x_n^{\alpha_n} \right\| \|h\|^k \right\} \leq \max_{k}\left\{\|f\|_g \left(\frac{\|h\|}{r_1}\right)^k\right\} \leq \|f\|_g \frac{\|h\|}{r_1}. \]
+        Thus the conclusion follows.
+        % \Yang{To be added.}
+    \end{proof}
+
     \begin{lemma}\label{prop:convergence_of_restricted_power_series_imply_convergence_of_functions}
         Let \(\kk\) be a complete non-archimedean field.
         Then we have \(\|f(x)\| \leq \|f\|\) for every \(f \in \kk\{ \underline{T/r} \} \) and \(x \in E(0,\underline{r})\).
@@ -376,8 +409,9 @@
     \end{proof}
 
     \begin{remark}\label{rmk:restricted_power_series_to_function_ring_is_injective}
-        \cref{prop:restricted_power_series_to_function_ring_is_injective} holds for non-archimedean fields of positive characteristic as well.
-        The proof uses \Yang{ref.}
+        \cref{prop:restricted_power_series_to_function_ring_is_injective_in_char_0} holds for non-archimedean fields of positive characteristic as well.
+        The proof uses \cref{prop:rigidity_of_analytic_series} and induction on the number of variables.
+        The readers can try this as an exercise.
     \end{remark}
 
     From now on, we will identify an element \(f \in \kk\{ \underline{T/r} \} \) with the associated function \(F_f:E(0,\underline{r}) \to \kk\) as in \cref{prop:Tate_algebra_as_functions_ring}.
@@ -391,39 +425,53 @@
         % \Yang{To be checked.}
     \end{proposition}
     \begin{proof}
-        \Yang{To be added.}
+        Let \(f = \sum_{\alpha \in \bbN^n} a_\alpha T^\alpha \in \kkk\{ \underline{T/r} \} \).
+        We write \(f = g+h\) with \(g = \sum_{\alpha \in S} a_\alpha T^\alpha\) and \(h = \sum_{\alpha \notin S} a_\alpha T^\alpha\), where
+        \[ S = \left\{ \alpha \in \bbN^n : \|a_\alpha\| r^\alpha = \|f\| \right\}. \]
+        Note that \(S\) is a non-empty finite set and \(\|h\| < \|f\|\).
+        By \cref{prop:convergence_of_restricted_power_series_imply_convergence_of_functions}, we have \(\|h(x)\| < \|f\|\) for every \(x \in E(0,\underline{r})\).
+        It suffices to show that \(\|g\|_{\sup} = \|g\|\).
+
+        Since \(\kkk\) is algebraically closed, \(|\kkk^\times|\) is dense in \(\bbR_{>0}\).
+        For every pair \(\alpha, \beta \in S\) with \(\alpha \neq \beta\), the set \(\{t \in \bbR_{>0}^n : \|a_\alpha\| t^\alpha = \|a_\beta\| t^\beta\}\) is a proper closed subset of \(\bbR_{>0}^n\).
+        Thus we can find \(t_m \in |\kkk^\times|^n\) such that \(t_m < r\), \(t_m \to r\) as \(m \to +\infty\) and for every \(\alpha, \beta \in S\) with \(\alpha \neq \beta\), we have \(\|a_\alpha\|t_m^\alpha \neq \|a_\beta\|t_m^\beta\) for all \(m\).
+        For each \(m\), we can find \(x_m \in E(0,\underline{r})\) such that \(\|x_m^\alpha\| = t_m^\alpha\) for every \(\alpha \in S\) since \(t_m \in |\kkk^\times|^n\).
+        It follows that
+        \[ \|g(x_m)\| = \max_{\alpha \in S} \|a_\alpha\| \|x_m^\alpha\| = \max_{\alpha \in S} \|a_\alpha\| t_m^\alpha \to \|g\| \quad \text{ as } m \to +\infty. \]
+        Thus \(\|g\|_{\sup} = \|g\|\).
+        % \Yang{To be added.}
     \end{proof}
 
     \begin{remark}\label{prop:gauss_norm_does_not_coincides_with_the_suprum_norm_over_non-algebraically_closed_fields}
-        The condition ``algebraically closed'' in \cref{prop:gauss_norm_coincides_with_the_suprum_norm} can be weakened to ``not locally compact''.
-        \Yang{To be continued.}
-        
-        If \(\kk\) is locally compact, the gauss norm on the Tate algebra \(\kk\{ \underline{T/r} \} \) may not coincide with the supremum norm.
+        % The condition ``algebraically closed'' in \cref{prop:gauss_norm_coincides_with_the_suprum_norm} can be weakened to ``not locally compact''.
+        % \Yang{To be continued.}
+        If \(\kk\) is not algebraically closed, the gauss norm on the Tate algebra \(\kk\{ \underline{T/r} \} \) may not coincide with the supremum norm.
         For example, consider the Tate algebra \(\bbQ_p\{T\}\).
         The element \(f = T^p - T\) has gauss norm \(\|f\| = 1\).
         However, for every \(x \in E(0,1) = \bbZ_p\), we have \(f(x) = x^p - x \equiv 0 \mod p\).
         Thus \(\|f(x)\|_p \leq 1/p\) and \(\|f\|_{\sup} \leq 1/p < 1 = \|f\|\).
-        \Yang{To be continued.}
+        % \Yang{To be continued.}
     \end{remark}
 
     \begin{remark}\label{rmk:closure_of_polynomials_with_respect_to_supremum_norm_is_Tate_algebra}
-        \Yang{comparison with the Weierstrass-Stone theorem in classical analysis.}
+        Recall the Weierstrass-Stone theorem in classical analysis which states that 
+        the closure of the polynomial ring \(\bbC[T_1, \ldots, T_n]\) with respect to the supremum norm on a closed polydisc \(E \subset \bbC^n\) is the ring of all complex-valued continuous functions on \(E\).
+        
+        In the context of non-archimedean analysis, \cref{prop:gauss_norm_coincides_with_the_suprum_norm} can be viewed as an analogue of this theorem.
+        It states that the closure of the polynomial ring \(\kkk[T_1, \ldots, T_n]\) with respect to the supremum norm on a closed polydisc \(E(0,\underline{r}) \subset \kkk^n\) is the Tate algebra \(\kkk\{ \underline{T/r} \} \).
+        
+        From this perspective, the Tate algebra can be viewed as the ``correct'' analogue of the ring of continuous functions on a closed polydisc in non-archimedean analysis.
+        % \Yang{comparison with the Weierstrass-Stone theorem in classical analysis.}
     \end{remark}
 
-    Then following shows that analytic functions over non-archimedean fields share some nice properties as in the case of complex analysis.
-    \Yang{To be revised.}
-
-    \begin{theorem}\label{prop:analytic_function_is_lipschitz}
-        Let \((\kk,\|\cdot\|)\) be a complete non-archimedean field and \(U \subset \kk\) be an open subset.
-        If \(f:U \to \kk\) is an analytic function, then \(f\) is locally Lipschitz continuous on \(U\).
-        \Yang{To be checked.}
-    \end{theorem}
+    % Then following shows that analytic functions over non-archimedean fields share some nice properties as in the case of complex analysis.
+    % \Yang{To be revised.}
 
     \begin{theorem}[Strassman]\label{prop:rigidity_of_analytic_series}
         Let \(\kk\) be a complete non-archimedean field with non-trivial valuation and \(f = \sum a_n T^n \in \kk\{T/r\}\) be an analytic function.
         Suppose that \(\|a_N\|r^N > \|a_n\|r^n\) for all \(n > N\).
         Then \(f\) has at most \(N\) zeros in the closed ball \(E(0,r)\).
-        \Yang{To be checked.}
+        % \Yang{To be checked.}
     \end{theorem}
     \begin{proof}
         We induct on \(N\).
@@ -435,16 +483,18 @@
         That is,
         \[ b_k = \sum_{n=0}^\infty a_{k+1+n} x^n. \]
         Hence we have 
-        \[ \|b_k\|r^k = \max_{n\geq k+1} \|a_{k+1+n} x^n\|r^k \leq \max_{n \geq k+1}\|a_{k+1+n}\| r^{n+k} \to 0 \quad \text{ as } k \to \infty. \]
+        \[ \|b_k\|r^k = \max_{n\geq k+1} \|a_{n} x^{n-k-1}\|r^k \leq \max_{n \geq k+1}\|a_{n}\| r^{n-1} \to 0 \quad \text{ as } k \to \infty. \]
         It follows that \(g(T) \in \kk\{T/r\}\).
 
         For every \(n > N\), we have 
-        \[ \|a_N\| > \|a_{n}\|r^{n-N}. \]
+        \[ \|a_N\| > \|a_{n}\|r^{n-N} \geq \|a_n x^{n-N}\|. \]
         Hence 
-        \[ \left\|\sum_{n=N}^{N+m} a_n x^{n-N-1}\right\| = \|a_N\| \]
+        \[ \left\|\sum_{n=N}^{N+m} a_n x^{n-N}\right\| = \|a_N\| \]
         for every \(m \in \bbN\) by \cref{prop:all_triangles_in_ultra-metric_space_are_isosceles}.
         Take \(m \to +\infty\), we have \(\|b_{N-1}\| = \|a_N\|\).
         For every \(k > N - 1\), we have
-        \[ \|b_N - \]
-        \Yang{To be add.}
+        \[ \|b_k\|r^k = \max_{n \geq k+1} \|a_n\| r^{n-1} \leq \max_{n > N} \|a_n\| r^{n-1} < \|a_N\| r^{N-1} = \|b_{N-1}\| r^{N-1}. \]
+        By the induction hypothesis, \(g\) has at most \(N-1\) zeros in \(E(0,r)\).
+        It follows that \(f\) has at most \(N\) zeros in \(E(0,r)\) since \(f(T) = (T - x) \cdot g(T)\).
+        % \Yang{To be add.}
     \end{proof}
