@@ -1,0 +1,196 @@
+\section{Spectrum}
+
+    % Let \(A\) be an integral \(\kk\)-algebra with \(\kk\) complete non-archimedean algebraically closed field.
+    % For every \(\frakm \in \Spec A\), the absolute value on \(A/\frakm \cong \kk\) induces a multiplicative semi-norm on \(A\) by \(|f|_\frakm := |f \mod \frakm|\) for each \(f \in A\).
+
+    % Suppose that we have an absolute value \(\|\cdot\|\) on \(\KK = \Frac A\) extending that on \(\kk\).
+    % It induces a norm on \(A\) by restriction, denoted by \(\|\cdot\|_\eta\).
+
+    % Then we can ``deform'' \(\|\cdot\|_\eta\) to \(|\cdot|_\frakm\) as follows:
+
+    Let \(\kk\) be a spherically complete non-archimedean field which is algebraically closed and \(A = \kk[T]\).
+    We want to consider the ``analytic structure'' on \(\mSpec A\).
+    However, unlike the complex case, the set \(\mSpec A\) is totally disconnected with respect to the topology induced by the absolute value on \(\kk\) (\cref{prop:ultra-metric_space_is_totally_disconnected}).
+    To overcome this difficulty, Berkovich uses multiplicative semi-norms to ``fill in the gaps'' between the points in \(\mSpec A\), leading to the notion of the spectrum of a Banach ring.
+
+    We first consider the local model.
+    Hence we should consider the Tate algebra \(\kk\{T\}\) instead of the polynomial ring \(\kk[T]\).
+    \Yang{The maximal ideal of \(\kk\{T\}\) corresponding to the point in the disk \(\{a \in \kk\colon a \leq 1 \}\)}.
+    \Yang{Closed or open disk?}
+
+\subsection{Definition}
+
+    \begin{definition}\label{def:spectrum_of_Banach_rings}
+        Let \(R\) be a Banach ring.
+        The \emph{spectrum} \(\scrM(R)\) of \(R\) is defined as the set of all multiplicative semi-norms on \(R\) that are bounded with respect to the given norm on \(R\).
+        For every point \(x \in \scrM(R)\), we denote the corresponding multiplicative semi-norm by \(|\cdot|_x\).
+        We equip \(\scrM(R)\) with the weakest topology such that for each \(f \in R\), the evaluation map \(\scrM(R) \to \bbR_{\geq 0}\), defined by \(x \mapsto |f|_x\eqqcolon f(x)\), is continuous.
+    \end{definition}
+    
+    \begin{definition}\label{def:pullback_of_ring_homomorphism_of_banach_rings_on_spectrum}
+        Let \(\varphi: R \to S\) be a bounded ring homomorphism of Banach rings.
+        The \emph{pullback} map \(\scrM(\varphi): \scrM(S) \to \scrM(R)\) is defined by \(\scrM(\varphi)(x) = x \circ \varphi: f \mapsto |\varphi(f)|_x\) for each \(x \in \scrM(S)\).
+        % \Yang{To be revised.}
+    \end{definition}
+
+    % For \(x \in \scrM(R)\), \Yang{the kernel of the multiplicative semi-norm \(|\cdot|_x\) is a closed prime ideal of \(R\)}, denoted by \(\wp_x\).
+    % The semi-norm \(|\cdot|_x\) induces a multiplicative norm on the residue field \(\rkk(x) = \Frac(R/\wp_x)\), denoted by \(|\cdot|_{x}\) as well. 
+
+    % \begin{definition}\label{def:character_of_banach_rings}
+    %     Let \(R\) be a Banach ring.
+    %     A \emph{character} of \(R\) is a bounded ring homomorphism \(\chi: R \to K\), where \(K\) is a completed field.
+    %     Two characters \(\chi_1: R \to K_1\) and \(\chi_2: R \to K_2\) are said to be \emph{equivalent} if there exists a commutative diagram of bounded ring homomorphisms
+    %     \[
+    %         \begin{tikzcd}
+    %             & R \arrow[dl, "\chi_1"'] \arrow[dr, "\chi_2"] \arrow[d] & \\
+    %             K_1 & K \arrow[l,hook'] \arrow[r,hook] & K_2
+    %         \end{tikzcd}
+    %     \]
+    %     for some completed field \(K\).
+    %     % \Yang{This is wrong, need to revised.}
+    % \end{definition}
+
+    % \begin{proposition}\label{prop:spectrum_of_banach_rings_and_equivalence_class_of_characters}
+    %     Let \(R\) be a Banach ring.
+    %     The spectrum \(\scrM(R)\) is in bijection with the equivalence classes of characters of \(R\).
+    % \end{proposition}
+    % \begin{proof}
+    %     \Yang{To be completed}
+    % \end{proof}
+
+    \begin{proposition}\label{prop:map_from_M_R_to_Spec_R}
+        Let \(R\) be a Banach ring.
+        For each \(x \in \scrM(R)\), let \(\wp_x\) be the kernel of the multiplicative semi-norm \(|\cdot|_x\).
+        Then \(\wp_x\) is a closed prime ideal of \(R\), and \(x \mapsto \wp_x\) defines a continuous map from \(\scrM(R)\) to \(\Spec(R)\) equipped with the Zariski topology.
+    \end{proposition}
+    \begin{proof}
+        \Yang{To be completed}
+    \end{proof}
+
+    \begin{definition}
+        Let \(R\) be a Banach ring.
+        For each \(x \in \scrM(R)\), the \emph{completed residue field} at the point \(x\) is defined as the completion of the residue field \(\rkk(x) = \Frac(R/\wp_x)\) with respect to the multiplicative norm induced by the semi-norm \(|\cdot|_x\), denoted by \(\scrH(x)\).
+    \end{definition}
+
+    \begin{definition}\label{def:Gelfand_transform_of_banach_rings}
+        Let \(R\) be a Banach ring.
+        The \emph{Gel'fand transform} of \(R\) is the bounded ring homomorphism
+        \[
+            \Gamma: R \to \prod_{x \in \scrM(R)} \scrH(x), \quad f \mapsto (f(x))_{x \in \scrM(R)},
+        \]
+        where the norm on the product \(\prod_{x \in \scrM(R)} \scrH(x)\) is given by the supremum norm.
+    \end{definition}
+
+    \begin{proposition}\label{prop:Gelfand_transform_and_the_uniformization_of_a_banach_ring}
+        The Gel'fand transform \(\Gamma: R \to \prod_{x \in \scrM(R)} \scrH(x)\) of a Banach ring \(R\) factors through the uniformization \(R^u\) of \(R\), and the induced map \(R^u \to \prod_{x \in \scrM(R)} \scrH(x)\) is an isometric embedding.
+        \Yang{To be checked.}
+    \end{proposition}
+
+    \begin{theorem}\label{thm:norm_spectrum_of_Banach_rings_is_nonempty}
+        Let \(R\) be a Banach ring.
+        The spectrum \(\scrM(R)\) is nonempty.
+    \end{theorem}
+    \begin{proof}
+        \Yang{To be continued.}
+    \end{proof}
+
+    \begin{lemma}\label{lem:spectrum_of_product_of_completed_fields}
+        Let \(\{K_i\}_{i \in I}\) be a family of completed fields.
+        Consider the Banach ring \(R = \prod_{i \in I} K_i\) equipped with the product norm.
+        The spectrum \(\scrM(R)\) is homeomorphic to the Stone-\v{C}ech compactification of the discrete space \(I\).
+    \end{lemma}
+
+    \begin{remark}\label{rmk:some_fact_about_the_Stone_Cech_compactification}
+        The Stone-\v{C}ech compactification of a discrete space is the largest compact Hausdorff space in which the original space can be densely embedded.
+        \Yang{To be checked.}
+    \end{remark}
+
+    \begin{theorem}\label{norm_spectrum_of_Banach_rings_is_compact_Hausdorff}
+        Let \(R\) be a Banach ring.
+        The spectrum \(\scrM(R)\) is a compact Hausdorff space.
+    \end{theorem}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
+    \begin{proposition}\label{prop:the_Galois_action_on_the_spectrum_of_banach_rings}
+        Let \(K/k\) be a Galois extension of complete fields, and let \(R\) be a Banach \(k\)-algebra.
+        The Galois group \(\Gal(K/k)\) acts on the spectrum \(\scrM(R \widehat{\otimes}_k K)\) via
+        \[
+            g \cdot x: f \mapsto |(1 \otimes g^{-1})(f)|_x
+        \]
+        for each \(g \in \Gal(K/k)\), \(x \in \scrM(R \widehat{\otimes}_k K)\) and \(f \in R \widehat{\otimes}_k K\).
+        Moreover, the natural map \(\scrM(R \widehat{\otimes}_k K) \to \scrM(R)\) induces a homeomorphism
+        \[
+            \scrM(R \widehat{\otimes}_k K) / \Gal(K/k) \xrightarrow{\sim} \scrM(R).
+        \]
+        \Yang{To be checked.}
+    \end{proposition}
+
+
+\subsection{Examples}
+
+    \begin{example}\label{eg:spectrum_of_valuation_field}
+        Let \((\kk, |\cdot|)\) be a complete valuation field.
+        The spectrum \(\scrM(\kk)\) consists of a single point corresponding to the given absolute value \(|\cdot|\) on \(\kk\).
+        \Yang{To be checked.}
+    \end{example}
+
+    \begin{example}\label{eg:spectrum_of_Z_with_absolute_value_norm}
+        Consider the Banach ring \((\bbZ, \|\cdot\|)\) with \(\|\cdot\| = |\cdot|_\infty\) is the usual absolute value norm on \(\bbZ\).
+        Let \(|\cdot|_p\) denote the \(p\)-adic norm for each prime number \(p\), i.e., \(|n|_p = p^{-v_p(n)}\) for each \(n \in \bbZ\), where \(v_p(n)\) is the \(p\)-adic valuation of \(n\).
+        The spectrum 
+        \[ \scrM(\bbZ) = \{|\cdot|_{\infty}^\varepsilon \colon \varepsilon \in (0,1]\} \cup \{| \cdot |_p^\alpha \colon p \text{ is prime}, \alpha \in (0,\infty] \} \cup \{|\cdot|_0\}, \]
+        where \(|a|_p^\infty := \lim_{\alpha \to \infty} |a|_p^\alpha\) for each \(a \in \bbZ\) and \(|\cdot|_0\) is the trivial norm on \(\bbZ\).
+        \Yang{To be checked.}
+    \end{example}
+
+    % \begin{example}\label{eg:spectrum_of_Tate_algebras}
+    \paragraph{Spectrum of Tate algebra in one variable} Let \(\kk\) be a complete non-archimedean field, and let \(A = \kk\{T/r\}\).
+    We list some types of points in the spectrum \(\scrM(A)\).
+
+    For each \(a \in \kk\) with \(|a| \leq r\), we have the \emph{type I} point \(x_a\) corresponding to the evaluation at \(a\), i.e., \(|f|_{x_a} := |f(a)|\) for each \(f \in A\).
+    For each closed disk \(E = E(a,s) := \{b \in \kk : |b - a| \leq s\}\) with center \(a \in \kk\) and radius \(s \leq r\), we have the point \(x_{a,s}\) corresponding to the multiplicative semi-norm defined by
+    \[ |f|_{x_E} := \sup_{b \in E(a,s)} |f(b)| \]
+    for each \(f \in A\).
+    If \(s \in |\kk^\times|\), then the point \(x_E\) is called a \emph{type II} point; otherwise, it is called a \emph{type III} point.
+    
+    Let \(\{E^{(s)}\}_s\) be a family of closed disks in \(\kk\) such that \(E^{(s)}\) is of radius \(s\), \(E^{(s_1)} \subsetneq E^{(s_2)}\) for any \(s_1 < s_2\) and \(\bigcap_s E^{(s)} = \emptyset\).
+    Then we have the point \(x_{\{E^{(s)}\}}\) corresponding to the multiplicative semi-norm defined by
+    \[ |f|_{x_{\{E^{(s)}\}}} := \inf_s |f|_{x_{E^{(s)}}} \]
+    for each \(f \in A\).
+    Such a point is called a \emph{type IV} point.
+
+    \Yang{To be completed.}
+    % \end{example}
+
+    \begin{proposition}\label{prop:four_types_of_points_in_spectrum_of_Tate_algebra_in_one_variable}
+        Let \(\kk\) be a complete non-archimedean field, and let \(r > 0\) be a positive real number.
+        Consider the Tate algebra \(\kk\{r^{-1}T\}\) equipped with the Gauss norm.
+        The points in the spectrum \(\scrM(\kk\{r^{-1}T\})\) can be classified into four types as described above.
+        \Yang{To be checked}
+    \end{proposition}
+    \begin{proof}
+        \Yang{To be completed.}
+    \end{proof}
+
+    \begin{proposition}\label{prop:the_complete_residue_field_of_all_four_types_points_in__spectrum_of_Tate_algebra_in_one_variable}
+        Let \(\kk\) be a complete non-archimedean field, and let \(r > 0\) be a positive real number.
+        Consider the Tate algebra \(\kk\{r^{-1}T\}\) equipped with the Gauss norm.
+        The completed residue fields of the four types of points in the spectrum \(\scrM(\kk\{r^{-1}T\})\) are described as follows:
+        \begin{itemize}
+            \item For a type I point \(x_a\) with \(a \in \kk\) and \(|a| \leq r\), the completed residue field \(\scrH(x_a)\) is isomorphic to \(\kk\).
+            \item For a type II point \(x_{a,s}\) with \(a \in \kk\) and \(s \in |\kk^\times|\), the completed residue field \(\scrH(x_{a,s})\) is isomorphic to the field of Laurent series over the residue field \(\calk_\kk\), i.e., \(\calk_\kk((t))\).
+            \item For a type III point \(x_{a,s}\) with \(a \in \kk\) and \(s \notin |\kk^\times|\), the completed residue field \(\scrH(x_{a,s})\) is isomorphic to a transcendental extension of \(\calk_\kk\) of degree one.
+            \item For a type IV point \(x_{\{E^{(s)}\}}\), the completed residue field \(\scrH(x_{\{E^{(s)}\}})\) is isomorphic to a transcendental extension of \(\calk_\kk\) of infinite degree.
+        \end{itemize}
+        \Yang{To be checked.}
+    \end{proposition}
+
+    \begin{example}\label{eg:completed_residue_field_in_spectrum_of_Tate_algebra_in_one_variable_over_Q_p}
+        The completed residue field \(\scrH(x_a)\) for a type I point \(x_a\) with \(a \in \kk\) and \(|a| \leq r\) is isomorphic to \(\kk\).
+        \Yang{To be complete.}
+    \end{example}
+
+    \paragraph{Spectrum of Tate algebra in servel variables} Let \(\kk\) be a complete non-archimedean field, and let \(A = \kk\{r_1^{-1}T_1, \ldots, r_n^{-1}T_n\}\).
+    We can consider the spectrum \(\scrM(A)\) similarly.
